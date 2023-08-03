@@ -250,7 +250,7 @@ export default function DrawerThree({ className, open, action }) {
                           </svg>
                         </span>
                                                 <span className="text-sm font-400">
-                          Gaming Entertainment
+                          Giải trí, thể thao, sở thích
                         </span>
                                             </div>
                                             <div>
@@ -401,7 +401,7 @@ export default function DrawerThree({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                                                <span className="text-sm font-400">Vehicles</span>
+                                                <span className="text-sm font-400">Xe cộ</span>
                                             </div>
                                             <div>
                         <span>
@@ -492,7 +492,7 @@ export default function DrawerThree({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                                                <span className="text-sm font-400">Furnitures</span>
+                                                <span className="text-sm font-400">Đồ gia dụng, nột thất, cây cảnh</span>
                                             </div>
                                             <div>
                         <span>
@@ -545,7 +545,7 @@ export default function DrawerThree({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                                                <span className="text-sm font-400">Sport </span>
+                                                <span className="text-sm font-400">Du lịch </span>
                                             </div>
                                             <div>
                         <span>
@@ -616,7 +616,7 @@ export default function DrawerThree({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                                                <span className="text-sm font-400">Food & Drinks</span>
+                                                <span className="text-sm font-400">Đồ ăn, thực phẩm</span>
                                             </div>
                                             <div>
                         <span>
@@ -680,7 +680,7 @@ export default function DrawerThree({ className, open, action }) {
                           </svg>
                         </span>
                                                 <span className="text-sm font-400">
-                          Fashion Accessories
+                          Thời trang, đồ dùng cá nhân
                         </span>
                                             </div>
                                             <div>

@@ -84,7 +84,7 @@ export default function ProductsFilter({
                       htmlFor="gaming"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Gaming Entertainment
+                      Giải trí, thể thao, sở thích
                     </label>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function ProductsFilter({
                       htmlFor="vehicles"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Vehicles
+                      Xe cộ
                     </label>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function ProductsFilter({
                       htmlFor="furnitures"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Furnitures
+                      Đồ gia dụng, nột thất, cây cảnh
                     </label>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ export default function ProductsFilter({
                       htmlFor="sport"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Sport
+                      Du lịch
                     </label>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ export default function ProductsFilter({
                       htmlFor="foodDrinks"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Food & Drinks
+                      Đồ ăn, thực phẩm
                     </label>
                   </div>
                 </div>
@@ -324,7 +324,7 @@ export default function ProductsFilter({
                       htmlFor="fashion"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Fashion Accessories
+                      Thời trang, đồ dùng cá nhân
                     </label>
                   </div>
                 </div>

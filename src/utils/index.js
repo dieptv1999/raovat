@@ -1,4 +1,4 @@
-import {SESSION} from "./constant";
+import {BASE_URL, SESSION} from "./constant";
 import moment from "moment";
 
 function getToken() {
@@ -17,6 +17,11 @@ function getToken() {
   } else return undefined
 }
 
+const getBaseURL = () => {
+  return BASE_URL;
+};
+
 export default {
   getToken,
+  getBaseURL,
 }

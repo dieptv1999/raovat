@@ -55,7 +55,7 @@ export default function Navbar({ className,type }) {
                       </svg>
                     </span>
                     <span className="text-sm font-600 text-qblacktext">
-                      All Categories
+                      Danh mục
                     </span>
                   </div>
                   <div>
@@ -159,7 +159,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Gaming Entertainment
+                              Giải trí, thể thao, sở thích
                             </span>
                           </div>
                           <div>
@@ -270,7 +270,7 @@ export default function Navbar({ className,type }) {
                                 <path d="M13.72 8.69864C13.4767 8.93704 13.647 9.35547 13.9876 9.35547C14.187 9.35547 14.3768 9.16572 14.3768 8.96623C14.3768 8.76675 14.187 8.577 13.9876 8.577C13.8951 8.577 13.7929 8.62079 13.72 8.69864Z" />
                               </svg>
                             </span>
-                            <span className="text-xs font-400">Vehicles</span>
+                            <span className="text-xs font-400">Xe cộ</span>
                           </div>
                           <div>
                             <span>
@@ -328,7 +328,7 @@ export default function Navbar({ className,type }) {
                                 <path d="M11.1495 14.3118C11.0491 14.408 11.0449 14.4289 11.0449 15.0436C11.0449 15.6583 11.0491 15.6792 11.1495 15.7753L11.2498 15.8799H12.5502H13.8507L13.951 15.7753C14.0514 15.6792 14.0556 15.6583 14.0556 15.0436C14.0556 14.4289 14.0514 14.408 13.951 14.3118C13.8883 14.2449 13.8005 14.2073 13.7211 14.2073C13.6416 14.2073 13.5538 14.2449 13.4911 14.3118C13.3949 14.4038 13.3865 14.4456 13.3865 14.8136V15.2108H12.5502H11.714V14.8136C11.714 14.4456 11.7056 14.4038 11.6094 14.3118C11.5467 14.2449 11.4589 14.2073 11.3794 14.2073C11.3 14.2073 11.2122 14.2449 11.1495 14.3118Z" />
                               </svg>
                             </span>
-                            <span className="text-xs font-400">Furnitures</span>
+                            <span className="text-xs font-400">Đồ gia dụng, nột thất, cây cảnh</span>
                           </div>
                           <div>
                             <span>
@@ -380,7 +380,7 @@ export default function Navbar({ className,type }) {
                                 />
                               </svg>
                             </span>
-                            <span className="text-xs font-400">Sport </span>
+                            <span className="text-xs font-400">Du lịch </span>
                           </div>
                           <div>
                             <span>
@@ -434,7 +434,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Food & Drinks
+                              Đồ ăn, thực phẩm
                             </span>
                           </div>
                           <div>
@@ -487,7 +487,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Fashion Accessories
+                              Thời trang, đồ dùng cá nhân
                             </span>
                           </div>
                           <div>

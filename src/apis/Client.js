@@ -4,7 +4,7 @@ import qs from "qs";
 
 export function getInstanceAxios(baseAPI) {
   const instance = axios.create({
-    baseURL: !process.browser && process.env.SERVER_IP ? process.env.SERVER_IP : baseAPI,
+    baseURL: baseAPI,
     paramsSerializer: (params) => {
       return qs.stringify(params);
     }
@@ -17,7 +17,7 @@ export function getInstanceAxios(baseAPI) {
         config.headers = {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "sessionkey": utils.getToken()
+          "Authorization": utils.getToken()
         }
       else {
         config.headers = {

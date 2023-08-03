@@ -1,14 +1,11 @@
 import React from "react";
 import _, { isEmpty } from 'lodash';
 import client from "./Client";
+import {API_VERSION, BASE_URL} from "../utils/constant";
 
 export default class BaseApi {
-  version = "v1/nft-marketplace";
-  baseUrl = '';
-
-  prefix() {
-    return '';
-  }
+  version = API_VERSION;
+  baseUrl = BASE_URL;
 
   async get(url, params = {}, showNoti = true) {
     try {

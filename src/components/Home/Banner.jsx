@@ -1,6 +1,16 @@
 import Link from "next/link";
+import ProductApi from "../../apis/ProductApi";
+import ApiFactory from "../../apis/ApiFactory";
 
-export default function Banner({ className }) {
+export default function Banner({className, data}) {
+
+  function clickBanner(id) {
+    ApiFactory.getRequest("ProductApi").clickBanner({
+      user_id: '', // nếu k có thì để  với ng dùng chưa login
+      ads_id: id, // id ở API số 1
+  })
+  }
+
   return (
     <>
       <div className={`w-full ${className || ""}`}>
@@ -8,21 +18,24 @@ export default function Banner({ className }) {
           <div className="main-wrapper w-full">
             <div className="banner-card xl:flex xl:space-x-[30px] xl:h-[600px]  mb-[30px]">
               <div data-aos="fade-right" className="xl:w-[740px] w-full h-full">
-                <Link href="/single-product">
-                  <picture>
-                    <source
-                      media="(min-width:1025px)"
-                      width={740}
-                      height={600}
-                      className="object-cover"
-                      srcSet={`/assets/images/banner-1.png?v=1`}
-                    />
-                    <img
-                      src={`/assets/images/banner-1.2.png?v=1`}
-                      alt=""
-                      className="w-full max-w-full h-auto object-cover"
-                    />
-                  </picture>
+                <Link href={data[0]?.link} passHref>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <picture onClick={() => clickBanner(data[0].id)}>
+                      <source
+                        media="(min-width:1025px)"
+                        width={740}
+                        height={600}
+                        className="object-cover"
+                        // srcSet={`/assets/images/banner-1.png?v=1`}
+                        srcSet={data[0]?.cover}
+                      />
+                      <img
+                        src={`/assets/images/banner-1.2.png?v=1`}
+                        alt=""
+                        className="w-full max-w-full h-full object-cover"
+                      />
+                    </picture>
+                  </a>
                 </Link>
               </div>
               <div
@@ -30,21 +43,29 @@ export default function Banner({ className }) {
                 className="flex-1 flex xl:flex-col flex-row  xl:space-y-[30px] h-full"
               >
                 <div className="w-full xl:h-1/2">
-                  <Link href="/single-product">
-                    <img
-                      src={`/assets/images/banner-2.png`}
-                      alt=""
-                      className="w-full h-full"
-                    />
+                  <Link href={data[1]?.link} passHref>
+                    <a target="_blank" rel="noopener noreferrer">
+                      <img
+                        onClick={() => clickBanner(data[1].id)}
+                        // src={`/assets/images/banner-2.png`}
+                        src={data[1]?.cover}
+                        alt="banner 2"
+                        className="w-full h-full"
+                      />
+                    </a>
                   </Link>
                 </div>
                 <div className="w-full xl:h-1/2">
-                  <Link href="/single-product">
-                    <img
-                      src={`/assets/images/banner-3.png`}
-                      alt=""
-                      className="w-full h-full"
-                    />
+                  <Link href={data[2]?.link} passHref>
+                    <a target="_blank" rel="noopener noreferrer">
+                      <img
+                        onClick={() => clickBanner(data[2].id)}
+                        // src={`/assets/images/banner-3.png`}
+                        src={data[2]?.cover}
+                        alt="banner 3"
+                        className="w-full h-full"
+                      />
+                    </a>
                   </Link>
                 </div>
               </div>

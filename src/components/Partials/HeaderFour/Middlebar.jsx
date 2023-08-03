@@ -21,7 +21,7 @@ export default function Middlebar({ className }) {
                 <img
                   width="152"
                   height="36"
-                  src={`/assets/images/logo-4.svg`}
+                  src={`/assets/images/logo-4.png`}
                   alt="logo"
                 />
               </Link>

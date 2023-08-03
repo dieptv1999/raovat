@@ -21,7 +21,7 @@ export default function SearchBox({ className,type }) {
                 type="button"
                 className="w-full text-xs font-500 text-qgray flex justify-between items-center"
             >
-              <span>All Categories</span>
+              <span>Danh mục</span>
               <span>
               <svg
                   width="10"

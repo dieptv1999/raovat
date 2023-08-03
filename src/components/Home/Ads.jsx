@@ -22,7 +22,7 @@ export default function Ads({ handler }) {
                   <Image
                     width="152"
                     height="36"
-                    src={`/assets/images/logo.svg`}
+                    src={`/assets/images/logo.png`}
                     alt="logo"
                   />
                 </a>

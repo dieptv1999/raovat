@@ -12,8 +12,10 @@ import BestSellers from "./BestSellers";
 import BrandSection from "./BrandSection";
 import CampaignCountDown from "./CampaignCountDown";
 import ProductsAds from "./ProductsAds";
+import dynamic from "next/dynamic";
+// const AdsSlider = dynamic(() => import("./AdsSlider"), {ssr: false});
 
-export default function Home() {
+export default function Home({adsList}) {
   const { products } = datas;
   const brands = [];
   products.forEach((product) => {
@@ -24,13 +26,16 @@ export default function Home() {
     setAds(false);
   };
   useEffect(() => {
-    setAds(false);
+    setAds(true);
   }, []);
   return (
     <>
       <Layout>
         {ads && <Ads handler={adsHandle} />}
-        <Banner className="banner-wrapper mb-[60px]" />
+        <div className="">
+        {/*<AdsSlider data={adsList}/>*/}
+        </div>
+        <Banner className="banner-wrapper mb-[60px]" data={adsList}/>
         <SectionStyleOne
           products={products}
           brands={brands}
