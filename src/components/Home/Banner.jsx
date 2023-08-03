@@ -12,10 +12,13 @@ export default function Banner({ className }) {
                   <picture>
                     <source
                       media="(min-width:1025px)"
-                      srcSet={`/assets/images/banner-1.png`}
+                      width={740}
+                      height={600}
+                      className="object-cover"
+                      srcSet={`/assets/images/banner-1.png?v=1`}
                     />
                     <img
-                      src={`/assets/images/banner-1.2.png`}
+                      src={`/assets/images/banner-1.2.png?v=1`}
                       alt=""
                       className="w-full max-w-full h-auto object-cover"
                     />
