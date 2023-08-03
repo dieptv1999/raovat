@@ -30,7 +30,7 @@ export default function Banner({className, data}) {
                         srcSet={data[0]?.cover}
                       />
                       <img
-                        src={`/assets/images/banner-1.2.png?v=1`}
+                        src={data[0]?.cover}
                         alt=""
                         className="w-full max-w-full h-full object-cover"
                       />
