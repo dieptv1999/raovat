@@ -130,24 +130,24 @@ export default function CampaignCountDown({
                   </h1>
                   <div className="flex space-x-5 items-center">
                     <div>
-                      <Link href="#" passHref>
-                        <a>
+                      <Link href="https://play.google.com/store/apps/details?id=xemay.oto.batdongsan.dienthoai.muabannhanh.chotot.raovat.chomuaban.muaban" passHref>
+                        <a target={'_blank'}>
                           <Image
-                            width="170"
-                            height="69"
-                            src={`/assets/images/play-store.png`}
+                            width="188"
+                            height="56"
+                            src={`/assets/images/play-store.png?v=2`}
                             alt=""
                           />
                         </a>
                       </Link>
                     </div>
                     <div>
-                      <Link href="#" passHref>
-                        <a>
+                      <Link href="https://apps.apple.com/app/id1566860234" passHref>
+                        <a target={'_blank'}>
                           <Image
-                            width="170"
-                            height="69"
-                            src={`/assets/images/apple-store.png`}
+                            width="175"
+                            height="58"
+                            src={`/assets/images/apple-store.png?v=4`}
                             alt=""
                           />
                         </a>

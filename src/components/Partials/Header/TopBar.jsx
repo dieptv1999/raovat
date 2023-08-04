@@ -1,6 +1,7 @@
 import Arrow from "../../Helpers/icons/Arrow";
 import Selectbox from "../../Helpers/Selectbox";
 import Link from "next/link";
+import DownloadApp from "../../DownloadApp";
 
 export default function TopBar({ className }) {
   return (
@@ -13,7 +14,7 @@ export default function TopBar({ className }) {
         <div className="container-x mx-auto h-full">
           <div className="flex justify-between items-center h-full">
             <div className="topbar-nav">
-              <ul className="flex space-x-6">
+              <ul className="flex space-x-6 cursor-pointer">
                 <li>
                   <Link href="/profile">
                     <span className="text-xs leading-6 text-qblack font-500">
@@ -21,12 +22,16 @@ export default function TopBar({ className }) {
                     </span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/tracking-order">
-                    <span className="text-xs leading-6 text-qblack font-500">
-                      Track Order
+                <li onClick={() => {
+                  if (document) {
+                    document.getElementById("download-app").showModal();
+                  }
+                }}>
+                    <span
+                      className="text-xs leading-6 text-qblack font-500"
+                    >
+                      Tải ứng dụng
                     </span>
-                  </Link>
                 </li>
                 <li>
                   <Link href="/faq">

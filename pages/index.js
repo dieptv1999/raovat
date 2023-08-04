@@ -14,5 +14,8 @@ export const getStaticProps = async () => {
   const client = getInstanceAxios(process.env.NEXT_PUBLIC_BASE_URL);
   const res = await client.post('getListAds')
   const adsList = res.data?.listAds;
-  return { props: { adsList } }
+  return {
+    props: { adsList },
+    revalidate: 60, // 60s
+  }
 }
