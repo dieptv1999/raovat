@@ -41,9 +41,6 @@ export default function DownloadApp({
               </Link>
             </div>
           </div>
-          <form method="dialog" className="modal-backdrop">
-            <button>close</button>
-          </form>
         </div>
       </form>
     </dialog>

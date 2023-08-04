@@ -7,10 +7,10 @@ export default function Contact() {
     <Layout childrenClasses="pt-0 pb-0">
       <div className="page-title mb-10">
         <PageTitle
-          title="Contact"
+          title="Liên hệ"
           breadcrumb={[
-            { name: "home", path: "/" },
-            { name: "contact", path: "/contact" },
+            { name: "trang chủ", path: "/" },
+            { name: "liên hệ", path: "/contact" },
           ]}
         />
       </div>
@@ -19,7 +19,7 @@ export default function Contact() {
           <div className="main-wrapper w-full lg:flex lg:space-x-[30px]">
             <div className="lg:w-1/2 w-full">
               <h1 className="text-[22px] font-semibold text-qblack leading-[30px] mb-1">
-                Contact Information
+                Thông tin liên hệ
               </h1>
               <p className="text-[15px] text-qgraytwo leading-[30px] mb-5">
                 Fill the form below or write us .We will help you as soon as
@@ -154,7 +154,7 @@ export default function Contact() {
             <div className="flex-1 bg-white sm:p-10 p-3">
               <div className="title flex flex-col items-center">
                 <h1 className="text-[34px] font-bold text-qblack">
-                  Get In Touch
+                  Liên lạc qua email
                 </h1>
                 <span className="-mt-5 block">
                   <svg
@@ -210,7 +210,7 @@ export default function Contact() {
                 <div>
                   <a href="#">
                     <div className="black-btn text-sm font-semibold w-full h-[50px] flex justify-center items-center">
-                      <span>Send Now</span>
+                      <span>Gửi ngay</span>
                     </div>
                   </a>
                 </div>

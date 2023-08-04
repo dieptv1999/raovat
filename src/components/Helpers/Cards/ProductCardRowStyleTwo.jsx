@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import utils from "../../../utils";
 export default function ProductCardRowStyleTwo({ className, datas }) {
   return (
     <div
@@ -11,7 +12,7 @@ export default function ProductCardRowStyleTwo({ className, datas }) {
         <div className="w-full h-full flex space-x-5 justify-center items-center">
           <div className="w-[75px] h-[75px] relative">
             <Image layout='fill'
-              src={`/assets/images/${datas.image}`}
+              src={utils.getFirstImage(datas.list_image)}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -24,11 +25,11 @@ export default function ProductCardRowStyleTwo({ className, datas }) {
             </Link>
 
             <p className="price">
-              <span className="main-price text-qgray line-through font-600 text-[18px]">
-                {datas.price}
-              </span>
-              <span className="offer-price text-qred font-600 text-[18px] ml-2">
-                {datas.offer_price}
+              {/*<span className="main-price text-qgray line-through font-600 text-[18px]">*/}
+              {/*  {datas.price}*/}
+              {/*</span>*/}
+              <span className="offer-price text-qred font-600 text-[16px] ml-2">
+                {utils.formatMoney(datas.price)}
               </span>
             </p>
           </div>

@@ -101,7 +101,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Mobile & Laptops
+                              Đồ điện tử
                             </span>
                           </div>
                           <div>
@@ -216,7 +216,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Image & Video
+                              Du lịch
                             </span>
                           </div>
                           <div>
@@ -541,7 +541,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Toilet & Sanitation
+                              Việc làm
                             </span>
                           </div>
                           <div>
@@ -594,7 +594,7 @@ export default function Navbar({ className,type }) {
                               </svg>
                             </span>
                             <span className="text-xs font-400">
-                              Makeup Corner
+                              Tủ lạnh, máy giặt, máy lạnh
                             </span>
                           </div>
                           <div>
@@ -647,7 +647,7 @@ export default function Navbar({ className,type }) {
                                 />
                               </svg>
                             </span>
-                            <span className="text-xs font-400">Baby Items</span>
+                            <span className="text-xs font-400">Mẹ và bé</span>
                           </div>
                           <div>
                             <span>
@@ -968,7 +968,7 @@ export default function Navbar({ className,type }) {
                   <li>
                     <Link href="/about">
                       <span className="flex items-center text-sm text-qblack font-600 cursor-pointer ">
-                        <span>About</span>
+                        <span>Giới thiệu</span>
                       </span>
                     </Link>
                   </li>
@@ -982,7 +982,7 @@ export default function Navbar({ className,type }) {
                   <li>
                     <Link href="/contact">
                       <span className="flex items-center text-sm text-qblack font-600 cursor-pointer ">
-                        <span>Contact</span>
+                        <span>Liên hệ</span>
                       </span>
                     </Link>
                   </li>
@@ -993,7 +993,7 @@ export default function Navbar({ className,type }) {
               <Link href="/become-saller">
                 <div className="black-btn flex justify-center items-center cursor-pointer h-full">
                   <div className="flex space-x-2 items-center">
-                    <span className="text-sm font-600">Become a Seller</span>
+                    <span className="text-sm font-600">Đăng bán</span>
                     <span>
                       <svg
                         width="6"

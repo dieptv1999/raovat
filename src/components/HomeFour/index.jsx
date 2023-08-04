@@ -46,7 +46,7 @@ function Index() {
       />
       <SectionStyleFour
         products={products.slice(16, 28)}
-        sectionTitle="Popular Sales"
+        sectionTitle="Sản phẩm phổ biến"
         seeMoreUrl="/all-products"
         className="mb-[60px]"
       />

@@ -50,7 +50,7 @@ export default function Profile() {
             <div className="w-full bg-white px-10 py-9">
               <div className="title-area w-full flex justify-between items-center">
                 <h1 className="text-[22px] font-bold text-qblack">
-                  Your Dashboard
+                  Trang cá nhân của bạn
                 </h1>
                 <div className="switch-dashboard flex space-x-3 items-center">
                   <p className="text-qgray text-base">Switch Dashboard</p>
@@ -77,7 +77,7 @@ export default function Profile() {
                             <IcoDashboard />
                           </span>
                           <span className=" font-normal text-base">
-                            Dashbaord
+                            Quản lý tin
                           </span>
                         </div>
                       </Link>
@@ -89,7 +89,7 @@ export default function Profile() {
                             <IcoPeople />
                           </span>
                           <span className=" font-normal text-base">
-                            Parsonal Info
+                            Trang cá nhân
                           </span>
                         </div>
                       </Link>
@@ -102,7 +102,7 @@ export default function Profile() {
                             <IcoPayment />
                           </span>
                           <span className=" font-normal text-base">
-                            Payment Method
+                            Phương thức thanh toán
                           </span>
                         </div>
                       </Link>
@@ -113,7 +113,7 @@ export default function Profile() {
                           <span>
                             <IcoCart />
                           </span>
-                          <span className=" font-normal text-base">Order</span>
+                          <span className=" font-normal text-base">Đơn hàng</span>
                         </div>
                       </Link>
                     </div>
@@ -136,7 +136,7 @@ export default function Profile() {
                             <IcoAdress />
                           </span>
                           <span className=" font-normal text-base">
-                            Address
+                            Địa chỉ
                           </span>
                         </div>
                       </Link>
@@ -148,7 +148,7 @@ export default function Profile() {
                             <IcoReviewHand />
                           </span>
                           <span className=" font-normal text-base">
-                            Reviews
+                            Đánh giá
                           </span>
                         </div>
                       </Link>
@@ -160,23 +160,23 @@ export default function Profile() {
                             <IcoPassword />
                           </span>
                           <span className=" font-normal text-base">
-                            Change Password
+                            Đổi mật khẩu
                           </span>
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
-                      <Link href="/profile#support">
-                        <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
-                          <span>
-                            <IcoSupport />
-                          </span>
-                          <span className=" font-normal text-base">
-                            Support Ticket
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
+                    {/*<div className="item group">*/}
+                    {/*  <Link href="/profile#support">*/}
+                    {/*    <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
+                    {/*      <span>*/}
+                    {/*        <IcoSupport />*/}
+                    {/*      </span>*/}
+                    {/*      <span className=" font-normal text-base">*/}
+                    {/*        Support Ticket*/}
+                    {/*      </span>*/}
+                    {/*    </div>*/}
+                    {/*  </Link>*/}
+                    {/*</div>*/}
                     <div className="item group">
                       <Link href="/profile#profile">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
@@ -184,7 +184,7 @@ export default function Profile() {
                             <IcoLogout />
                           </span>
                           <span className=" font-normal text-base">
-                            Logout
+                            Đăng xuất
                           </span>
                         </div>
                       </Link>

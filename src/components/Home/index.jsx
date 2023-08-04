@@ -12,10 +12,10 @@ import BestSellers from "./BestSellers";
 import BrandSection from "./BrandSection";
 import CampaignCountDown from "./CampaignCountDown";
 import ProductsAds from "./ProductsAds";
-import dynamic from "next/dynamic";
 // const AdsSlider = dynamic(() => import("./AdsSlider"), {ssr: false});
 
-export default function Home({adsList}) {
+export default function Home({adsList, newsHot}) {
+  console.log(newsHot)
   const { products } = datas;
   const brands = [];
   products.forEach((product) => {
@@ -37,7 +37,7 @@ export default function Home({adsList}) {
         </div>
         <Banner className="banner-wrapper mb-[60px]" data={adsList}/>
         <SectionStyleOne
-          products={products}
+          products={newsHot}
           brands={brands}
           categoryTitle="Mobile & Tablet"
           sectionTitle="Gamer World"
@@ -45,19 +45,20 @@ export default function Home({adsList}) {
           className="category-products mb-[60px]"
         />
         <BrandSection
-          sectionTitle="Shop by Brand"
+          sectionTitle="" // title of brand list
           className="brand-section-wrapper mb-[60px]"
         />
         <CampaignCountDown
           className="mb-[60px]"
           lastDate="2024-03-04 4:00:00"
+          appscreen={'/assets/images/app-preview.webp'}
         />
         <ViewMoreTitle
           className="top-selling-product mb-[60px]"
           seeMoreUrl="/all-products"
           categoryTitle="Top Selling Products"
         >
-          <SectionStyleTwo products={products.slice(3, products.length)} />
+          <SectionStyleTwo products={newsHot.slice(3, newsHot.length)} />
         </ViewMoreTitle>
         <ViewMoreTitle
           className="best-sallers-section mb-[60px]"
@@ -73,10 +74,10 @@ export default function Home({adsList}) {
         />
         <SectionStyleOne
           categoryBackground={`/assets/images/section-category-2.jpg`}
-          products={products.slice(4, products.length)}
+          products={newsHot.slice(4, newsHot.length)}
           brands={brands}
           categoryTitle="Electronics"
-          sectionTitle="Popular Sales"
+          sectionTitle="Sản phẩm phổ biến"
           seeMoreUrl="/all-products"
           className="category-products mb-[60px]"
         />
@@ -86,7 +87,7 @@ export default function Home({adsList}) {
           sectionHeight="sm:h-[295px] h-full"
         />
         <SectionStyleThree
-          products={products}
+          products={newsHot}
           sectionTitle="New Arrivals"
           seeMoreUrl="/all-products"
           className="new-products mb-[60px]"
@@ -97,8 +98,8 @@ export default function Home({adsList}) {
           className="products-ads-section mb-[60px]"
         />
         <SectionStyleFour
-          products={products}
-          sectionTitle="Popular Sales"
+          products={newsHot}
+          sectionTitle="Sản phẩm phổ biến"
           seeMoreUrl="/all-products"
           className="category-products mb-[60px]"
         />

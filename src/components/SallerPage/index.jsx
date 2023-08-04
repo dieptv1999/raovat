@@ -197,7 +197,7 @@ export default function SallerPage() {
                     </p>
                   </div>
                   <div className="flex space-x-3 items-center">
-                    <span className="font-400 text-[13px]">Sort by:</span>
+                    <span className="font-400 text-[13px]">Sắp xếp theo:</span>
                     <div className="flex space-x-3 items-center border-b border-b-qgray">
                       <span className="font-400 text-[13px] text-qgray">
                         Default

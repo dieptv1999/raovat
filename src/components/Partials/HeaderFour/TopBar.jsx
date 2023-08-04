@@ -17,7 +17,7 @@ export default function TopBar({ className }) {
                 <li>
                   <Link href="/profile">
                     <span className="text-xs leading-6 text-qblack font-500">
-                      Account
+                      Tài khoản
                     </span>
                   </Link>
                 </li>
@@ -31,7 +31,7 @@ export default function TopBar({ className }) {
                 <li>
                   <Link href="/faq">
                     <span className="text-xs leading-6 text-qblack font-500">
-                      Support
+                      Hỗ trợ
                     </span>
                   </Link>
                 </li>

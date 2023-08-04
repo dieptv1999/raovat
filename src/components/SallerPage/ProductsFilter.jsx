@@ -44,7 +44,7 @@ export default function ProductsFilter({
                       htmlFor="mobileLaptop"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Mobile & Laptops
+                      Đồ điện tử
                     </label>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function ProductsFilter({
                       htmlFor="imageVideo"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Image & Video
+                      Du lịch
                     </label>
                   </div>
                 </div>
@@ -364,7 +364,7 @@ export default function ProductsFilter({
                       htmlFor="toilet"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Toilet & Sanitation
+                      Việc làm
                     </label>
                   </div>
                 </div>
@@ -404,7 +404,7 @@ export default function ProductsFilter({
                       htmlFor="makeupCorner"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Makeup Corner
+                      Tủ lạnh, máy giặt, máy lạnh
                     </label>
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export default function ProductsFilter({
                       htmlFor="babyItem"
                       className="text-xs font-black font-400 capitalize"
                     >
-                      Baby Items
+                      Mẹ và bé
                     </label>
                   </div>
                 </div>

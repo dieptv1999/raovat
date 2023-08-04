@@ -104,7 +104,7 @@ export default function Dashboard() {
       <div className="dashboard-info mt-8 flex justify-between items-center bg-primarygray px-7 py-7">
         <div className="">
           <p className="title text-[22px] font-semibold">
-            Parsonal Information
+            Thông tin cá nhân
           </p>
           <div className="mt-5">
             <table>

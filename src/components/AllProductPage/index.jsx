@@ -1,12 +1,14 @@
-import { useState } from "react";
-import productDatas from "../../data/products.json";
+import {useEffect, useState} from "react";
 import BreadcrumbCom from "../BreadcrumbCom";
 import ProductCardStyleOne from "../Helpers/Cards/ProductCardStyleOne";
 import DataIteration from "../Helpers/DataIteration";
 import Layout from "../Partials/Layout";
 import ProductsFilter from "./ProductsFilter";
+import ApiFactory from "../../apis/ApiFactory";
+import {useRouter} from "next/router";
 
 export default function AllProductPage() {
+  const router = useRouter()
   const [filters, setFilter] = useState({
     mobileLaptop: false,
     gaming: false,
@@ -35,8 +37,10 @@ export default function AllProductPage() {
     sizeFit: false,
   });
 
+  const [products, setProducts] = useState();
+  const categories = router.query.categories;
   const checkboxHandler = (e) => {
-    const { name } = e.target;
+    const {name} = e.target;
     setFilter((prevState) => ({
       ...prevState,
       [name]: !prevState[name],
@@ -50,14 +54,43 @@ export default function AllProductPage() {
   };
   const [filterToggle, setToggle] = useState(false);
 
-  const { products } = productDatas;
+  function fetchData() {
+    if (!categories) {
+      fetchSell()
+    } else {
+      fetchSellByCategory()
+    }
+  }
+
+  async function fetchSell() {
+    const resp = await ApiFactory.getRequest("ProductApi").getListSellMore({
+      create_dt: products?.length > 0 ? products[products[products.length - 1].create_dt] : null, // ngày của item cuối page trước đó
+    })
+
+    setProducts(resp?.listSell)
+  }
+
+  async function fetchSellByCategory() {
+    const create_dt = products?.length > 0 ? products[products.length - 1]?.create_dt : null;
+    console.log(create_dt);
+    const resp = await ApiFactory.getRequest("ProductApi").getListSellViaCollectionMore({
+      collection_id: typeof categories == 'string' ? categories : categories[0], // id của collection,
+      create_dt: create_dt, // ngày của item cuối page trước đó
+    })
+
+    setProducts(!!create_dt ? [...products, ...resp?.listSell] : resp?.listSell)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [categories]);
 
   return (
     <>
       <Layout>
         <div className="products-page-wrapper w-full">
           <div className="container-x mx-auto">
-            <BreadcrumbCom />
+            <BreadcrumbCom/>
             <div className="w-full lg:flex lg:space-x-[30px]">
               <div className="lg:w-[270px]">
                 <ProductsFilter
@@ -82,18 +115,19 @@ export default function AllProductPage() {
               </div>
 
               <div className="flex-1">
-                <div className="products-sorting w-full bg-white md:h-[70px] flex md:flex-row flex-col md:space-y-0 space-y-5 md:justify-between md:items-center p-[30px] mb-[40px]">
+                <div
+                  className="products-sorting w-full bg-white md:h-[70px] flex md:flex-row flex-col md:space-y-0 space-y-5 md:justify-between md:items-center p-[30px] mb-[40px]">
                   <div>
                     <p className="font-400 text-[13px]">
-                      <span className="text-qgray"> Showing</span> 1–16 of 66
-                      results
+                      <span className="text-qgray"> Tìm thấy</span> 1–16 of 66
+                      kết quả
                     </p>
                   </div>
                   <div className="flex space-x-3 items-center">
-                    <span className="font-400 text-[13px]">Sort by:</span>
+                    <span className="font-400 text-[13px]">Sắp xếp theo:</span>
                     <div className="flex space-x-3 items-center border-b border-b-qgray">
                       <span className="font-400 text-[13px] text-qgray">
-                        Default
+                        Mặc định
                       </span>
                       <span>
                         <svg
@@ -103,7 +137,7 @@ export default function AllProductPage() {
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M1 1L5 5L9 1" stroke="#9A9A9A" />
+                          <path d="M1 1L5 5L9 1" stroke="#9A9A9A"/>
                         </svg>
                       </span>
                     </div>
@@ -130,13 +164,16 @@ export default function AllProductPage() {
                   </button>
                 </div>
                 <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1  xl:gap-[30px] gap-5 mb-[40px]">
-                  <DataIteration datas={products} startLength={0} endLength={6}>
-                    {({ datas }) => (
+                  <DataIteration datas={products} startLength={0} endLength={(products?.length ?? 4) - 4}>
+                    {({datas}) => (
                       <div data-aos="fade-up" key={datas.id}>
-                        <ProductCardStyleOne datas={datas} />
+                        <ProductCardStyleOne datas={datas}/>
                       </div>
                     )}
                   </DataIteration>
+                </div>
+                <div className="flex justify-center mb-6">
+                  <button className="btn btn-warning" onClick={fetchData}>Xem thêm</button>
                 </div>
 
                 <div className="w-full h-[164px] overflow-hidden mb-[40px]">
@@ -149,12 +186,12 @@ export default function AllProductPage() {
                 <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5 mb-[40px]">
                   <DataIteration
                     datas={products}
-                    startLength={6}
-                    endLength={15}
+                    startLength={(products?.length ?? 4) - 4}
+                    endLength={products?.length ?? 0}
                   >
-                    {({ datas }) => (
+                    {({datas}) => (
                       <div data-aos="fade-up" key={datas.id}>
-                        <ProductCardStyleOne datas={datas} />
+                        <ProductCardStyleOne datas={datas}/>
                       </div>
                     )}
                   </DataIteration>

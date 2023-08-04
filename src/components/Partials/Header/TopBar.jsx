@@ -18,7 +18,7 @@ export default function TopBar({ className }) {
                 <li>
                   <Link href="/profile">
                     <span className="text-xs leading-6 text-qblack font-500">
-                      Account
+                      Tài khoản
                     </span>
                   </Link>
                 </li>
@@ -36,7 +36,7 @@ export default function TopBar({ className }) {
                 <li>
                   <Link href="/faq">
                     <span className="text-xs leading-6 text-qblack font-500">
-                      Support
+                      Hỗ trợ
                     </span>
                   </Link>
                 </li>
@@ -47,28 +47,20 @@ export default function TopBar({ className }) {
                 <div className="country-select flex space-x-1 items-center">
                   <div>
                     <img
-                src={`/assets/images/country-logo-16x16.png`}
-                      width="16"
-                      height="16"
+                src={`/assets/images/vietnam-flag.webp`}
+                      width="24"
+                      height="24"
                       alt="country logo"
                       className="overflow-hidden rounded-full"
                     />
                   </div>
                   <Selectbox
                     className="w-fit"
-                    datas={["United State", "Bangladesh", "India"]}
+                    datas={["Viet Nam", "United State"]}
                   />
                   <div>
                     <Arrow className="fill-current qblack" />
                   </div>
-                </div>
-                <div className="currency-select flex space-x-1 items-center">
-                  <Selectbox className="w-fit" datas={["USD", "BDT"]} />
-                  <Arrow className="fill-current qblack" />
-                </div>
-                <div className="language-select flex space-x-1 items-center">
-                  <Selectbox className="w-fit" datas={["Bangla", "english"]} />
-                  <Arrow className="fill-current qblack" />
                 </div>
               </div>
             </div>

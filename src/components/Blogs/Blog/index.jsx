@@ -357,13 +357,13 @@ export default function Blog() {
                   className="search-widget w-full p-[30px] bg-white mb-[30px]"
                 >
                   <h1 className="text-[22px] text-qblack font-bold mb-5">
-                    Search
+                    Tìm kiếm
                   </h1>
                   <div className="w-full h-[1px] bg-[#DCDCDC] mb-5"></div>
                   <div className="w-full h-[60px] relative">
                     <input
                       type="text"
-                      placeholder="Search"
+                      placeholder="Tìm kiếm"
                       className="w-full h-full bg-[#F9F3E9] focus:outline-none focus:ring-0 pl-5 pr-16 placeholder:text-qgraytwo"
                     />
                     <span className="absolute right-5 top-[17px]">

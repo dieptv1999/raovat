@@ -55,10 +55,10 @@ export default function BecomeSaller() {
       <div className="become-saller-wrapper w-full">
         <div className="title mb-10">
           <PageTitle
-            title="Seller Application"
+            title="Thông tin đăng bán"
             breadcrumb={[
-              { name: "home", path: "/" },
-              { name: "Become Saller", path: "/become-saller" },
+              { name: "trang chủ", path: "/" },
+              { name: "đăng bán", path: "/become-saller" },
             ]}
           />
         </div>
@@ -69,11 +69,10 @@ export default function BecomeSaller() {
                 <div className="xl:w-[824px]">
                   <div className="title w-full mb-4">
                     <h1 className="text-[22px] font-semibold text-qblack mb-1">
-                      Seller Information
+                      Thông tin đăng bán
                     </h1>
                     <p className="text-[15px] text-qgraytwo">
-                      Fill the form below or write us .We will help you as soon
-                      as possible.
+                      Điền vào mẫu dưới đây để có thể đăng bán đồ của bạn.
                     </p>
                   </div>
                   <div className="input-area">
@@ -219,7 +218,7 @@ export default function BecomeSaller() {
                 <div className="flex-1 mb-10 xl:mb-0">
                   <div className="update-profile w-full mb-9">
                     <h1 className="text-xl tracking-wide font-bold text-qblack flex items-center mb-2">
-                      Update Profile
+                      Hình ảnh và Video sản phẩm
                       <span className="ml-1">
                         <svg
                           width="20"

@@ -77,7 +77,7 @@ export default function BlogCard({ className, datas }) {
           <a href="#">
             <div className="flex items-center space-x-2">
               <span className="text-qblack text-base font-semibold">
-                View More
+                Xem thêm
               </span>
               <span>
                 <svg

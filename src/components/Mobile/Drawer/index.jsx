@@ -74,7 +74,7 @@ export default function Drawer({ className, open, action }) {
                 <input
                   type="text"
                   className="w-full text-xs h-full focus:outline-none foucus:ring-0 placeholder:text-qgraytwo pl-2.5 "
-                  placeholder="Search Product..."
+                  placeholder="Tìm kiếm sản phẩm..."
                 />
               </div>
               <div className="w-[40px] h-full bg-qyellow flex justify-center items-center">
@@ -164,7 +164,7 @@ export default function Drawer({ className, open, action }) {
                           </svg>
                         </span>
                         <span className="text-sm font-400">
-                          Mobile & Laptops
+                          Đồ điện tử
                         </span>
                       </div>
                       <div>
@@ -329,7 +329,7 @@ export default function Drawer({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                        <span className="text-sm font-400">Image & Video</span>
+                        <span className="text-sm font-400">Du lịch</span>
                       </div>
                       <div>
                         <span>
@@ -734,7 +734,7 @@ export default function Drawer({ className, open, action }) {
                           </svg>
                         </span>
                         <span className="text-sm font-400">
-                          Toilet & Sanitation
+                          Việc làm
                         </span>
                       </div>
                       <div>
@@ -798,7 +798,7 @@ export default function Drawer({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                        <span className="text-sm font-400">Makeup Corner</span>
+                        <span className="text-sm font-400">Tủ lạnh, máy giặt, máy lạnh</span>
                       </div>
                       <div>
                         <span>
@@ -851,7 +851,7 @@ export default function Drawer({ className, open, action }) {
                             />
                           </svg>
                         </span>
-                        <span className="text-sm font-400">Baby Items</span>
+                        <span className="text-sm font-400">Mẹ và bé</span>
                       </div>
                       <div>
                         <span>

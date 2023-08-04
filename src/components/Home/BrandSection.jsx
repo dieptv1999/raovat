@@ -16,7 +16,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-1.png`}
+                src={`/assets/images/brand/vtv.png`}
                 alt="logo"
               />
             </div>
@@ -26,7 +26,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-2.png`}
+                src={`/assets/images/brand/cafebiz.png`}
                 alt="logo"
               />
             </div>
@@ -36,7 +36,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-3.png`}
+                src={`/assets/images/brand/cafekhoinghiep.png`}
                 alt="logo"
               />
             </div>
@@ -46,7 +46,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-4.png`}
+                src={`/assets/images/brand/nhadautu.png`}
                 alt="logo"
               />
             </div>
@@ -56,7 +56,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-5.png`}
+                src={`/assets/images/brand/kenh14.png`}
                 alt="logo"
               />
             </div>
@@ -66,7 +66,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-6.png`}
+                src={`/assets/images/brand/afamily.png`}
                 alt="logo"
               />
             </div>
@@ -76,7 +76,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-7.png`}
+                src={`/assets/images/brand/doanhnhan.png`}
                 alt="logo"
               />
             </div>
@@ -86,7 +86,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-8.png`}
+                src={`/assets/images/brand/doanhnghiepvn.png`}
                 alt="logo"
               />
             </div>
@@ -96,7 +96,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-9.png`}
+                src={`/assets/images/brand/cafef.png`}
                 alt="logo"
               />
             </div>
@@ -106,7 +106,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-10.png`}
+                src={`/assets/images/brand/zingnews.png`}
                 alt="logo"
               />
             </div>
@@ -116,7 +116,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-11.png`}
+                src={`/assets/images/brand/yeah1.png`}
                 alt="logo"
               />
             </div>
@@ -126,7 +126,7 @@ export default function BrandSection({ className, sectionTitle }) {
               <Image
                 layout="fill"
                 objectFit="scale-down"
-                src={`/assets/images/brand-12.png`}
+                src={`/assets/images/brand/24h.png`}
                 alt="logo"
               />
             </div>

@@ -119,14 +119,14 @@ export default function CampaignCountDown({
               <div className="flex flex-col h-full justify-between">
                 <div className="get-app">
                   <p className="text-[13px] font-600 text-qblack mb-3">
-                    MOBILE APP VERSION
+                    APP VERSION: 1.5.6
                   </p>
                   <h1 className="text-[30px] font-600 text-qblack leading-10 mb-8">
-                    Get Our
+                    Tải ứng dụng
                     <span className="text-qred border-b-2 border-qred mx-2">
-                      Mobile App
+                      Rao vặt 24h
                     </span>
-                    <br /> It’s Make easy for you life !
+                    <br /> Kênh rao vặt, mua bán tốt nhất Việt Nam!
                   </h1>
                   <div className="flex space-x-5 items-center">
                     <div>

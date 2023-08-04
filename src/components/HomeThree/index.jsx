@@ -72,7 +72,7 @@ export default function HomeThree() {
           products={products.slice(4, products.length)}
           brands={brands}
           categoryTitle="Electronics"
-          sectionTitle="Popular Sales"
+          sectionTitle="Sản phẩm phổ biến"
           seeMoreUrl="/all-products"
           className="category-products mb-[60px]"
         />
@@ -82,7 +82,7 @@ export default function HomeThree() {
         />
         <SectionStyleFour
           products={products}
-          sectionTitle="Popular Sales"
+          sectionTitle="Sản phẩm phổ biến"
           seeMoreUrl="/all-products"
           className="category-products mb-[60px]"
         />

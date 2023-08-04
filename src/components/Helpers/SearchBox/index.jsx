@@ -11,7 +11,7 @@ export default function SearchBox({ className,type }) {
               <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Product..."
+                  placeholder="Tìm kiếm sản phẩm..."
               />
             </form>
           </div>
@@ -54,7 +54,7 @@ export default function SearchBox({ className,type }) {
               className={` w-[93px] h-full text-sm font-600  ${type===3?'bg-qh3-blue text-white':'search-btn'}`}
               type="button"
           >
-            Search
+            Tìm kiếm
           </button>
         </div>
       </>

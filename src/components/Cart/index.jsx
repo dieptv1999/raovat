@@ -1,4 +1,5 @@
 import Link from "next/link";
+import utils from "../../utils";
 
 export default function Cart({ className,type }) {
   return (
@@ -28,7 +29,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -62,7 +63,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -96,7 +97,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -130,7 +131,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -164,7 +165,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -198,7 +199,7 @@ export default function Cart({ className,type }) {
 
                       <p className="price">
                       <span className="offer-price text-qred font-600 text-[15px] ml-2">
-                        $38
+                        {utils.formatMoney(38)}
                       </span>
                       </p>
                     </div>
@@ -223,19 +224,19 @@ export default function Cart({ className,type }) {
             </div>
             <div className="product-actions px-4 mb-[30px]">
               <div className="total-equation flex justify-between items-center mb-[28px]">
-                <span className="text-[15px] font-500 text-qblack">Subtotal</span>
-                <span className="text-[15px] font-500 text-qred ">$365</span>
+                <span className="text-[15px] font-500 text-qblack">Tổng</span>
+                <span className="text-[15px] font-500 text-qred ">{utils.formatMoney(365000)}</span>
               </div>
               <div className="product-action-btn">
                 <Link href="/cart">
                   <div className="gray-btn w-full h-[50px] mb-[10px] cursor-pointer">
-                    <span>View Cart</span>
+                    <span>Xem giỏ hàng</span>
                   </div>
                 </Link>
                 <Link href="/checkout">
                   <div className="w-full h-[50px] cursor-pointer">
                     <div className={type===3?'blue-btn':'yellow-btn'}>
-                      <span className="text-sm">Checkout Now</span>
+                      <span className="text-sm">Thanh toán</span>
                     </div>
                   </div>
                 </Link>
@@ -244,11 +245,11 @@ export default function Cart({ className,type }) {
             <div className="w-full px-4 mt-[20px]">
               <div className="h-[1px] bg-[#F0F1F3]"></div>
             </div>
-            <div className="flex justify-center py-[15px]">
-              <p className="text-[13px] font-500 text-qgray">
-                Get Return within <span className="text-qblack">30 days</span>
-              </p>
-            </div>
+            {/*<div className="flex justify-center py-[15px]">*/}
+            {/*  <p className="text-[13px] font-500 text-qgray">*/}
+            {/*    Get Return within <span className="text-qblack">30 days</span>*/}
+            {/*  </p>*/}
+            {/*</div>*/}
           </div>
         </div>
       </>

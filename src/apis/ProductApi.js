@@ -17,4 +17,14 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}addClickAds`;
     return this.post(url, params);
   }
+
+  getListSellMore(params) {
+    const url = `${schema}getListSellMore`;
+    return this.post(url, params);
+  }
+
+  getListSellViaCollectionMore(params) {
+    const url = `${schema}getListSellViaCollectionMore`;
+    return this.post(url, params);
+  }
 }
