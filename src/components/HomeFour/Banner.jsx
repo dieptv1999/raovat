@@ -21,7 +21,7 @@ export default function Banner({ className }) {
                   </p>
                   <Link href="#">
                     <div className="w-[100px] h-[36px] rounded bg-qh4-pink flex justify-center items-center">
-                      <span>Shop Now</span>
+                      <span>Mua ngay</span>
                     </div>
                   </Link>
                 </div>
@@ -40,7 +40,7 @@ export default function Banner({ className }) {
                   </p>
                   <Link href="#">
                     <div className="w-[100px] h-[36px] rounded bg-qh4-pink flex justify-center items-center">
-                      <span>Shop Now</span>
+                      <span>Mua ngay</span>
                     </div>
                   </Link>
                 </div>
@@ -59,7 +59,7 @@ export default function Banner({ className }) {
                   </p>
                   <Link href="#">
                     <div className="w-[100px] h-[36px] rounded bg-qh4-pink flex justify-center items-center">
-                      <span>Shop Now</span>
+                      <span>Mua ngay</span>
                     </div>
                   </Link>
                 </div>

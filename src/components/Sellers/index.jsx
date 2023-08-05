@@ -111,7 +111,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"
@@ -256,7 +256,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"
@@ -402,7 +402,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"
@@ -548,7 +548,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"
@@ -694,7 +694,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"
@@ -840,7 +840,7 @@ export default function Sallers() {
                         <div className="w-[116px] h-[40px]">
                           <div className="yellow-btn flex justify-center">
                             <div className="flex space-x-2 items-center">
-                              <span>Shop Now</span>
+                              <span>Mua ngay</span>
                               <span>
                                 <svg
                                   width="7"

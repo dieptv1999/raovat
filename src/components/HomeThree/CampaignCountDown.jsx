@@ -73,7 +73,7 @@ export default function CampaignCountDown({
                   </div>
                   <div className="inline-flex space-x-2 items-center border-b border-qyellow">
                     <span className="text-sm font-600 tracking-wide leading-7">
-                      Shop Now
+                      Mua ngay
                     </span>
                     <span>
                       <svg

@@ -50,7 +50,7 @@ export default function HomeThree() {
         <ViewMoreTitle
           className="top-selling-product mb-[60px]"
           seeMoreUrl="/all-products"
-          categoryTitle="Top Selling Products"
+          categoryTitle="Top sản phẩm bán chạy nhất"
         >
           <SectionStyleTwo
             type={3}

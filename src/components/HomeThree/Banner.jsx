@@ -103,7 +103,7 @@ export default function Banner({ className,}) {
                                         className="flex space-x-1 items-center transition-all duration-300 ease-in-out relative z-10"
                                     >
                                     <span className="text-sm font-600 tracking-wide leading-7 mr-2">
-                                      Shop Now
+                                      Mua ngay
                                     </span>
                                         <span>
                                       <svg
@@ -176,7 +176,7 @@ export default function Banner({ className,}) {
                                         className="flex space-x-1 items-center transition-all duration-300 ease-in-out relative z-10"
                                     >
                                     <span className="text-sm font-600 tracking-wide leading-7 mr-2">
-                                      Shop Now
+                                      Mua ngay
                                     </span>
                                         <span>
                                       <svg
@@ -249,7 +249,7 @@ export default function Banner({ className,}) {
                                     className="flex space-x-1 items-center transition-all duration-300 ease-in-out relative z-10"
                                 >
                                     <span className="text-sm font-600 tracking-wide leading-7 mr-2">
-                                      Shop Now
+                                      Mua ngay
                                     </span>
                                     <span>
                                       <svg

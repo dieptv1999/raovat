@@ -30,7 +30,7 @@ export default function CategoryCard({ background, title, brands = [] }) {
         </div>
         <Link href="#">
           <div className="flex space-x-2 items-center">
-            <span className="text-qblack font-600 text-sm">Shop Now</span>
+            <span className="text-qblack font-600 text-sm">Mua ngay</span>
             <span>
               <svg
                 width="7"

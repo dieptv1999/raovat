@@ -3,6 +3,7 @@ import QuickViewIco from "../icons/QuickViewIco";
 import Star from "../icons/Star";
 import ThinLove from "../icons/ThinLove";
 import Link from "next/link";
+import utils from "../../../utils";
 
 export default function ProductCardRowStyleTwo({ className, datas,type }) {
   return (
@@ -15,9 +16,9 @@ export default function ProductCardRowStyleTwo({ className, datas,type }) {
         <div className="flex space-x-5 items-center w-full h-full lg:p-[30px] sm:p-5 p-2">
           <div className="lg:w-1/2 w-1/3 h-full">
             <img
-                src={`/assets/images/${datas.image}`}
+                src={utils.getFirstImage(datas.list_image)}
                 alt=""
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
             />
           </div>
           <div className="flex-1 flex flex-col justify-center h-full">
@@ -36,11 +37,11 @@ export default function ProductCardRowStyleTwo({ className, datas,type }) {
                 </p>
               </Link>
               <p className="price mb-[26px]">
-              <span className="main-price text-qgray line-through font-600 sm:text-[18px] text-base">
-                {datas.price}
-              </span>
-                <span className="offer-price text-qred font-600 sm:text-[18px] text-base ml-2">
-                {datas.offer_price}
+              {/*<span className="main-price text-qgray line-through font-600 sm:text-[18px] text-base">*/}
+              {/*  {datas.price}*/}
+              {/*</span>*/}
+                <span className="offer-price text-qred font-600 sm:text-[16px] text-base ml-2">
+                {utils.formatMoney(datas.price)}
               </span>
               </p>
               <button type="button" className="w-[110px] h-[30px]">

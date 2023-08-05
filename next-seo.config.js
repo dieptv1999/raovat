@@ -22,6 +22,12 @@ export default {
     site: '@site',
     cardType: 'summary_large_image',
   },
+  additionalMetaTags: [
+    {
+      httpEquiv: 'Content-Security-Policy',
+      content: 'upgrade-insecure-requests'
+    }
+  ],
   additionalLinkTags: [
     {
       rel: 'icon',
