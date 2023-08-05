@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import datas from "../../data/products.json";
 import SectionStyleFour from "../Helpers/SectionStyleFour";
 import SectionStyleOne from "../Helpers/SectionStyleOne";
-import SectionStyleThree from "../Helpers/SectionStyleThree";
 import SectionStyleTwo from "../Helpers/SectionStyleTwo";
 import ViewMoreTitle from "../Helpers/ViewMoreTitle";
 import Layout from "../Partials/Layout";
@@ -76,8 +75,8 @@ export default function Home({adsList, newsHot}) {
           categoryBackground={`/assets/images/section-category-2.jpg`}
           products={newsHot.slice(4, newsHot.length)}
           brands={brands}
-          categoryTitle="Electronics"
-          sectionTitle="Sản phẩm phổ biến"
+          categoryTitle="Đồ điện tử"
+          sectionTitle="Danh mục phổ biến"
           seeMoreUrl="/all-products"
           className="category-products mb-[60px]"
         />
