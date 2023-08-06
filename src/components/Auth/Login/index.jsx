@@ -39,7 +39,7 @@ export default function Login() {
                   <div className="input-item mb-5">
                     <InputCom
                       placeholder="example@quomodosoft.com"
-                      label="Email Address*"
+                      label="Địa chỉ Email*"
                       name="email"
                       type="email"
                       inputClasses="h-[50px]"
@@ -48,7 +48,7 @@ export default function Login() {
                   <div className="input-item mb-5">
                     <InputCom
                       placeholder="● ● ● ● ● ●"
-                      label="Password*"
+                      label="Mật khẩu"
                       name="password"
                       type="password"
                       inputClasses="h-[50px]"

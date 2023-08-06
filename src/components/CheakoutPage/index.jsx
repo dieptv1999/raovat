@@ -10,7 +10,7 @@ export default function CheakoutPage() {
           <PageTitle
             title="Checkout"
             breadcrumb={[
-              { name: "home", path: "/" },
+              { name: "trang chủ", path: "/" },
               { name: "checkout", path: "/checkout" },
             ]}
           />
@@ -65,14 +65,14 @@ export default function CheakoutPage() {
                     <div className="flex space-x-5 items-center mb-6">
                       <div className="w-1/2">
                         <InputCom
-                          label="Email Address*"
+                          label="Địa chỉ Email*"
                           placeholder="demoemial@gmail.com"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>
                       <div className="flex-1">
                         <InputCom
-                          label="Phone Number*"
+                          label="Số điện thoại"
                           placeholder="012 3  *******"
                           inputClasses="w-full h-[50px]"
                         />
@@ -80,7 +80,7 @@ export default function CheakoutPage() {
                     </div>
                     <div className="mb-6">
                       <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                        Country*
+                        Quốc gia
                       </h1>
                       <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center mb-2">
                         <span className="text-[13px] text-qgraytwo">
@@ -105,7 +105,7 @@ export default function CheakoutPage() {
                     <div className=" mb-6">
                       <div className="w-full">
                         <InputCom
-                          label="Address*"
+                          label="Địa chỉ"
                           placeholder="your address here"
                           inputClasses="w-full h-[50px]"
                         />
@@ -114,7 +114,7 @@ export default function CheakoutPage() {
                     <div className="flex space-x-5 items-center mb-6">
                       <div className="w-1/2">
                         <h1 className="input-label capitalize block  mb-2 text-qgray text-[13px] font-normal">
-                          Town / City*
+                          Tỉnh / Thành phố
                         </h1>
                         <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center">
                           <span className="text-[13px] text-qgraytwo">
@@ -138,7 +138,7 @@ export default function CheakoutPage() {
                       </div>
                       <div className="flex-1">
                         <InputCom
-                          label="Postcode / ZIP*"
+                          label="Mã bưu điện/ ZIP code"
                           placeholder=""
                           inputClasses="w-full h-[50px]"
                         />

@@ -68,7 +68,7 @@ export default function Ads({ handler }) {
                 type="email"
                 name="email"
                 className="w-full h-full focus:outline-none text-sm placeholder:text-xs placeholder:text-qblack text-qblack font-400 tracking-wider"
-                placeholder="EMAIL ADDRESS"
+                placeholder="ĐỊA CHỈ EMAIl"
               />
             </div>
             <button

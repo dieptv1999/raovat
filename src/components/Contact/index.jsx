@@ -22,8 +22,7 @@ export default function Contact() {
                 Thông tin liên hệ
               </h1>
               <p className="text-[15px] text-qgraytwo leading-[30px] mb-5">
-                Fill the form below or write us .We will help you as soon as
-                possible.
+                Điền vào mẫu dưới đây hoặc viết thư cho chúng tôi. Chúng tôi sẽ giúp bạn sớm nhất có thể.
               </p>
 
               <div className="xl:flex xl:space-x-[30px] mb-[30px]">
@@ -176,7 +175,7 @@ export default function Contact() {
               <div className="inputs mt-5">
                 <div className="mb-4">
                   <InputCom
-                    label="Frist Name*"
+                    label="Frist Name"
                     placeholder="Demo Name"
                     name="first_name"
                     inputClasses="h-[50px]"
@@ -184,7 +183,8 @@ export default function Contact() {
                 </div>
                 <div className="mb-4">
                   <InputCom
-                    label="Email Address*"
+                    label="Địa chỉ Email"
+                    required={true}
                     placeholder="info@quomodosoft.com"
                     name="email"
                     inputClasses="h-[50px]"
@@ -192,7 +192,7 @@ export default function Contact() {
                 </div>
                 <div className="mb-4">
                   <InputCom
-                    label="Subject*"
+                    label="Subject"
                     placeholder="Your Subject here"
                     name="subject"
                     inputClasses="h-[50px]"
@@ -200,11 +200,11 @@ export default function Contact() {
                 </div>
                 <div className="mb-5">
                   <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-                    Message*
+                    Message
                   </h6>
                   <textarea
                     placeholder="Type your message here"
-                    className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 border border-qgray-border placeholder:text-sm"
+                    className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 textarea textarea-bordered placeholder:text-sm"
                   ></textarea>
                 </div>
                 <div>

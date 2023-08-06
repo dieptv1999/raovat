@@ -1,9 +1,9 @@
-// import InputRange from "react-input-range";
-// import "react-input-range/lib/css/index.css";
 import Checkbox from "../Helpers/Checkbox";
 import {useState} from "react";
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import {CATEGORIES} from "../../utils/constant";
+import get from "lodash/get";
 export default function ProductsFilter({
   filters,
   checkboxHandler,
@@ -31,452 +31,54 @@ export default function ProductsFilter({
           </div>
           <div className="filter-items">
             <ul>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="mobileLaptop"
-                      name="mobileLaptop"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.mobileLaptop}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="mobileLaptop"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Đồ điện tử
-                    </label>
-                  </div>
-                </div>
-                <div>
+              {CATEGORIES.map(e => (
+                  <li className="item flex justify-between items-center mb-5" key={'filter' + e.id}>
+                    <div className="flex space-x-[14px] items-center">
+                      <div>
+                        <Checkbox
+                            id={'filter' + e.id}
+                            name={'filter' + e.id}
+                            handleChange={(e) => checkboxHandler(e)}
+                            checked={get(filters, 'filter' + e.id)}
+                        />
+                      </div>
+                      <div>
+                        <label
+                            htmlFor={'filter' + e.id}
+                            className="text-xs font-black font-400 capitalize"
+                        >
+                          {e.name}
+                        </label>
+                      </div>
+                    </div>
+                    <div>
                   <span className="cursor-pointer">
                     <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="10"
+                        viewBox="0 0 10 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
                       <rect y="4" width="10" height="2" fill="#C4C4C4" />
                       <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
+                          x="6"
+                          width="10"
+                          height="2"
+                          transform="rotate(90 6 0)"
+                          fill="#C4C4C4"
                       />
                     </svg>
                   </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="gaming"
-                      name="gaming"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.gaming}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="gaming"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Giải trí, thể thao, sở thích
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="imageVideo"
-                      name="imageVideo"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.imageVideo}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="imageVideo"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Du lịch
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="vehicles"
-                      name="vehicles"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.vehicles}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="vehicles"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Xe cộ
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="furnitures"
-                      name="furnitures"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.furnitures}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="furnitures"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Đồ gia dụng, nột thất, cây cảnh
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="sport"
-                      name="sport"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.sport}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="sport"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Giải trí, thể thao, sở thích
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="foodDrinks"
-                      name="foodDrinks"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.foodDrinks}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="foodDrinks"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Đồ ăn, thực phẩm
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="fashion"
-                      name="fashion"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.fashion}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="fashion"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Thời trang, đồ dùng cá nhân
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="toilet"
-                      name="toilet"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.toilet}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="toilet"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Việc làm
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="makeupCorner"
-                      name="makeupCorner"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.makeupCorner}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="makeupCorner"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Tủ lạnh, máy giặt, máy lạnh
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li className="item flex justify-between items-center mb-5">
-                <div className="flex space-x-[14px] items-center">
-                  <div>
-                    <Checkbox
-                      id="babyItem"
-                      name="babyItem"
-                      handleChange={(e) => checkboxHandler(e)}
-                      checked={filters.babyItem}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="babyItem"
-                      className="text-xs font-black font-400 capitalize"
-                    >
-                      Mẹ và bé
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <span className="cursor-pointer">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect y="4" width="10" height="2" fill="#C4C4C4" />
-                      <rect
-                        x="6"
-                        width="10"
-                        height="2"
-                        transform="rotate(90 6 0)"
-                        fill="#C4C4C4"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
+                    </div>
+                  </li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="filter-subject-item pb-10 border-b border-qgray-border mt-10">
           <div className="subject-title mb-[30px]">
-            <h1 className="text-black text-base font-500">Price Range</h1>
+            <h1 className="text-black text-base font-500">Khoảng giá</h1>
           </div>
           <div className="price-range mb-5">
             {/*<InputRange*/}
@@ -489,12 +91,12 @@ export default function ProductsFilter({
             <RangeSlider value={volume} onInput={volumeHandler} />
           </div>
           <p className="text-xs text-qblack font-400">
-            Price: ${volume[0]} - ${volume[1]}
+            Giá: ${volume[0]} - ${volume[1]}
           </p>
         </div>
         <div className="filter-subject-item pb-10 border-b border-qgray-border mt-10">
           <div className="subject-title mb-[30px]">
-            <h1 className="text-black text-base font-500">Brands</h1>
+            <h1 className="text-black text-base font-500">Thương hiệu</h1>
           </div>
           <div className="filter-items">
             <ul>

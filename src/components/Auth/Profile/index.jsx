@@ -11,7 +11,6 @@ import IcoPassword from "./icons/IcoPassword";
 import IcoPayment from "./icons/IcoPayment";
 import IcoPeople from "./icons/IcoPeople";
 import IcoReviewHand from "./icons/IcoReviewHand";
-import IcoSupport from "./icons/IcoSupport";
 import AddressesTab from "./tabs/AddressesTab";
 import Dashboard from "./tabs/Dashboard";
 import OrderTab from "./tabs/OrderTab";
@@ -23,6 +22,8 @@ import SupportTab from "./tabs/SupportTab";
 import WishlistTab from "./tabs/WishlistTab";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import IcoList from "./icons/IcoList";
+import PostTab from "./tabs/PostTab";
 
 export default function Profile() {
   const [switchDashboard, setSwitchDashboard] = useState(false);
@@ -43,8 +44,8 @@ export default function Profile() {
           <div className="w-full my-10">
             <BreadcrumbCom
               paths={[
-                { name: "home", path: "/" },
-                { name: "profile", path: "/profile" },
+                { name: "trang chủ", path: "/" },
+                { name: "Thông tin cá nhân", path: "/profile" },
               ]}
             />
             <div className="w-full bg-white px-10 py-9">
@@ -52,29 +53,41 @@ export default function Profile() {
                 <h1 className="text-[22px] font-bold text-qblack">
                   Trang cá nhân của bạn
                 </h1>
-                <div className="switch-dashboard flex space-x-3 items-center">
-                  <p className="text-qgray text-base">Switch Dashboard</p>
-                  <button
-                    onClick={() => setSwitchDashboard(!switchDashboard)}
-                    type="button"
-                    className="w-[73px] h-[31px] border border-[#D9D9D9] rounded-full relative "
-                  >
-                    <div
-                      className={`w-[23px] h-[23px] bg-qblack rounded-full absolute top-[3px] transition-all duration-300 ease-in-out ${
-                        switchDashboard ? 'left-[44px]' : 'left-[4px]'
-                      }`}
-                    ></div>
-                  </button>
-                </div>
+                {/*<div className="switch-dashboard flex space-x-3 items-center">*/}
+                {/*  <p className="text-qgray text-base">Switch Dashboard</p>*/}
+                {/*  <button*/}
+                {/*    onClick={() => setSwitchDashboard(!switchDashboard)}*/}
+                {/*    type="button"*/}
+                {/*    className="w-[73px] h-[31px] border border-[#D9D9D9] rounded-full relative "*/}
+                {/*  >*/}
+                {/*    <div*/}
+                {/*      className={`w-[23px] h-[23px] bg-qblack rounded-full absolute top-[3px] transition-all duration-300 ease-in-out ${*/}
+                {/*        switchDashboard ? 'left-[44px]' : 'left-[4px]'*/}
+                {/*      }`}*/}
+                {/*    ></div>*/}
+                {/*  </button>*/}
+                {/*</div>*/}
               </div>
               <div className="profile-wrapper w-full mt-8 flex space-x-10">
                 <div className="w-[236px] min-h-[600px] border-r border-[rgba(0, 0, 0, 0.1)]">
                   <div className="flex flex-col space-y-10">
                     <div className="item group">
                       <Link href="/profile#dashboard">
-                        <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
+                        <div className={`flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer`}>
                           <span>
                             <IcoDashboard />
+                          </span>
+                          <span className=" font-normal text-base">
+                            Bảng quản lý
+                          </span>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="item group">
+                      <Link href="/profile#post">
+                        <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
+                          <span>
+                            <IcoList />
                           </span>
                           <span className=" font-normal text-base">
                             Quản lý tin
@@ -124,7 +137,7 @@ export default function Profile() {
                             <IcoLove />
                           </span>
                           <span className=" font-normal text-base">
-                            Wishlist
+                            Danh sách yêu thích
                           </span>
                         </div>
                       </Link>
@@ -197,6 +210,10 @@ export default function Profile() {
                      <>
                        <Dashboard />
                      </>
+                    ) : active === "post" ? (
+                        <>
+                          <PostTab />
+                        </>
                     ) : active === "profile" ? (
                       <>
                         <ProfileTab />

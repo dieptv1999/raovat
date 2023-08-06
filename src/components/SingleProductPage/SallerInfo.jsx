@@ -45,7 +45,7 @@ export default function SallerInfo({ products }) {
               </li>
               <li className="text-qgray leading-[30px]">
                 <span className="text-[15px] font-normal text-qblack">
-                  Category
+                  Danh mục
                 </span>
                 : Mobile Phone, Sports, Gaming, Electronics
               </li>
@@ -67,7 +67,7 @@ export default function SallerInfo({ products }) {
               </li>
               <li className="text-qgray leading-[30px]">
                 <span className="text-[15px] font-normal text-qblack">
-                  Category
+                  Danh mục
                 </span>
                 : Mobile Phone, Sports, Gaming, Electronics
               </li>
@@ -82,7 +82,7 @@ export default function SallerInfo({ products }) {
         </div>
       </div>
       <div className="saller-product w-full mt-[30px]">
-        <h1 className="text-[18px] font-medium mb-5">Product from Shop</h1>
+        <h1 className="text-[18px] font-medium mb-5">Sản phẩm từ người bán</h1>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5">
           <DataIteration
             datas={products}

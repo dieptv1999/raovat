@@ -112,13 +112,13 @@ export default function Reviews({
             type="button"
             className="black-btn w-[300px] h-[50px] text-sm font-semibold"
           >
-            Load More
+            Xem thêm
           </button>
         </div>
       </div>
       <div className="write-review w-full">
         <h1 className="text-2xl font-medium text-qblack mb-5">
-          Write Your Reviews
+          Viết đánh giá của bạn
         </h1>
 
         <div className="flex space-x-1 items-center mb-[30px]">
@@ -159,7 +159,7 @@ export default function Reviews({
             </div>
             <div className="sm:w-1/3 w-full mt-5 sm:mt-0">
               <InputCom
-                label="Phone Number*"
+                label="Số điện thoại"
                 placeholder=""
                 type="text"
                 name="name"
@@ -191,7 +191,7 @@ export default function Reviews({
               className="black-btn w-[300px] h-[50px]  flex justify-center"
             >
               <span className="flex space-x-1 items-center h-full">
-                <span className="text-sm font-semibold">Submit Review</span>
+                <span className="text-sm font-semibold">Gửi đánh giá</span>
                 {reviewLoading && (
                   <span className="w-5 " style={{ transform: "scale(0.3)" }}>
                     <LoaderStyleOne />

@@ -9,12 +9,12 @@ export default function OrderTab() {
             {/* table heading */}
             <tr className="text-base text-qgray whitespace-nowrap px-2 border-b default-border-bottom ">
               <td className="py-4 block whitespace-nowrap text-center">
-                Order
+                Mã đơn
               </td>
-              <td className="py-4 whitespace-nowrap text-center">Date</td>
+              <td className="py-4 whitespace-nowrap text-center">Ngày tạo</td>
               <td className="py-4 whitespace-nowrap text-center">Status</td>
-              <td className="py-4 whitespace-nowrap text-center">Amount</td>
-              <td className="py-4 whitespace-nowrap  text-center">Action</td>
+              <td className="py-4 whitespace-nowrap text-center">Số lượng</td>
+              <td className="py-4 whitespace-nowrap  text-center">Hành động</td>
             </tr>
             {/* table heading end */}
             <tr className="bg-white border-b hover:bg-gray-50">

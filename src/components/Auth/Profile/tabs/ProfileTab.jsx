@@ -49,7 +49,7 @@ export default function ProfileTab() {
             </div>
             <div className="w-1/2 h-full">
               <InputCom
-                label="Phone Number*"
+                label="Số điện thoại"
                 placeholder="012 3  *******"
                 type="text"
                 inputClasses="h-[50px]"
@@ -59,7 +59,7 @@ export default function ProfileTab() {
           <div className="input-item mb-8">
             <div className="w-full">
               <InputCom
-                label="Country*"
+                label="Quốc gia"
                 placeholder="country"
                 type="text"
                 inputClasses="h-[50px]"
@@ -69,7 +69,7 @@ export default function ProfileTab() {
           <div className="input-item mb-8">
             <div className="w-full">
               <InputCom
-                label="Address*"
+                label="Địa chỉ"
                 placeholder="your address here"
                 type="text"
                 inputClasses="h-[50px]"
@@ -79,7 +79,7 @@ export default function ProfileTab() {
           <div className="input-item flex space-x-2.5 mb-8">
             <div className="w-1/2 h-full">
               <InputCom
-                label="Town / City*"
+                label="Tỉnh / Thành phố"
                 placeholder=""
                 type="text"
                 inputClasses="h-[50px]"
@@ -87,7 +87,7 @@ export default function ProfileTab() {
             </div>
             <div className="w-1/2 h-full">
               <InputCom
-                label="Postcode / ZIP*"
+                label="Mã bưu điện/ ZIP code"
                 placeholder=""
                 type="text"
                 inputClasses="h-[50px]"
@@ -98,7 +98,7 @@ export default function ProfileTab() {
         <div className="flex-1">
           <div className="update-logo w-full mb-9">
             <h1 className="text-xl tracking-wide font-bold text-qblack flex items-center mb-2">
-              Update Profile
+              Ảnh đại diện
               <span className="ml-1">
                 <svg
                   width="20"
@@ -116,9 +116,9 @@ export default function ProfileTab() {
               </span>
             </h1>
             <p className="text-sm text-qgraytwo mb-5 ">
-              Profile of at least Size
-              <span className="ml-1 text-qblack">300x300</span>. Gifs work too.
-              <span className="ml-1 text-qblack">Max 5mb</span>.
+              Ảnh phải có kích thước ít nhất
+              <span className="ml-1 text-qblack">300x300</span>. Có thể tải Gifs.
+              <span className="ml-1 text-qblack">Kích thước tối đa 5mb</span>.
             </p>
             <div className="flex xl:justify-center justify-start">
               <div className="relative">
@@ -166,13 +166,13 @@ export default function ProfileTab() {
       </div>
       <div className="action-area flex space-x-4 items-center">
         <button type="button" className="text-sm text-qred font-semibold">
-          Cancel
+          Đóng
         </button>
         <button
           type="button"
           className="w-[164px] h-[50px] bg-qblack text-white text-sm"
         >
-          Update Profile
+          Cập nhật
         </button>
       </div>
     </>

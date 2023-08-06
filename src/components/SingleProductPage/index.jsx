@@ -91,7 +91,7 @@ export default function SingleProductPage() {
               <div className="container-x mx-auto">
                 <BreadcrumbCom
                   paths={[
-                    { name: "home", path: "/" },
+                    { name: "trang chủ", path: "/" },
                     { name: "single product", path: "/single-product" },
                   ]}
                 />
@@ -120,7 +120,7 @@ export default function SingleProductPage() {
                           : "border-transparent text-qgray"
                       }`}
                     >
-                      Description
+                      Mô tả
                     </span>
                   </li>
                   <li>
@@ -132,7 +132,7 @@ export default function SingleProductPage() {
                           : "border-transparent text-qgray"
                       }`}
                     >
-                      Reviews
+                      Đánh giá
                     </span>
                   </li>
                   <li>
@@ -144,7 +144,7 @@ export default function SingleProductPage() {
                           : "border-transparent text-qgray"
                       }`}
                     >
-                      Seller Info
+                      Thông tin người bán
                     </span>
                   </li>
                 </ul>
@@ -198,7 +198,7 @@ export default function SingleProductPage() {
                 {tab === "review" && (
                   <div data-aos="fade-up" className="w-full tab-content-item">
                     <h6 className="text-[18px] font-medium text-qblack mb-2">
-                      Reviews
+                      Đánh giá
                     </h6>
                     {/* review-comments */}
                     <div className="w-full">
@@ -235,7 +235,7 @@ export default function SingleProductPage() {
             <div className="container-x mx-auto">
               <div className="w-full py-[60px]">
                 <h1 className="sm:text-3xl text-xl font-600 text-qblacktext leading-none mb-[30px]">
-                  Related Product
+                  Sản phẩm liên quan
                 </h1>
                 <div
                   data-aos="fade-up"

@@ -12,8 +12,8 @@ export default function Wishlist({ wishlist = true }) {
           <div className="container-x mx-auto">
             <BreadcrumbCom
               paths={[
-                { name: "home", path: "/" },
-                { name: "wishlist", path: "/wishlist" },
+                { name: "trang chủ", path: "/" },
+                { name: "danh sách yêu thích", path: "/wishlist" },
               ]}
             />
             <EmptyWishlistError />
@@ -23,10 +23,10 @@ export default function Wishlist({ wishlist = true }) {
         <div className="wishlist-page-wrapper w-full bg-white pb-[60px]">
           <div className="w-full">
             <PageTitle
-              title="Wishlist"
+              title="Danh sách yêu thích"
               breadcrumb={[
-                { name: "home", path: "/" },
-                { name: "wishlist", path: "/wishlist" },
+                { name: "trang chủ", path: "/" },
+                { name: "danh sách yêu thích", path: "/wishlist" },
               ]}
             />
           </div>
@@ -37,13 +37,13 @@ export default function Wishlist({ wishlist = true }) {
                 <div className="sm:flex sm:space-x-[30px] items-center">
                   <button type="button">
                     <div className="w-full text-sm font-semibold text-qred mb-5 sm:mb-0">
-                      Clean Wishlist
+                      Xóa tất cả
                     </div>
                   </button>
-                  <div className="w-[180px] h-[50px]">
-                    <button type="button" className="yellow-btn">
+                  <div className="h-[50px]">
+                    <button type="button" className="yellow-btn px-6">
                       <div className="w-full text-sm font-semibold">
-                        Add to Cart All
+                        Thêm tất cả vào giỏ hàng
                       </div>
                     </button>
                   </div>

@@ -63,7 +63,7 @@ export default function CommentBlog() {
     <>
       <div className="write-review w-full mb-[30px]">
         <h1 className="text-2xl font-medium text-qblack mb-5">
-          Leave a Comment
+          Để lại bình luận
         </h1>
         <div className="w-full review-form ">
           <div className="sm:flex sm:space-x-[30px] items-center mb-5 w-full">
@@ -112,7 +112,7 @@ export default function CommentBlog() {
               className="black-btn w-[300px] h-[50px]  flex justify-center"
             >
               <span className="flex space-x-1 items-center h-full">
-                <span className="text-sm font-semibold">Submit Review</span>
+                <span className="text-sm font-semibold">Gửi đánh giá</span>
                 {reviewLoading && (
                   <span className="w-5 " style={{ transform: "scale(0.3)" }}>
                     <LoaderStyleOne />

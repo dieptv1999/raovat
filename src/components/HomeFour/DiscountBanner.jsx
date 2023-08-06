@@ -61,14 +61,14 @@ export default function DiscountBanner({ className }) {
                   type="email"
                   name="email"
                   className="w-full h-full focus:outline-none text-sm placeholder:text-xs placeholder:text-qblack text-qblack font-400 tracking-wider"
-                  placeholder="EMAIL ADDRESS"
+                  placeholder="ĐỊA CHỈ EMAIl"
                 />
               </div>
               <button
                 type="button"
                 className="sm:w-[158px] w-[80px]  h-full bg-qh4-pink text-sm font-600"
               >
-                Get the Coupon
+                Nhận mã
               </button>
             </div>
           </div>

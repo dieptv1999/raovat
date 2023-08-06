@@ -474,13 +474,13 @@ export default function ProductsFilter({
         </div>
         <div className="filter-subject-item pb-10 border-b border-qgray-border mt-10">
           <div className="subject-title mb-[30px]">
-            <h1 className="text-black text-base font-500">Price Range</h1>
+            <h1 className="text-black text-base font-500">Khoảng giá</h1>
           </div>
           <div className="price-range mb-5">
             <RangeSlider value={volume} onInput={volumeHandler} />
           </div>
           <p className="text-xs text-qblack font-400">
-            Price: ${volume[0]} - ${volume[1]}
+            Giá: ${volume[0]} - ${volume[1]}
           </p>
         </div>
         <div className="filter-subject-item pb-10 border-b border-qgray-border mt-10">

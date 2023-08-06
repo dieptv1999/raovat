@@ -11,7 +11,7 @@ export default function Faq() {
           <PageTitle
             title="Frequently Asked Questions"
             breadcrumb={[
-              { name: "home", path: "/" },
+              { name: "trang chủ", path: "/" },
               { name: "FAQ", path: "/faq" },
             ]}
           />
@@ -92,7 +92,7 @@ humour, or randomised words"
                   </div>
                   <div className="mb-4">
                     <InputCom
-                      label="Email Address*"
+                      label="Địa chỉ Email*"
                       placeholder="info@quomodosoft.com"
                       name="email"
                       inputClasses="h-[50px]"

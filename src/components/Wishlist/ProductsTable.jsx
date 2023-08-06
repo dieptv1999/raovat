@@ -9,13 +9,13 @@ export default function ProductsTable({ className }) {
             {/* table heading */}
             <tr className="text-[13px] font-medium text-black bg-[#F6F6F6] whitespace-nowrap px-2 border-b default-border-bottom uppercase">
               <td className="py-4 pl-10 block whitespace-nowrap  w-[380px]">
-                product
+                tên sản phẩm
               </td>
-              <td className="py-4 whitespace-nowrap text-center">color</td>
-              <td className="py-4 whitespace-nowrap text-center">size</td>
-              <td className="py-4 whitespace-nowrap text-center">price</td>
-              <td className="py-4 whitespace-nowrap  text-center">quantity</td>
-              <td className="py-4 whitespace-nowrap  text-center">total</td>
+              <td className="py-4 whitespace-nowrap text-center">màu</td>
+              <td className="py-4 whitespace-nowrap text-center">kích thước</td>
+              <td className="py-4 whitespace-nowrap text-center">giá</td>
+              <td className="py-4 whitespace-nowrap  text-center">số lượng</td>
+              <td className="py-4 whitespace-nowrap  text-center">tổng</td>
               <td className="py-4 whitespace-nowrap text-right w-[114px] block"></td>
             </tr>
             {/* table heading end */}

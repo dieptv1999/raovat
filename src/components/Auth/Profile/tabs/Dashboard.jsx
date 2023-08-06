@@ -5,9 +5,9 @@ export default function Dashboard() {
     <>
       <div className="welcome-msg w-full">
         <div>
-          <p className="text-qblack text-lg">Hello, Shovo</p>
+          <p className="text-qblack text-lg">Xin chào, Shovo</p>
           <h1 className="font-bold text-[24px] text-qblack">
-            Welcome to your Profile
+            Chào mừng đến với trang cá nhân của bạn
           </h1>
         </div>
       </div>

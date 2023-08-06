@@ -58,7 +58,7 @@ export default function Signup() {
                   <div className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                     <InputCom
                       placeholder="Demo@gmail.com"
-                      label="Email Address*"
+                      label="Địa chỉ Email*"
                       name="email"
                       type="email"
                       inputClasses="h-[50px]"
@@ -66,7 +66,7 @@ export default function Signup() {
 
                     <InputCom
                       placeholder="0213 *********"
-                      label="Phone*"
+                      label="Số điện thoại"
                       name="phone"
                       type="text"
                       inputClasses="h-[50px]"
@@ -75,7 +75,7 @@ export default function Signup() {
 
                   <div className="input-item mb-5">
                     <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-                      Country*
+                      Quốc gia
                     </h6>
                     <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center mb-2">
                       <span className="text-[13px] text-qgraytwo">
@@ -101,7 +101,7 @@ export default function Signup() {
                   <div className="input-item mb-5">
                     <InputCom
                       placeholder="Your address Here"
-                      label="Address*"
+                      label="Địa chỉ"
                       name="address"
                       type="text"
                       inputClasses="h-[50px]"
@@ -110,7 +110,7 @@ export default function Signup() {
                   <div className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                     <div className="w-1/2">
                       <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-                        Town / City*
+                        Tỉnh / Thành phố
                       </h6>
                       <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center mb-2">
                         <span className="text-[13px] text-qgraytwo">
@@ -135,7 +135,7 @@ export default function Signup() {
                     <div className="flex-1">
                       <div className="w-full h-[50px] mb-5 sm:mb-0">
                         <InputCom
-                          label="Postcode / ZIP*"
+                          label="Mã bưu điện/ ZIP code"
                           inputClasses="w-full h-full"
                           type="text"
                           placeholder="00000"

@@ -47,19 +47,19 @@ export default function Middlebar({ className,type }) {
               <SearchBox type={type} className="search-com" />
             </div>
             <div className="flex space-x-6 items-center">
-              <div className="compaire relative">
-                <Link href="/products-compaire" passHref>
-                  <a rel="noopener noreferrer">
-                    <span>
-                    <Compair />
-                  </span>
-                  </a>
+              {/*<div className="compaire relative">*/}
+              {/*  <Link href="/products-compaire" passHref>*/}
+              {/*    <a rel="noopener noreferrer">*/}
+              {/*      <span>*/}
+              {/*      <Compair />*/}
+              {/*    </span>*/}
+              {/*    </a>*/}
 
-                </Link>
-                <span className={`w-[18px] h-[18px] rounded-full  absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] ${type===3?'bg-qh3-blue text-white':'bg-qyellow'}`}>
-                  2
-                </span>
-              </div>
+              {/*  </Link>*/}
+              {/*  <span className={`w-[18px] h-[18px] rounded-full  absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] ${type===3?'bg-qh3-blue text-white':'bg-qyellow'}`}>*/}
+              {/*    2*/}
+              {/*  </span>*/}
+              {/*</div>*/}
               <div className="favorite relative">
                 <Link href="/wishlist" passHref>
                   <a rel="noopener noreferrer">

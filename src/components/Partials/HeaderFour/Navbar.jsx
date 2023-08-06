@@ -926,14 +926,14 @@ export default function Navbar({ className,type }) {
                                 <li>
                                   <Link href="/privacy-policy">
                                     <span className="text-qgray text-sm font-400 border-b border-transparent cursor-pointer hover:border-qyellow hover:text-qyellow">
-                                      Privacy Policy
+                                      Chính sách bảo mật
                                     </span>
                                   </Link>
                                 </li>
                                 <li>
                                   <Link href="/terms-condition">
                                     <span className="text-qgray text-sm font-400 border-b border-transparent cursor-pointer hover:border-qyellow hover:text-qyellow">
-                                      Terms and Conditions
+                                      Điều khoản sử dụngs
                                     </span>
                                   </Link>
                                 </li>

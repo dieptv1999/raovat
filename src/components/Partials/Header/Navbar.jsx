@@ -1009,7 +1009,7 @@ export default function Navbar({className, type}) {
                                     <span
                                       className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}
                                     >
-                                      Privacy Policy
+                                      Chính sách bảo mật
                                     </span>
                                 </Link>
                               </li>
@@ -1018,7 +1018,7 @@ export default function Navbar({className, type}) {
                                     <span
                                       className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}
                                     >
-                                      Terms and Conditions
+                                      Điều khoản sử dụngs
                                     </span>
                                 </Link>
                               </li>

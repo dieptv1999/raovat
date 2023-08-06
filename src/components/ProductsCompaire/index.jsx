@@ -10,7 +10,7 @@ export default function ProductsCompaire() {
         <div className="w-full mb-5">
           <PageTitle
             breadcrumb={[
-              { name: "home", path: "/" },
+              { name: "trang chủ", path: "/" },
               { name: "compaire", path: "/products-compaire" },
             ]}
             title="Product Comparison"

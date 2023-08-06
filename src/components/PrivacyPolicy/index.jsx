@@ -8,10 +8,10 @@ export default function PrivacyPolicy() {
         <div className="w-full mb-[30px]">
           <PageTitle
             breadcrumb={[
-              { name: "home", path: "/" },
-              { name: "Privacy Policy", path: "privacy-policy" },
+              { name: "trang chủ", path: "/" },
+              { name: "chính sách bảo mật", path: "privacy-policy" },
             ]}
-            title="Privacy Policy"
+            title="Chính sách bảo mật"
           />
         </div>
         <div className="w-full">

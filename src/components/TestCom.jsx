@@ -3,7 +3,7 @@ export default function TestCom() {
     <>
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold underline text-red-400 bg-blue-500">
-          Hello world!
+          Xin chào world!
         </h1>
       </div>
     </>

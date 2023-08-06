@@ -14,7 +14,7 @@ export default function CardPage({ cart = true }) {
           <div className="container-x mx-auto">
             <BreadcrumbCom
               paths={[
-                { name: "home", path: "/" },
+                { name: "trang chủ", path: "/" },
                 { name: "cart", path: "/cart" },
               ]}
             />
@@ -25,10 +25,10 @@ export default function CardPage({ cart = true }) {
         <div className="cart-page-wrapper w-full bg-white pb-[60px]">
           <div className="w-full">
             <PageTitle
-              title="Your Cart"
+              title="Giỏ hàng"
               breadcrumb={[
-                { name: "home", path: "/" },
-                { name: "cart", path: "/cart" },
+                { name: "trang chủ", path: "/" },
+                { name: "giỏ hàng", path: "/cart" },
               ]}
             />
           </div>
@@ -48,13 +48,13 @@ export default function CardPage({ cart = true }) {
                   <Link href="#">
                     <div className="w-[220px] h-[50px] bg-[#F6F6F6] flex justify-center items-center">
                       <span className="text-sm font-semibold">
-                        Continue Shopping
+                        Tiếp tục mua sắm
                       </span>
                     </div>
                   </Link>
                   <Link href="#">
-                    <div className="w-[140px] h-[50px] bg-[#F6F6F6] flex justify-center items-center">
-                      <span className="text-sm font-semibold">Update Cart</span>
+                    <div className="px-6 h-[50px] bg-[#F6F6F6] flex justify-center items-center">
+                      <span className="text-sm font-semibold">Cập nhật giỏ hàng</span>
                     </div>
                   </Link>
                 </div>
@@ -64,7 +64,7 @@ export default function CardPage({ cart = true }) {
                   <div className="sub-total mb-6">
                     <div className=" flex justify-between mb-6">
                       <p className="text-[15px] font-medium text-qblack">
-                        Subtotal
+                        Tổng (chưa phí)
                       </p>
                       <p className="text-[15px] font-medium text-qred">$365</p>
                     </div>
@@ -175,7 +175,7 @@ export default function CardPage({ cart = true }) {
                   <div className="total mb-6">
                     <div className=" flex justify-between">
                       <p className="text-[18px] font-medium text-qblack">
-                        Total
+                        Tổng
                       </p>
                       <p className="text-[18px] font-medium text-qred">$365</p>
                     </div>
@@ -183,7 +183,7 @@ export default function CardPage({ cart = true }) {
                   <Link href="/checkout">
                     <div className="w-full h-[50px] black-btn flex justify-center items-center">
                       <span className="text-sm font-semibold">
-                        Proceed to Checkout
+                        Thanh toán
                       </span>
                     </div>
                   </Link>
