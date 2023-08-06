@@ -8,6 +8,8 @@ import "../styles/selectbox.css";
 import {useRouter} from "next/router";
 import {DefaultSeo} from "next-seo";
 import DownloadApp from "../src/components/DownloadApp";
+import {ToastContainer} from "react-toastify";
+
 
 function MyApp({Component, pageProps}) {
   const location = useRouter();
@@ -37,6 +39,7 @@ function MyApp({Component, pageProps}) {
       <DefaultSeo {...SEO}/>
       <Component {...pageProps} />
       <DownloadApp id={'download-app'}/>
+      <ToastContainer />
     </>
   );
 }

@@ -1,5 +1,7 @@
 import {BASE_URL, SESSION} from "./constant";
 import moment from "moment";
+import {toast} from "react-toastify";
+import get from "lodash/get";
 
 function getToken() {
     if (process.browser) {
@@ -66,7 +68,7 @@ function getUrlFacebook(text, url) {
     }
 }
 
-function getUrlTele(text, url) {
+function getUrlTelegram(text, url) {
     if (text) {
         return `https://t.me/share/url?text=${text}&url=${url}`
     } else {
@@ -76,8 +78,24 @@ function getUrlTele(text, url) {
 
 function copyToClipboard(text, url) {
     navigator.clipboard.writeText(url).then(() => {
-        message.success(t('nft.common.copy-link-success'))
+        toast.success('Đã copy link vào clipboard')
     });
+}
+
+function showMessage(title, message, status = 'success') {
+    if (!document) return;
+    if (status === 'success') {
+        toast.success(message, {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+    }
 }
 
 export default {
@@ -87,4 +105,9 @@ export default {
     getFirstImage,
     formatMoney,
     convertIntToStringLocale,
+    showMessage,
+    copyToClipboard,
+    getUrlTelegram,
+    getUrlFacebook,
+    getUrlTweet,
 }

@@ -174,7 +174,7 @@ export default function SingleProductPage() {
                     </p>
                     <div>
                       <h6 className="text-[18px] text-medium mb-4">
-                        Dịch vụs :
+                        Dịch vụ :
                       </h6>
                       <ul className="list-disc ml-[15px]">
                         <li className="font-normal text-qgray leading-9">
