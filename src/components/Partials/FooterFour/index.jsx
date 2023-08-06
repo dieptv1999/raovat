@@ -136,7 +136,7 @@ export default function FooterFour() {
                 <li>
                   <Link href="/">
                     <span className="text-white text-[15px] hover:text-[#9a9a9a] hover:underline">
-                      Secure Payment
+                      Thanh toán an toàn
                     </span>
                   </Link>
                 </li>

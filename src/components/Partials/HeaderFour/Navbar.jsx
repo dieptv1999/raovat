@@ -933,7 +933,7 @@ export default function Navbar({ className,type }) {
                                 <li>
                                   <Link href="/terms-condition">
                                     <span className="text-qgray text-sm font-400 border-b border-transparent cursor-pointer hover:border-qyellow hover:text-qyellow">
-                                      Điều khoản sử dụngs
+                                      Điều khoản sử dụng
                                     </span>
                                   </Link>
                                 </li>

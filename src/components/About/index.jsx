@@ -559,7 +559,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Free Shipping
+                    Miễn phí vận chuyển
                   </p>
                   <p className="text-sm text-qblack">When ordering over $100</p>
                 </div>
@@ -594,7 +594,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Free Return
+                    Trả hàng miễn phí
                   </p>
                   <p className="text-sm text-qblack">
                     Get Return within 30 days
@@ -639,10 +639,10 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Secure Payment
+                    Thanh toán an toàn
                   </p>
                   <p className="text-sm text-qblack">
-                    100% Secure Online Payment
+                    Thanh toán trực tuyến an toàn 100%
                   </p>
                 </div>
               </div>
@@ -698,7 +698,7 @@ export default function About() {
                     Best Quality
                   </p>
                   <p className="text-sm text-qblack">
-                    Original Product Guarenteed
+                    Đảm bảo sản phẩm
                   </p>
                 </div>
               </div>
@@ -710,7 +710,7 @@ export default function About() {
           <div className="container-x mx-auto">
             <div className="blog-post-title flex justify-center items-cente mb-[30px]">
               <h1 className="text-3xl font-semibold text-qblack">
-                My Latest News
+                Tin tức mới nhất
               </h1>
             </div>
 

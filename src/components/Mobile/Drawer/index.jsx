@@ -1081,7 +1081,7 @@ export default function Drawer({ className, open, action }) {
                         <div className=" flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                           <div className="flex items-center space-x-6">
                             <span className="text-sm font-400">
-                              Điều khoản sử dụngs
+                              Điều khoản sử dụng
                             </span>
                           </div>
                           <div>

@@ -65,10 +65,10 @@ export default function DiscountBanner({ className,type }) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Free Shipping
+                      Miễn phí vận chuyển
                     </p>
                     <p className="text-sm text-qgray">
-                      When ordering over $100
+                      Khi đơn hàng lớn hơn $100
                     </p>
                   </div>
                 </div>
@@ -102,10 +102,10 @@ export default function DiscountBanner({ className,type }) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Free Return
+                      Trả hàng miễn phí
                     </p>
                     <p className="text-sm text-qgray">
-                      Get Return within 30 days
+                      Nhận lại hàng trong vòng 7 ngày
                     </p>
                   </div>
                 </div>
@@ -147,10 +147,10 @@ export default function DiscountBanner({ className,type }) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Secure Payment
+                      Thanh toán an toàn
                     </p>
                     <p className="text-sm text-qgray">
-                      100% Secure Online Payment
+                      Thanh toán trực tuyến an toàn 100%
                     </p>
                   </div>
                 </div>
@@ -203,10 +203,10 @@ export default function DiscountBanner({ className,type }) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Best Quality
+                      Chất lượng tốt nhất
                     </p>
                     <p className="text-sm text-qgray">
-                      Original Product Guarenteed
+                      Đảm bảo sản phẩm
                     </p>
                   </div>
                 </div>
