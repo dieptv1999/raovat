@@ -8,10 +8,10 @@ export default function CheakoutPage() {
       <div className="checkout-page-wrapper w-full bg-white pb-[60px]">
         <div className="w-full mb-5">
           <PageTitle
-            title="Checkout"
+            title="Thanh toán"
             breadcrumb={[
               { name: "trang chủ", path: "/" },
-              { name: "checkout", path: "/checkout" },
+              { name: "thanh toán", path: "/thanh toán" },
             ]}
           />
         </div>

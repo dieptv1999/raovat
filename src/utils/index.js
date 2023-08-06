@@ -54,25 +54,25 @@ const convertIntToStringLocale = (timeDiff) => {
 
 function getUrlTweet(text, url) {
     if (text) {
-        return `https://twitter.com/intent/tweet?text=${text}&url=${url}`
+        return `https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(url)}`
     } else {
-        return `https://twitter.com/intent/tweet?url=${url}`
+        return `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`
     }
 }
 
 function getUrlFacebook(text, url) {
     if (text) {
-        return `https://www.facebook.com/sharer/sharer.php?t=${text}&u=${url}`
+        return `https://www.facebook.com/sharer/sharer.php?t=${text}&u=${encodeURIComponent(url)}`
     } else {
-        return `https://www.facebook.com/sharer/sharer.php?u=${url}`
+        return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
     }
 }
 
 function getUrlTelegram(text, url) {
     if (text) {
-        return `https://t.me/share/url?text=${text}&url=${url}`
+        return `https://t.me/share/url?text=${text}&url=${encodeURIComponent(url)}`
     } else {
-        return `https://t.me/share/url?url=${url}`
+        return `https://t.me/share/url?url=${encodeURIComponent(url)}`
     }
 }
 
