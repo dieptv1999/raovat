@@ -3,8 +3,11 @@ import Middlebar from "./Middlebar";
 import Navbar from "./Navbar";
 import TopBar from "./TopBar";
 import Link from "next/link";
+import {useAuthContext} from "../../../context/AuthContext";
 
 export default function HeaderOne({ className, drawerAction,type=1 }) {
+  const {user} = useAuthContext()
+
   return (
     <header className={` ${className || ""} header-section-wrapper relative`}>
       <TopBar className="quomodo-shop-top-bar" />
@@ -58,7 +61,7 @@ export default function HeaderOne({ className, drawerAction,type=1 }) {
             )}
           </div>
           <div className="cart relative cursor-pointer">
-            <Link href="/cart" passHref>
+            <Link href={user ? "/cart" : "/login"} passHref>
               <a rel="noopener noreferrer">
                  <span>
                 <ThinBag />

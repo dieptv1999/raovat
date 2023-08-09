@@ -984,78 +984,78 @@ export default function Navbar({className, type}) {
                 {/*    </div>*/}
                 {/*  </div>*/}
                 {/*</li>*/}
-                {/*<li className="relative">*/}
-                {/*    <span*/}
-                {/*      className={`flex items-center text-sm font-600 cursor-pointer ${type === 3 ? "text-white" : "text-qblacktext"}`}*/}
-                {/*    >*/}
-                {/*      <span>Pages</span>*/}
-                {/*      <span className="ml-1.5 ">*/}
-                {/*        <Arrow className="fill-current"/>*/}
-                {/*      </span>*/}
-                {/*    </span>*/}
-                {/*  <div className="sub-menu w-[220px] absolute left-0 top-[60px]">*/}
-                {/*    <div*/}
-                {/*      className="w-full bg-white flex justify-between items-center "*/}
-                {/*      style={{*/}
-                {/*        boxShadow: "0px 15px 50px 0px rgba(0, 0, 0, 0.14)",*/}
-                {/*      }}*/}
-                {/*    >*/}
-                {/*      <div className="categories-wrapper w-full h-full p-5">*/}
-                {/*        <div>*/}
-                {/*          <div className="category-items">*/}
-                {/*            <ul className="flex flex-col space-y-2">*/}
-                {/*              <li>*/}
-                {/*                <Link href="/privacy-policy">*/}
-                {/*                    <span*/}
-                {/*                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
-                {/*                    >*/}
-                {/*                      Chính sách bảo mật*/}
-                {/*                    </span>*/}
-                {/*                </Link>*/}
-                {/*              </li>*/}
-                {/*              <li>*/}
-                {/*                <Link href="/terms-condition">*/}
-                {/*                    <span*/}
-                {/*                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
-                {/*                    >*/}
-                {/*                      Điều khoản sử dụng*/}
-                {/*                    </span>*/}
-                {/*                </Link>*/}
-                {/*              </li>*/}
-                {/*              <li>*/}
-                {/*                <Link href="/faq">*/}
-                {/*                    <span*/}
-                {/*                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
-                {/*                    >*/}
-                {/*                      FAQ*/}
-                {/*                    </span>*/}
-                {/*                </Link>*/}
-                {/*              </li>*/}
-                {/*              <li>*/}
-                {/*                <Link href="/all-products">*/}
-                {/*                    <span*/}
-                {/*                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
-                {/*                    >*/}
-                {/*                      Shop Category Icon*/}
-                {/*                    </span>*/}
-                {/*                </Link>*/}
-                {/*              </li>*/}
-                {/*              <li>*/}
-                {/*                <Link href="/all-products">*/}
-                {/*                    <span*/}
-                {/*                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
-                {/*                    >*/}
-                {/*                      Shop List View*/}
-                {/*                    </span>*/}
-                {/*                </Link>*/}
-                {/*              </li>*/}
-                {/*            </ul>*/}
-                {/*          </div>*/}
-                {/*        </div>*/}
-                {/*      </div>*/}
-                {/*    </div>*/}
-                {/*  </div>*/}
-                {/*</li>*/}
+                <li className="relative">
+                    <span
+                      className={`flex items-center text-sm font-600 cursor-pointer ${type === 3 ? "text-white" : "text-qblacktext"}`}
+                    >
+                      <span>Thông tin</span>
+                      <span className="ml-1.5 ">
+                        <Arrow className="fill-current"/>
+                      </span>
+                    </span>
+                  <div className="sub-menu w-[220px] absolute left-0 top-[60px]">
+                    <div
+                      className="w-full bg-white flex justify-between items-center "
+                      style={{
+                        boxShadow: "0px 15px 50px 0px rgba(0, 0, 0, 0.14)",
+                      }}
+                    >
+                      <div className="categories-wrapper w-full h-full p-5">
+                        <div>
+                          <div className="category-items">
+                            <ul className="flex flex-col space-y-2">
+                              <li>
+                                <Link href="/privacy-policy">
+                                    <span
+                                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}
+                                    >
+                                      Chính sách bảo mật
+                                    </span>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/terms-condition">
+                                    <span
+                                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}
+                                    >
+                                      Điều khoản sử dụng
+                                    </span>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/faq">
+                                    <span
+                                      className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}
+                                    >
+                                      FAQ
+                                    </span>
+                                </Link>
+                              </li>
+                              {/*<li>*/}
+                              {/*  <Link href="/all-products">*/}
+                              {/*      <span*/}
+                              {/*        className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
+                              {/*      >*/}
+                              {/*        Shop Category Icon*/}
+                              {/*      </span>*/}
+                              {/*  </Link>*/}
+                              {/*</li>*/}
+                              {/*<li>*/}
+                              {/*  <Link href="/all-products">*/}
+                              {/*      <span*/}
+                              {/*        className={`text-qgray text-sm font-400 border-b border-transparent cursor-pointer   ${type === 3 ? "hover:text-qh3-blue hover:border-qh3-blue" : "hover:text-qyellow hover:border-qyellow"}`}*/}
+                              {/*      >*/}
+                              {/*        Shop List View*/}
+                              {/*      </span>*/}
+                              {/*  </Link>*/}
+                              {/*</li>*/}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
                 <li>
                   <Link href="/about">
                       <span

@@ -2,7 +2,9 @@ import Link from "next/link";
 import { useState } from "react";
 import Compair from "../../Helpers/icons/Compair";
 import ThinLove from "../../Helpers/icons/ThinLove";
+import {useAuthContext} from "../../../context/AuthContext";
 export default function Drawer({ className, open, action }) {
+  const {user} = useAuthContext();
   const [tab, setTab] = useState("category");
   return (
     <>
@@ -34,7 +36,7 @@ export default function Drawer({ className, open, action }) {
                 {/*  </span>*/}
                 {/*</div>*/}
                 <div className="favorite relative">
-                  <Link href="/wishlist">
+                  <Link href={user ? "/wishlist" : "/login"}>
                     <span>
                       <ThinLove />
                     </span>
