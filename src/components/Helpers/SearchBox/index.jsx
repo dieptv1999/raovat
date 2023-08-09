@@ -12,7 +12,7 @@ export default function SearchBox({className, type}) {
                     <form action="#" className="h-full">
                         <input
                             type="text"
-                            className="search-input"
+                            className="search-input bg-white"
                             placeholder="Tìm kiếm sản phẩm..."
                         />
                     </form>
