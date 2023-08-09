@@ -26,7 +26,7 @@ export function CardLoading({key}) {
                     <div className="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
                 </div>
             </div>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
         </div>
 
     )
