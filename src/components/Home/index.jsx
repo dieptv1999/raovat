@@ -14,7 +14,6 @@ import ProductsAds from "./ProductsAds";
 // const AdsSlider = dynamic(() => import("./AdsSlider"), {ssr: false});
 
 export default function Home({adsList, newsHot}) {
-  console.log(newsHot)
   const { products } = datas;
   const brands = [];
   products.forEach((product) => {

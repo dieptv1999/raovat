@@ -31,11 +31,11 @@ export default {
   additionalLinkTags: [
     {
       rel: 'icon',
-      href: 'https://raovat24h.net/favicon.png',
+      href: '/favicon.png',
     },
     {
       rel: 'apple-touch-icon',
-      href: 'https://raovat24h.net/favicon.png',
+      href: '/favicon.png',
       sizes: '76x76'
     },
     {

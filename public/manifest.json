@@ -1,0 +1,17 @@
+{
+ "name": "ao vặt 24h",
+ "short_name": "Raovat24h",
+ "icons": [
+  {
+   "src": "\/favicon.png",
+   "sizes": "32x32",
+   "type": "image\/png",
+   "density": "0.75",
+   "purpose": "any maskable"
+  }
+ ],
+ "start_url": "./",
+ "display": "standalone",
+ "theme_color": "#ffffff",
+ "background_color": "#ffffff"
+}

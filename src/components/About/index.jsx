@@ -66,38 +66,34 @@ export default function About() {
               <div className="md:w-[570px] w-full md:h-[560px] h-auto rounded overflow-hidden my-5 lg:my-0 relative">
                 <Image
                   layout="fill"
-                  src={`/assets/images/about-banner.webp`}
+                  src={`/assets/images/memphis.png`}
                   alt="about"
+                  objectFit={'contain'}
                   className="w-full h-full"
                 />
               </div>
               <div className="content flex-1">
-                <h1 className="text-[18px] font-medium text-qblack mb-2.5">
-                  What is e-commerce business?
+                <h1 className="text-[24px] font-medium text-qblack mb-2.5">
+                  Raovat24h.net lựa chọn tốt nhất cho người dùng
                 </h1>
                 <p className="text-[15px] text-qgraytwo leading-7 mb-2.5">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industrys
-                  standard dummy text ever since the 1500s, when an printer took
-                  a galley of type and scrambled it to make a type specimen
-                  book. It has survived not only five centuries but also the on
-                  leap into electronic typesetting.
+                  Được phát triển bởi một đội ngũ giỏi đến từ chính những con người Việt thuộc Đại học Bách Khoa Hà Nội.
                 </p>
-                <ul className="text-[15px] text-qgraytwo leading-7 list-disc ml-5 mb-5">
-                  <li>slim body with metal cover</li>
-                  <li>
-                    latest Intel Core i5-1135G7 processor (4 cores / 8 threads)
-                  </li>
-                  <li>8GB DDR4 RAM and fast 512GB PCIe SSD</li>
-                  <li>
-                    NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit
-                    keyboard
-                  </li>
-                </ul>
+                {/*<ul className="text-[15px] text-qgraytwo leading-7 list-disc ml-5 mb-5">*/}
+                {/*  <li>slim body with metal cover</li>*/}
+                {/*  <li>*/}
+                {/*    latest Intel Core i5-1135G7 processor (4 cores / 8 threads)*/}
+                {/*  </li>*/}
+                {/*  <li>8GB DDR4 RAM and fast 512GB PCIe SSD</li>*/}
+                {/*  <li>*/}
+                {/*    NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit*/}
+                {/*    keyboard*/}
+                {/*  </li>*/}
+                {/*</ul>*/}
 
                 <Link href="/contact">
-                  <div className="w-[121px] h-10">
-                    <span className="yellow-btn">Contact Us</span>
+                  <div className="w-fit h-10">
+                    <span className="yellow-btn px-6">Liên hệ chúng tôi</span>
                   </div>
                 </Link>
               </div>
@@ -108,7 +104,7 @@ export default function About() {
         <div className="customer-feedback w-full bg-white py-[60px]">
           <div className="title flex justify-center mb-5">
             <h1 className="text-[30px] font-semibold text-qblack">
-              Customers Feedback
+              Phản hồi của khách hàng
             </h1>
           </div>
           <div className="feedback-slider-wrapper w-vw relative overflow-hidden">
@@ -695,7 +691,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Best Quality
+                    Chất lượng tốt nhất
                   </p>
                   <p className="text-sm text-qblack">
                     Đảm bảo sản phẩm
