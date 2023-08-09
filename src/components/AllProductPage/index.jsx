@@ -10,6 +10,7 @@ import {CATEGORIES} from "../../utils/constant";
 import {find, reduce} from "lodash/collection";
 import {throttle} from "lodash/function";
 import {remove} from "lodash/array";
+import {ListCardLoading} from "../Loading";
 
 export default function AllProductPage() {
     const router = useRouter()
@@ -42,18 +43,17 @@ export default function AllProductPage() {
     });
 
     const [products, setProducts] = useState();
+    const [loading, setLoading] = useState(false);
     const categories = router.query.categories?.split(',');
     const checkboxHandler = (name) => {
-        let query = categories;
+        let query = categories ?? [];
         const id = name.replace('filter', '');
-        console.log(query.includes(id))
 
         if (query.includes(id)) {
             remove(query, e => e === id)
         } else {
             query = [...query, id]
         }
-        console.log(query)
 
         router.query.categories = query.join(',')
         router.replace(router)
@@ -67,7 +67,7 @@ export default function AllProductPage() {
     const [filterToggle, setToggle] = useState(false);
 
     function fetchData() {
-        if (!categories) {
+        if (!categories || categories.length === 0) {
             fetchSell()
         } else {
             fetchSellByCategory()
@@ -75,10 +75,12 @@ export default function AllProductPage() {
     }
 
     async function fetchSell() {
+        setLoading(true)
         const resp = await ApiFactory.getRequest("ProductApi").getListSellMore({
             create_dt: products?.length > 0 ? products[products[products.length - 1].create_dt] : null, // ngày của item cuối page trước đó
         })
 
+        setLoading(false)
         setProducts(resp?.listSell)
     }
 
@@ -94,21 +96,20 @@ export default function AllProductPage() {
 
             collection_name = collection_name.join(',')
         }
+        setLoading(true)
         const resp = await ApiFactory.getRequest("ProductApi").getListSellViaCollectionMore({
-            collection_id: typeof categories == 'string' ? categories : categories[0], // id của collection,
-            collection_name,
+            // collection_id: typeof categories == 'string' ? categories : categories[0], // id của collection,
+            collection: collection_name,
             create_dt: create_dt, // ngày của item cuối page trước đó
         })
 
+        setLoading(false)
         setProducts(!!create_dt ? [...products, ...resp?.listSell] : resp?.listSell)
     }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            console.log(reduce(typeof categories == 'string' ? [categories] : categories, (rlt, e) => ({
-                ...rlt,
-                ['filter' + e]: true
-            }), {}))
+            setProducts([])
             setFilter(reduce(typeof categories == 'string' ? [categories] : categories, (rlt, e) => ({
                 ...rlt,
                 ['filter' + e]: true
@@ -198,7 +199,7 @@ export default function AllProductPage() {
                                     </button>
                                 </div>
                                 <div
-                                    className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1  xl:gap-[30px] gap-5 mb-[40px]">
+                                    className={`grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1  xl:gap-[30px] gap-5 ${loading ? '' : 'mb-[40px]'}`}>
                                     <DataIteration datas={products} startLength={0}
                                                    endLength={(products?.length ?? 4) - 4}>
                                         {({datas}) => (
@@ -208,19 +209,18 @@ export default function AllProductPage() {
                                         )}
                                     </DataIteration>
                                 </div>
-                                <div className="flex justify-center mb-6">
-                                    <button className="btn btn-warning" onClick={fetchData}>Xem thêm</button>
-                                </div>
 
-                                <div className="w-full h-[164px] overflow-hidden mb-[40px]">
-                                    <img
-                                        src={`/assets/images/ads-6.png`}
-                                        alt=""
-                                        className="w-full h-full object-contain"
-                                    />
-                                </div>
+                                {loading ?
+                                    <div/>
+                                    : <div className="w-full h-[164px] overflow-hidden mb-[40px]">
+                                        <img
+                                            src={`/assets/images/ads-6.png`}
+                                            alt=""
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </div>}
                                 <div
-                                    className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5 mb-[40px]">
+                                    className={`grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5 ${loading ? '' : 'mb-[40px]'}`}>
                                     <DataIteration
                                         datas={products}
                                         startLength={(products?.length ?? 4) - 4}
@@ -232,6 +232,10 @@ export default function AllProductPage() {
                                             </div>
                                         )}
                                     </DataIteration>
+                                </div>
+                                {loading ? <ListCardLoading/> : <div/>}
+                                <div className="flex justify-center my-6">
+                                    <button className="btn btn-warning" onClick={fetchData}>Xem thêm</button>
                                 </div>
                             </div>
                         </div>
