@@ -48,7 +48,7 @@ export default function Profile() {
                 { name: "Thông tin cá nhân", path: "/profile" },
               ]}
             />
-            <div className="w-full bg-white px-10 py-9">
+            <div className="w-full bg-white px-3 lg:px-10 py-3 lg:py-9">
               <div className="title-area w-full flex justify-between items-center">
                 <h1 className="text-[22px] font-bold text-qblack">
                   Trang cá nhân của bạn
@@ -68,10 +68,11 @@ export default function Profile() {
                 {/*  </button>*/}
                 {/*</div>*/}
               </div>
-              <div className="profile-wrapper w-full mt-8 flex space-x-10">
-                <div className="w-[236px] min-h-[600px] border-r border-[rgba(0, 0, 0, 0.1)]">
-                  <div className="flex flex-col space-y-10">
-                    <div className="item group">
+              <div className="profile-wrapper w-full mt-8 flex flex-col lg:flex-row lg:space-x-10">
+                <div className="lg:w-[236px] lg:min-h-[600px] border-r border-[rgba(0, 0, 0, 0.1)]">
+                  <div className="flex lg:flex-col lg:space-y-10 overflow-y-scroll lg:overflow-y-auto space-x-6 lg:space-x-0
+                  items-center border-b lg:border-none pb-3 lg:pb-0">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#dashboard">
                         <div className={`flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer`}>
                           <span>
@@ -83,7 +84,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#post">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -95,7 +96,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#profile">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -108,7 +109,7 @@ export default function Profile() {
                       </Link>
                     </div>
 
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#payment">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -120,7 +121,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#order">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -130,7 +131,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#wishlist">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -142,7 +143,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#address">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -154,7 +155,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#review">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -166,7 +167,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#password">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
@@ -178,7 +179,7 @@ export default function Profile() {
                         </div>
                       </Link>
                     </div>
-                    {/*<div className="item group">*/}
+                    {/*<div className="item group whitespace-nowrap lg:whitespace-normal">*/}
                     {/*  <Link href="/profile#support">*/}
                     {/*    <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
                     {/*      <span>*/}
@@ -190,7 +191,7 @@ export default function Profile() {
                     {/*    </div>*/}
                     {/*  </Link>*/}
                     {/*</div>*/}
-                    <div className="item group">
+                    <div className="item group whitespace-nowrap lg:whitespace-normal">
                       <Link href="/profile#profile">
                         <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
