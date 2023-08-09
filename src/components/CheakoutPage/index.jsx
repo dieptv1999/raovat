@@ -65,7 +65,7 @@ export default function CheakoutPage() {
                     <div className="flex space-x-5 items-center mb-6">
                       <div className="w-1/2">
                         <InputCom
-                          label="Địa chỉ Email*"
+                          label="Địa Chỉ Email"
                           placeholder="demoemial@gmail.com"
                           inputClasses="w-full h-[50px]"
                         />

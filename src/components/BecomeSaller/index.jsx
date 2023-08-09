@@ -94,7 +94,7 @@ export default function BecomeSaller() {
                                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                                             <InputCom
                                                 placeholder="Demo Name"
-                                                label="Frist Name*"
+                                                label="Họ và tên"
                                                 name="fname"
                                                 type="text"
                                                 inputClasses="h-[50px]"
@@ -112,7 +112,7 @@ export default function BecomeSaller() {
                                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                                             <InputCom
                                                 placeholder="Demo@gmail.com"
-                                                label="Địa chỉ Email*"
+                                                label="Địa Chỉ Email"
                                                 name="email"
                                                 type="email"
                                                 inputClasses="h-[50px]"

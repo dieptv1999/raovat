@@ -171,7 +171,7 @@ export default function Reviews({
           </div>
           <div className="w-full mb-[30px]">
             <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-              Message*
+              Lời nhắn
             </h6>
             <textarea
               value={message}

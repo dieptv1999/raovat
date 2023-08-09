@@ -9,7 +9,7 @@ export default function Faq() {
       <div className="faq-page-wrapper w-full mb-10">
         <div className="page-title w-full">
           <PageTitle
-            title="Frequently Asked Questions"
+            title="Câu hỏi thường gặp"
             breadcrumb={[
               { name: "trang chủ", path: "/" },
               { name: "FAQ", path: "/faq" },
@@ -22,7 +22,7 @@ export default function Faq() {
           <div className="main-wrapper w-full lg:flex lg:space-x-[30px]">
             <div className="lg:w-1/2 w-full mb-10 lg:mb-0">
               <h1 className="text-qblack font-bold text-[22px] mb-4">
-                Frequently asked questions
+                Câu hỏi thường gặp
               </h1>
               <div className="flex flex-col space-y-7 justify-between">
                 <Accodion
@@ -62,7 +62,7 @@ humour, or randomised words"
               <div className="bg-white sm:p-10 p-5">
                 <div className="title flex flex-col items-center">
                   <h1 className="lg:text-[34px] text-xl font-bold text-qblack">
-                    Have Any Qustion
+                    Gửi góp ý
                   </h1>
                   <span className="-mt-3 block">
                     <svg
@@ -84,7 +84,7 @@ humour, or randomised words"
                 <div className="inputs mt-5">
                   <div className="mb-4">
                     <InputCom
-                      label="Frist Name*"
+                      label="Họ và tên"
                       placeholder="Demo Name"
                       name="first_name"
                       inputClasses="h-[50px]"
@@ -92,7 +92,7 @@ humour, or randomised words"
                   </div>
                   <div className="mb-4">
                     <InputCom
-                      label="Địa chỉ Email*"
+                      label="Địa Chỉ Email"
                       placeholder="info@quomodosoft.com"
                       name="email"
                       inputClasses="h-[50px]"
@@ -100,17 +100,17 @@ humour, or randomised words"
                   </div>
                   <div className="mb-5">
                     <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-                      Message*
+                      Lời nhắn
                     </h6>
                     <textarea
-                      placeholder="Type your message here"
+                      placeholder="Nhập lời nhắn ở đây"
                       className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 border border-qgray-border placeholder:text-sm"
                     ></textarea>
                   </div>
                   <div>
                     <a href="#">
                       <div className="black-btn text-sm font-semibold w-full h-[50px] flex justify-center items-center">
-                        <span>Send Now</span>
+                        <span>Gửi ngay</span>
                       </div>
                     </a>
                   </div>
