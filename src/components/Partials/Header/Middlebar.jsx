@@ -1,12 +1,15 @@
 import Cart from "../../Cart";
-import Compair from "../../Helpers/icons/Compair";
 import ThinBag from "../../Helpers/icons/ThinBag";
 import ThinLove from "../../Helpers/icons/ThinLove";
 import ThinPeople from "../../Helpers/icons/ThinPeople";
 import SearchBox from "../../Helpers/SearchBox";
 import Link from "next/link";
+import {useAuthContext} from "../../../context/AuthContext";
+import LoginIcon from "../../Helpers/icons/LoginIcon";
 
 export default function Middlebar({ className,type }) {
+  const { user } = useAuthContext()
+
   return (
     <div className={`w-full h-[86px] bg-white ${className}`}>
       <div className="container-x mx-auto h-full">
@@ -88,10 +91,10 @@ export default function Middlebar({ className,type }) {
                 <Cart type={type} className="absolute -right-[45px] top-11 z-50 hidden group-hover:block" />
               </div>
               <div>
-                <Link href="/profile#dashboard" passHref>
+                <Link href={user? '/profile#dashboard' : '/login'} passHref>
                   <a rel="noopener noreferrer">
                     <span>
-                    <ThinPeople />
+                    {user ? <ThinPeople /> : <LoginIcon />}
                   </span>
                   </a>
                 </Link>

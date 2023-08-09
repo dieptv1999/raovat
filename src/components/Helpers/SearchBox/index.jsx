@@ -20,8 +20,9 @@ export default function SearchBox({className, type}) {
                 <div className="w-[1px] h-[22px] bg-qgray-border"></div>
                 <select
                     className="flex-1 flex items-center px-4 select select-ghost border-none h-auto min-h-[42px] text-xs"
+                    defaultValue={-1}
                     style={{outline: 'none'}}>
-                    <option selected value={-1}>
+                    <option value={-1}>
                         Danh mục
                     </option>
                     {CATEGORIES.map(e => (

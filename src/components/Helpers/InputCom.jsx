@@ -5,6 +5,7 @@ export default function InputCom({
                                      placeholder,
                                      children,
                                      inputHandler,
+                                     onBlur,
                                      value,
                                      inputClasses,
                                      required = false,
@@ -27,10 +28,12 @@ export default function InputCom({
                     disabled={disabled}
                     value={value}
                     onChange={inputHandler}
-                    className={`input input-bordered placeholder:text-sm text-sm px-6 py-2 text-dark-gray w-full h-full font-normal bg-white focus:ring-0 focus:outline-none ${
+                    className={`input input-bordered placeholder:text-sm text-sm px-6 py-3 text-dark-gray w-full h-full font-normal bg-white focus:ring-0 focus:outline-none ${
                         inputClasses || ""
                     }`}
+                    onBlur={onBlur}
                     type={type}
+                    name={name}
                     id={name}
                 />
                 {children && children}

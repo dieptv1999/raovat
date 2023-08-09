@@ -9,6 +9,7 @@ import {useRouter} from "next/router";
 import {DefaultSeo} from "next-seo";
 import DownloadApp from "../src/components/DownloadApp";
 import {ToastContainer} from "react-toastify";
+import {AuthContextProvider} from "../src/context/AuthContext";
 
 
 function MyApp({Component, pageProps}) {
@@ -35,12 +36,12 @@ function MyApp({Component, pageProps}) {
   }, [location.pathname]);
 
   return (
-    <>
+    <AuthContextProvider>
       <DefaultSeo {...SEO}/>
       <Component {...pageProps} />
       <DownloadApp id={'download-app'}/>
       <ToastContainer />
-    </>
+    </AuthContextProvider>
   );
 }
 
