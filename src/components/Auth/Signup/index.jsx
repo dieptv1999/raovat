@@ -18,7 +18,7 @@ export default function Signup() {
               <div className="w-full">
                 <div className="title-area flex flex-col justify-center items-center relative text-center mb-7">
                   <h1 className="text-[34px] font-bold leading-[74px] text-qblack">
-                    Create Account
+                    Đăng ký
                   </h1>
                   <div className="shape -mt-6">
                     <svg
@@ -167,11 +167,11 @@ export default function Signup() {
                       </button>
                       <span
                         onClick={rememberMe}
-                        className="text-base text-black"
+                        className="text-sm text-black"
                       >
-                        I agree all
-                        <span className="text-qblack">tarm and condition</span>
-                        in BigShop.
+                        Tôi đồng ý với tất cả
+                        <span className="text-qblack ml-1 ">chính sách và điều khoản</span>
+                        của Raovat24h.
                       </span>
                     </div>
                   </div>
@@ -181,16 +181,16 @@ export default function Signup() {
                         type="button"
                         className="black-btn text-sm text-white w-full h-[50px] font-semibold flex justify-center bg-purple items-center"
                       >
-                        <span>Create Account</span>
+                        <span>Đăng ký</span>
                       </button>
                     </div>
                   </div>
 
                   <div className="signup-area flex justify-center">
                     <p className="text-base text-qgraytwo font-normal">
-                      Already have an Account?
+                      Bạn đã có tài khoản?
                       <Link href="/login" className="ml-2 text-qblack">
-                        Log In
+                        Đăng nhập
                       </Link>
                     </p>
                   </div>

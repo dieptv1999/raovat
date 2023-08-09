@@ -228,7 +228,7 @@ export default function BecomeSaller() {
                                         {/*    <p className="text-sm text-qgraytwo font-normal">*/}
                                         {/*        Already have an Account?*/}
                                         {/*        <Link href="/login" className="ml-2 text-qblack">*/}
-                                        {/*            Log In*/}
+                                        {/*            Đăng nhập*/}
                                         {/*        </Link>*/}
                                         {/*    </p>*/}
                                         {/*</div>*/}

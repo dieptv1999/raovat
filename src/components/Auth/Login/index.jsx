@@ -18,7 +18,7 @@ export default function Login() {
               <div className="w-full">
                 <div className="title-area flex flex-col justify-center items-center relative text-center mb-7">
                   <h1 className="text-[34px] font-bold leading-[74px] text-qblack">
-                    Log In
+                    Đăng nhập
                   </h1>
                   <div className="shape -mt-6">
                     <svg
@@ -87,7 +87,7 @@ export default function Login() {
                       href="/forgot-password"
                       className="text-base text-qyellow"
                     >
-                      Forgot Password
+                      Quên mật khẩu
                     </a>
                   </div>
                   <div className="signin-area mb-3.5">
@@ -96,7 +96,7 @@ export default function Login() {
                         type="button"
                         className="black-btn mb-6 text-sm text-white w-full h-[50px] font-semibold flex justify-center bg-purple items-center"
                       >
-                        <span>Log In</span>
+                        <span>Đăng nhập</span>
                       </button>
                     </div>
                     <a
@@ -155,9 +155,9 @@ export default function Login() {
                   </div>
                   <div className="signup-area flex justify-center">
                     <p className="text-base text-qgraytwo font-normal">
-                      Dont’t have an aceount ?
-                      <Link href="/signup" className="ml-2 text-qblack">
-                        Sign up free
+                      Bạn không có tài khoản?
+                      <Link href="/signup" className="ml-2 text-qblack underline">
+                        Đăng ký miễn phí
                       </Link>
                     </p>
                   </div>
