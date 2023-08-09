@@ -23,16 +23,16 @@ export default function Drawer({ className, open, action }) {
           <div className="w-full px-5 mt-5 mb-4">
             <div className="flex justify-between items-center">
               <div className="flex space-x-5 items-center">
-                <div className="compaire relative">
-                  <Link href="/products-compaire">
-                    <span>
-                      <Compair />
-                    </span>
-                  </Link>
-                  <span className="w-[18px] h-[18px] rounded-full bg-qyellow absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px]">
-                    2
-                  </span>
-                </div>
+                {/*<div className="compaire relative">*/}
+                {/*  <Link href="/products-compaire">*/}
+                {/*    <span>*/}
+                {/*      <Compair />*/}
+                {/*    </span>*/}
+                {/*  </Link>*/}
+                {/*  <span className="w-[18px] h-[18px] rounded-full bg-qyellow absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px]">*/}
+                {/*    2*/}
+                {/*  </span>*/}
+                {/*</div>*/}
                 <div className="favorite relative">
                   <Link href="/wishlist">
                     <span>
@@ -102,7 +102,7 @@ export default function Drawer({ className, open, action }) {
                 tab === "category" ? "text-qblack" : "text-qgray"
               }`}
             >
-              Categories
+              Danh mục
             </span>
             <span className="w-[1px] h-[14px] bg-qgray"></span>
             <span
@@ -111,7 +111,7 @@ export default function Drawer({ className, open, action }) {
                 tab === "menu" ? "text-qblack" : "text-qgray "
               }`}
             >
-              Main Menu
+              Menu chính
             </span>
           </div>
           {tab === "category" ? (
@@ -893,7 +893,7 @@ export default function Drawer({ className, open, action }) {
                   <Link href="/">
                     <div className=" flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                       <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">Home</span>
+                        <span className="text-sm font-400">Trang chủ</span>
                       </div>
                       <div>
                         <span>
@@ -926,48 +926,48 @@ export default function Drawer({ className, open, action }) {
                     </div>
                   </Link>
                 </li>
-                <li className="category-item">
-                  <Link href="/shops/shop">
-                    <div className="flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
-                      <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">Shop</span>
-                      </div>
-                      <div>
-                        <span>
-                          <svg
-                            width="6"
-                            height="9"
-                            viewBox="0 0 6 9"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <rect
-                              x="1.49805"
-                              y="0.818359"
-                              width="5.78538"
-                              height="1.28564"
-                              transform="rotate(45 1.49805 0.818359)"
-                              fill="#1D1D1D"
-                            />
-                            <rect
-                              x="5.58984"
-                              y="4.90918"
-                              width="5.78538"
-                              height="1.28564"
-                              transform="rotate(135 5.58984 4.90918)"
-                              fill="#1D1D1D"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
+                {/*<li className="category-item">*/}
+                {/*  <Link href="/shops/shop">*/}
+                {/*    <div className="flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">*/}
+                {/*      <div className="flex items-center space-x-6">*/}
+                {/*        <span className="text-sm font-400">Shop</span>*/}
+                {/*      </div>*/}
+                {/*      <div>*/}
+                {/*        <span>*/}
+                {/*          <svg*/}
+                {/*            width="6"*/}
+                {/*            height="9"*/}
+                {/*            viewBox="0 0 6 9"*/}
+                {/*            fill="none"*/}
+                {/*            xmlns="http://www.w3.org/2000/svg"*/}
+                {/*          >*/}
+                {/*            <rect*/}
+                {/*              x="1.49805"*/}
+                {/*              y="0.818359"*/}
+                {/*              width="5.78538"*/}
+                {/*              height="1.28564"*/}
+                {/*              transform="rotate(45 1.49805 0.818359)"*/}
+                {/*              fill="#1D1D1D"*/}
+                {/*            />*/}
+                {/*            <rect*/}
+                {/*              x="5.58984"*/}
+                {/*              y="4.90918"*/}
+                {/*              width="5.78538"*/}
+                {/*              height="1.28564"*/}
+                {/*              transform="rotate(135 5.58984 4.90918)"*/}
+                {/*              fill="#1D1D1D"*/}
+                {/*            />*/}
+                {/*          </svg>*/}
+                {/*        </span>*/}
+                {/*      </div>*/}
+                {/*    </div>*/}
+                {/*  </Link>*/}
+                {/*</li>*/}
                 <li className="category-item">
                   <Link href="#">
                     <div className=" flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                       <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">Pages</span>
+                        <span className="text-sm font-400">Thông tin</span>
                       </div>
                       <div>
                         <span>
@@ -1122,7 +1122,7 @@ export default function Drawer({ className, open, action }) {
                   <Link href="/about">
                     <div className="flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                       <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">About</span>
+                        <span className="text-sm font-400">Về chúng tôi</span>
                       </div>
                       <div>
                         <span>
@@ -1159,7 +1159,7 @@ export default function Drawer({ className, open, action }) {
                   <Link href="/Blogs">
                     <div className="flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                       <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">Blogs</span>
+                        <span className="text-sm font-400">Bài viết</span>
                       </div>
                       <div>
                         <span>
@@ -1196,7 +1196,7 @@ export default function Drawer({ className, open, action }) {
                   <Link href="/contact">
                     <div className="flex justify-between items-center px-5 h-12 bg-white hover:bg-qyellow transition-all duration-300 ease-in-out cursor-pointer">
                       <div className="flex items-center space-x-6">
-                        <span className="text-sm font-400">Contact</span>
+                        <span className="text-sm font-400">Liên hệ</span>
                       </div>
                       <div>
                         <span>

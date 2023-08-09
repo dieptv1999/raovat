@@ -160,7 +160,7 @@ export default function Footer({type}) {
           </div>
         </div>
         <div
-          className="bottom-bar border-t border-qgray-border lg:h-[82px] lg:flex justify-between items-center">
+          className="bottom-bar border-t border-qgray-border py-4 lg:py-0 lg:h-[82px] lg:flex justify-between items-center">
           <div className="flex lg:space-x-5 justify-between items-center mb-3">
             <div className="flex space-x-5 items-center">
               {/*<Link href="#" passHref>*/}
@@ -169,9 +169,8 @@ export default function Footer({type}) {
               {/*    </a>*/}
               {/*</Link>*/}
               <Link href="https://www.facebook.com/ungdungmuaban" passHref>
-                <a rel="noopener noreferrer" target={'_blank'}>
+                <a rel="noopener noreferrer" target={'_blank'} className="border border-gray-300 rounded-full h-[28px] w-[28px] flex items-center justify-center">
                   <Facebook className="fill-current text-qgray hover:text-qblack"/>
-
                 </a>
               </Link>
               {/*<Link href="#" passHref>*/}
