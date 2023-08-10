@@ -27,4 +27,9 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}getListSellViaCollectionMore`;
     return this.post(url, params);
   }
+
+  subscriber(params) {
+    const url = `${schema}subscriber`;
+    return this.post(url, params);
+  }
 }

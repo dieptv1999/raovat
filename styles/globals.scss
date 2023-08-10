@@ -358,3 +358,22 @@ li.item:last-child {
   padding-bottom: var(--tab-border,1px);
   padding-top: 0;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

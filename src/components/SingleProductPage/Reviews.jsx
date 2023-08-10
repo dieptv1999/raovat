@@ -179,8 +179,9 @@ export default function Reviews({
               name=""
               id=""
               cols="30"
+              placeholder={'Lời nhắn'}
               rows="3"
-              className="w-full focus:ring-0 focus:outline-none p-6"
+              className="textarea textarea-bordered w-full focus:ring-0 focus:outline-none px-3 py-2"
             ></textarea>
           </div>
 

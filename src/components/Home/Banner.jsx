@@ -16,8 +16,8 @@ export default function Banner({className, data}) {
       <div className={`w-full ${className || ""}`}>
         <div className="container-x mx-auto">
           <div className="main-wrapper w-full">
-            <div className="banner-card xl:flex xl:space-x-[30px] xl:h-[600px]  mb-[30px]">
-              <div data-aos="fade-right" className="xl:w-[740px] w-full h-full">
+            <div className="banner-card lg:flex lg:space-x-[30px] lg:h-[550px] xl:h-[600px]  mb-[30px]">
+              <div data-aos="fade-right" className="lg:w-[640px] xl:w-[740px] w-full h-full">
                 <Link href={data[0]?.link} passHref>
                   <a target="_blank" rel="noopener noreferrer">
                     <picture onClick={() => clickBanner(data[0].id)}>
@@ -25,6 +25,7 @@ export default function Banner({className, data}) {
                         media="(min-width:1025px)"
                         width={740}
                         height={600}
+                        placeholder={'blur'}
                         className="object-cover"
                         // srcSet={`/assets/images/banner-1.png?v=1`}
                         srcSet={data[0]?.cover}
@@ -40,9 +41,9 @@ export default function Banner({className, data}) {
               </div>
               <div
                 data-aos="fade-left"
-                className="flex-1 flex xl:flex-col flex-row  xl:space-y-[30px] h-full"
+                className="flex-1 flex lg:flex-col flex-row  lg:space-y-[30px] h-full"
               >
-                <div className="w-full xl:h-1/2">
+                <div className="w-full lg:h-1/2">
                   <Link href={data[1]?.link} passHref>
                     <a target="_blank" rel="noopener noreferrer">
                       <img
@@ -50,12 +51,12 @@ export default function Banner({className, data}) {
                         // src={`/assets/images/banner-2.png`}
                         src={data[1]?.cover}
                         alt="banner 2"
-                        className="w-full h-full"
+                        className="w-full h-full object-cover"
                       />
                     </a>
                   </Link>
                 </div>
-                <div className="w-full xl:h-1/2">
+                <div className="w-full lg:h-1/2">
                   <Link href={data[2]?.link} passHref>
                     <a target="_blank" rel="noopener noreferrer">
                       <img
@@ -63,7 +64,7 @@ export default function Banner({className, data}) {
                         // src={`/assets/images/banner-3.png`}
                         src={data[2]?.cover}
                         alt="banner 3"
-                        className="w-full h-full"
+                        className="w-full h-full object-cover"
                       />
                     </a>
                   </Link>
