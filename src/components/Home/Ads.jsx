@@ -4,12 +4,14 @@ import {Form, Formik} from "formik";
 import * as Yup from "yup";
 import ApiFactory from "../../apis/ApiFactory";
 import {SUBSCRIBER} from "../../utils/constant";
+import utils from "../../utils";
 
-export default function Ads({handler, onSuccess = () => {}}) {
+export default function Ads({handler}) {
     async function subscribe(values) {
+        utils.showMessage("Thông báo", "Bạn đã đăng ký thành công kênh đồ cũ của chúng tôi qua email")
+        handler()
         await ApiFactory.getRequest("ProductApi").subscriber(values)
         localStorage.setItem(SUBSCRIBER, 'true')
-        onSuccess()
     }
 
     return (

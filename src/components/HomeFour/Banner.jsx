@@ -125,10 +125,10 @@ export default function Banner({ className }) {
                   </div>
                   <div>
                     <p className="text-white text-[15px] font-700 tracking-wide mb-1">
-                      Miễn phí vận chuyển
+                      Tin đăng tiếp cận
                     </p>
                     <p className="text-sm text-qgray text-white">
-                      Khi đơn hàng lớn hơn $100
+                      Hơn một triệu khách hàng tiềm năng
                     </p>
                   </div>
                 </div>
@@ -162,10 +162,10 @@ export default function Banner({ className }) {
                   </div>
                   <div>
                     <p className="text-white text-[15px] font-700 tracking-wide mb-1">
-                      Trả hàng miễn phí
+                      Hãy mua theo cách của bạn
                     </p>
                     <p className="text-sm text-qgray text-white">
-                      Nhận lại hàng trong vòng 7 ngày
+                      Hàng thật, giá thật
                     </p>
                   </div>
                 </div>

@@ -36,7 +36,7 @@ export default function Footer({type}) {
         </div>
         <div className="lg:flex justify-between mb-[50px]">
           <div className="lg:w-[424px]  ml-0 w-full mb-10 lg:mb-0">
-            <h1 className="text-[18] font-500 text-[#2F2F2F] mb-5">Về chúng tôi</h1>
+            <h1 className="text-[18] font-500 text-[#2F2F2F] mb-5">Raovat24h</h1>
             <p className="text-[#9A9A9A] text-[15px] w-[247px] leading-[28px]">
               Kênh rao vặt, mua bán tốt nhất Việt Nam.
             </p>
@@ -183,7 +183,7 @@ export default function Footer({type}) {
             <span className="sm:text-base text-[10px] text-qgray font-300">
               ©2023
               <a
-                href="https://quomodosoft.com/"
+                href="https://play.google.com/store/apps/dev?id=7999218124998548142&hl=en_US"
                 target="_blank"
                 rel="noreferrer"
                 className="font-500 text-qblack mx-1"

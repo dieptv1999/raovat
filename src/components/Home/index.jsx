@@ -49,7 +49,7 @@ export default function Home({adsList, newsHot}) {
     return (
         <>
             <Layout>
-                {ads && <Ads handler={adsHandle} onSuccess={() => setAds(false)}/>}
+                {ads && <Ads handler={adsHandle}/>}
                 <div className="">
                     {/*<AdsSlider data={adsList}/>*/}
                 </div>

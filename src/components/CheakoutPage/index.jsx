@@ -276,7 +276,7 @@ export default function CheakoutPage() {
                             SHIPPING
                           </span>
                           <p className="text-base font-medium text-qblack">
-                            Miễn phí vận chuyển
+                            Tin đăng tiếp cận
                           </p>
                         </div>
                         <p className="text-[15px] font-medium text-qblack">

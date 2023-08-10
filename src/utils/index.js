@@ -86,7 +86,6 @@ function showMessage(title, message, status = 'success') {
     if (!document) return;
     if (status === 'success') {
         toast.success(message, {
-            position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,

@@ -1,22 +1,35 @@
-export default function DiscountBanner({ className,type }) {
-  return (
-    <div
-      className={`discount-banner w-full h-[307px] bg-cover flex justify-center items-center ${
-        className || ""
-      }`}
-      style={{
-        background: `url(/assets/images/discount-banner-1.jpg) no-repeat`,
-        backgroundSize: "cover",
-      }}
-    >
-      {type===3?(
-          <div className="container-x mx-auto">
-            <div
-                className="best-services w-full  flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center lg:h-[110px] px-10 lg:py-0 py-10"
-            >
-              <div className="item">
-                <div className="flex space-x-5 items-center">
-                  <div>
+import * as Yup from "yup";
+import {Form, Formik} from "formik";
+import ApiFactory from "../apis/ApiFactory";
+import {SUBSCRIBER} from "../utils/constant";
+import utils from "../utils";
+
+export default function DiscountBanner({className, type, handler = () => {}}) {
+    async function subscribe(values) {
+        utils.showMessage("Thông báo", "Bạn đã đăng ký thành công kênh đồ cũ của chúng tôi qua email")
+        handler()
+        await ApiFactory.getRequest("ProductApi").subscriber(values)
+        localStorage.setItem(SUBSCRIBER, 'true')
+    }
+
+    return (
+        <div
+            className={`discount-banner w-full h-[307px] bg-cover flex justify-center items-center ${
+                className || ""
+            }`}
+            style={{
+                background: `url(/assets/images/discount-banner-1.jpg) no-repeat`,
+                backgroundSize: "cover",
+            }}
+        >
+            {type === 3 ? (
+                <div className="container-x mx-auto">
+                    <div
+                        className="best-services w-full  flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center lg:h-[110px] px-10 lg:py-0 py-10"
+                    >
+                        <div className="item">
+                            <div className="flex space-x-5 items-center">
+                                <div>
                     <span>
                       <svg
                           width="36"
@@ -62,20 +75,20 @@ export default function DiscountBanner({ className,type }) {
                         />
                       </svg>
                     </span>
-                  </div>
-                  <div>
-                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Miễn phí vận chuyển
-                    </p>
-                    <p className="text-sm text-qgray">
-                      Khi đơn hàng lớn hơn $100
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="flex space-x-5 items-center">
-                  <div>
+                                </div>
+                                <div>
+                                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
+                                        Tin đăng tiếp cận
+                                    </p>
+                                    <p className="text-sm text-qgray">
+                                        Hơn một triệu khách hàng tiềm năng
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="item">
+                            <div className="flex space-x-5 items-center">
+                                <div>
                     <span>
                       <svg
                           width="32"
@@ -99,20 +112,20 @@ export default function DiscountBanner({ className,type }) {
                         />
                       </svg>
                     </span>
-                  </div>
-                  <div>
-                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Trả hàng miễn phí
-                    </p>
-                    <p className="text-sm text-qgray">
-                      Nhận lại hàng trong vòng 7 ngày
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="flex space-x-5 items-center">
-                  <div>
+                                </div>
+                                <div>
+                                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
+                                        Hãy mua theo cách của bạn
+                                    </p>
+                                    <p className="text-sm text-qgray">
+                                        Hàng thật, giá thật
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="item">
+                            <div className="flex space-x-5 items-center">
+                                <div>
                     <span>
                       <svg
                           width="32"
@@ -144,20 +157,20 @@ export default function DiscountBanner({ className,type }) {
                         />
                       </svg>
                     </span>
-                  </div>
-                  <div>
-                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Thanh toán an toàn
-                    </p>
-                    <p className="text-sm text-qgray">
-                      Thanh toán trực tuyến an toàn 100%
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="flex space-x-5 items-center">
-                  <div>
+                                </div>
+                                <div>
+                                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
+                                        Thanh toán an toàn
+                                    </p>
+                                    <p className="text-sm text-qgray">
+                                        Thanh toán trực tuyến an toàn 100%
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="item">
+                            <div className="flex space-x-5 items-center">
+                                <div>
                     <span>
                       <svg
                           width="32"
@@ -200,75 +213,100 @@ export default function DiscountBanner({ className,type }) {
                         />
                       </svg>
                     </span>
-                  </div>
-                  <div>
-                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Chất lượng tốt nhất
-                    </p>
-                    <p className="text-sm text-qgray">
-                      Đảm bảo sản phẩm
-                    </p>
-                  </div>
+                                </div>
+                                <div>
+                                    <p className="text-black text-[15px] font-700 tracking-wide mb-1">
+                                        Chất lượng tốt nhất
+                                    </p>
+                                    <p className="text-sm text-qgray">
+                                        Đảm bảo sản phẩm
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-      ):(
-          <div>
-            <div data-aos="fade-up">
-              <h1 className="sm:text-3xl text-xl font-700 text-qblack mb-2 text-center">
-                Get <span className="mx-1 text-qyellow">20%</span> Off Discount
-                Coupon
-              </h1>
-              <p className="text-center sm:text-[18px] text-sm font-400">
-                by Subscribe our Newsletter
-              </p>
-            </div>
-            <div
-                data-aos="fade-right"
-                className="sm:w-[543px] w-[300px] h-[54px] flex mt-8"
-            >
-              <div className="flex-1 bg-white pl-4 flex space-x-2 items-center h-full focus-within:text-qyellow text-qblack">
-            <span>
-              <svg
-                  width="17"
-                  height="15"
-                  viewBox="0 0 17 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                    d="M15 14H2C1.4 14 1 13.6 1 13V2C1 1.4 1.4 1 2 1H15C15.6 1 16 1.4 16 2V13C16 13.6 15.6 14 15 14Z"
-                    stroke="currentColor"
-                    strokeMiterlimit="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                />
-                <path
-                    d="M3 4L8.5 8.5L14 4"
-                    stroke="currentColor"
-                    strokeMiterlimit="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-                <input
-                    type="email"
-                    name="email"
-                    className="w-full h-full focus:outline-none text-sm placeholder:text-xs placeholder:text-qblack text-qblack font-400 tracking-wider"
-                    placeholder="ĐỊA CHỈ EMAIl"
-                />
-              </div>
-              <button
-                  type="button"
-                  className="sm:w-[158px] w-[80px]  h-full bg-qyellow text-sm font-600"
-              >
-                Nhận mã
-              </button>
-            </div>
-          </div>
-      )}
-    </div>
-  );
+            ) : (
+                <div>
+                    <div data-aos="fade-up">
+                        <h1 className="sm:text-3xl text-xl font-700 text-qblack mb-2 text-center">
+                            Đăng ký thông tin
+                        </h1>
+                        <p className="text-center sm:text-[18px] text-sm font-400">
+                            để nhận dc các thông báo tin rao vặt đồ cũ hấp dẫn
+                        </p>
+                    </div>
+                    <Formik
+                        initialValues={{
+                            email: ""
+                        }}
+                        validateOnBlur={true}
+                        validationSchema={Yup.object().shape({
+                            email:
+                                Yup.string().email("Email không hợp lệ").required('Bạn cần nhập email để tiếp tục'),
+                        })}
+                        render={({
+                                     handleChange,
+                                     values,
+                                     errors,
+                                 }) => (
+                            <Form className="flex flex-col">
+                                <div
+                                    data-aos="fade-right"
+                                    className="sm:w-[543px] w-[300px] h-[54px] flex mt-8"
+                                >
+                                    <div
+                                        className="flex-1 bg-white pl-4 flex space-x-2 items-center h-full focus-within:text-qyellow text-qblack">
+              <span>
+                <svg
+                    width="17"
+                    height="15"
+                    viewBox="0 0 17 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                      d="M15 14H2C1.4 14 1 13.6 1 13V2C1 1.4 1.4 1 2 1H15C15.6 1 16 1.4 16 2V13C16 13.6 15.6 14 15 14Z"
+                      stroke="currentColor"
+                      strokeMiterlimit="10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                  />
+                  <path
+                      d="M3 4L8.5 8.5L14 4"
+                      stroke="currentColor"
+                      strokeMiterlimit="10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            className="w-full h-full focus:outline-none text-sm placeholder:text-xs placeholder:text-qblack
+                                            text-qblack font-400 tracking-wider min-w-[200px]"
+                                            placeholder="ĐỊA CHỈ EMAIL"
+                                            value={values.email}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        className="w-[120px] h-full bg-qyellow text-sm font-600"
+                                    >
+                                        Đăng ký
+                                    </button>
+                                </div>
+                                {errors.email ?
+                                    <div className="text-red-300 text-sm mt-0.5 h-[20px]">{errors.email}</div> :
+                                    <div className="h-[20px] mt-0.5"/>}
+                            </Form>
+                        )}
+                        onSubmit={subscribe}
+                    />
+                </div>
+            )}
+        </div>
+    );
 }

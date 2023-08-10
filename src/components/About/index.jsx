@@ -555,7 +555,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Miễn phí vận chuyển
+                    Tin đăng tiếp cận
                   </p>
                   <p className="text-sm text-qblack">When ordering over $100</p>
                 </div>
@@ -590,7 +590,7 @@ export default function About() {
                 </div>
                 <div>
                   <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
-                    Trả hàng miễn phí
+                    Hãy mua theo cách của bạn
                   </p>
                   <p className="text-sm text-qblack">
                     Get Return within 30 days

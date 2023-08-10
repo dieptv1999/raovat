@@ -2,8 +2,11 @@ import Arrow from "../../Helpers/icons/Arrow";
 import Selectbox from "../../Helpers/Selectbox";
 import Link from "next/link";
 import DownloadApp from "../../DownloadApp";
+import {useAuthContext} from "../../../context/AuthContext";
 
 export default function TopBar({ className }) {
+  const {user} = useAuthContext()
+
   return (
     <>
       <div
@@ -16,7 +19,7 @@ export default function TopBar({ className }) {
             <div className="topbar-nav">
               <ul className="flex space-x-6 cursor-pointer">
                 <li>
-                  <Link href="/profile">
+                  <Link href={user ? "/profile" : "/login"}>
                     <span className="text-xs leading-6 text-qblack font-500">
                       Tài khoản
                     </span>

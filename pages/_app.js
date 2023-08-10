@@ -10,6 +10,7 @@ import {DefaultSeo} from "next-seo";
 import DownloadApp from "../src/components/DownloadApp";
 import {ToastContainer} from "react-toastify";
 import {AuthContextProvider} from "../src/context/AuthContext";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function MyApp({Component, pageProps}) {
@@ -40,7 +41,16 @@ function MyApp({Component, pageProps}) {
       <DefaultSeo {...SEO}/>
       <Component {...pageProps} />
       <DownloadApp id={'download-app'}/>
-      <ToastContainer />
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+      />
     </AuthContextProvider>
   );
 }

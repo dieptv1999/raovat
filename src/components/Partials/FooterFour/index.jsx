@@ -188,7 +188,7 @@ export default function FooterFour() {
             <span className="sm:text-base text-[10px] text-white font-300">
               ©2022
               <a
-                href="https://quomodosoft.com/"
+                href="https://play.google.com/store/apps/dev?id=7999218124998548142&hl=en_US"
                 target="_blank"
                 rel="noreferrer"
                 className="font-500 text-qh4-pink mx-1"

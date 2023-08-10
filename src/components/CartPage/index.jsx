@@ -86,7 +86,7 @@ export default function CardPage({ cart = true }) {
                               />
                             </div>
                             <span className="text-[13px] text-normal text-qgraytwo">
-                              Miễn phí vận chuyển
+                              Tin đăng tiếp cận
                             </span>
                           </div>
                           <span className="text-[13px] text-normal text-qgraytwo">
