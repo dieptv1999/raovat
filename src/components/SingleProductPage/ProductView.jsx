@@ -262,7 +262,7 @@ export default function ProductView({className, reportHandler}) {
                                 type="button"
                                 className="black-btn text-sm font-semibold w-full h-full"
                             >
-                                Thêm vào giỏ hàng
+                                Xem tin &gt;&gt;
                             </button>
                         </div>
                     </div>

@@ -45,7 +45,7 @@ export default function ProductCardRowStyleTwo({className, datas, type}) {
               </span>
                         </p>
                         <button type="button" className="w-[160px] h-[30px]">
-                            <span className={type === 3 ? 'blue-btn' : 'yellow-btn'}> Thêm vào giỏ hàng</span>
+                            <span className={type === 3 ? 'blue-btn' : 'yellow-btn'}> Xem tin &gt;&gt;</span>
                         </button>
                     </div>
                 </div>

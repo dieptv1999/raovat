@@ -24,7 +24,7 @@ export default function ProfileTab() {
             <div className="w-1/2 h-full">
               <InputCom
                 label="First Name*"
-                placeholder="Demo Name"
+                placeholder="Nguyễn Văn A"
                 type="text"
                 inputClasses="h-[50px]"
               />
@@ -32,7 +32,7 @@ export default function ProfileTab() {
             <div className="w-1/2 h-full">
               <InputCom
                 label="Last Name*"
-                placeholder="Demo Name"
+                placeholder="Nguyễn Văn A"
                 type="text"
                 inputClasses="h-[50px]"
               />

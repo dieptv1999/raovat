@@ -10,7 +10,7 @@ export default function Blogs() {
       <div className="blogs-wrapper w-full-width">
         <div className="title-bar">
           <PageTitle
-            title="Our Blogs"
+            title="Danh sách bài viết"
             breadcrumb={[
               { name: "trang chủ", path: "/" },
               { name: "blogs", path: "/blogs" },

@@ -93,7 +93,7 @@ export default function BecomeSaller() {
                                         <div
                                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                                             <InputCom
-                                                placeholder="Demo Name"
+                                                placeholder="Nguyễn Văn A"
                                                 label="Họ và tên"
                                                 name="fname"
                                                 type="text"
@@ -101,7 +101,7 @@ export default function BecomeSaller() {
                                             />
 
                                             <InputCom
-                                                placeholder="Demo Name"
+                                                placeholder="Nguyễn Văn A"
                                                 label="Last Name*"
                                                 name="lname"
                                                 type="text"

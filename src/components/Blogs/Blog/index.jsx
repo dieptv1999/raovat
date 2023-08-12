@@ -22,7 +22,7 @@ export default function Blog() {
                 <div className="img w-full h-[457px] relative">
                   <Image
                     layout="fill"
-                    src={`/assets/images/blog-img-1.jpg`}
+                    src={`/assets/images/blog-img-1.webp`}
                     alt="blog"
                     className="w-full h-full object-cover"
                   />
@@ -395,7 +395,7 @@ export default function Blog() {
                       <div className="w-[85px] h-full  overflow-hidden rounded relative">
                         <Image
                           layout="fill"
-                          src={`/assets/images/blog-img-2.jpg`}
+                          src={`/assets/images/blog-img-2.webp`}
                           alt="blog"
                           className="w-full h-full object-cover"
                         />
@@ -469,7 +469,7 @@ export default function Blog() {
                       <div className="w-[85px] h-full  overflow-hidden rounded relative">
                         <Image
                           layout="fill"
-                          src={`/assets/images/blog-img-3.jpg`}
+                          src={`/assets/images/blog-img-3.webp`}
                           alt="blog"
                           className="w-full h-full object-cover"
                         />
@@ -543,7 +543,7 @@ export default function Blog() {
                       <div className="w-[85px] h-full  overflow-hidden rounded relative">
                         <Image
                           layout="fill"
-                          src={`/assets/images/blog-img-4.jpg`}
+                          src={`/assets/images/blog-img-4.webp`}
                           alt="blog"
                           className="w-full h-full object-cover"
                         />

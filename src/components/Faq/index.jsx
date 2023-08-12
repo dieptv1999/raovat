@@ -85,7 +85,7 @@ humour, or randomised words"
                   <div className="mb-4">
                     <InputCom
                       label="Họ và tên"
-                      placeholder="Demo Name"
+                      placeholder="Nguyễn Văn A"
                       name="first_name"
                       inputClasses="h-[50px]"
                     />

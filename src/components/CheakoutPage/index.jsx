@@ -50,14 +50,14 @@ export default function CheakoutPage() {
                       <div className="sm:w-1/2  mb-5 sm:mb-0">
                         <InputCom
                           label="First Name*"
-                          placeholder="Demo Name"
+                          placeholder="Nguyễn Văn A"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>
                       <div className="flex-1">
                         <InputCom
                           label="Last Name*"
-                          placeholder="Demo Name"
+                          placeholder="Nguyễn Văn A"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>

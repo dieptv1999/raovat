@@ -16,10 +16,12 @@ import {SUBSCRIBER, SUBSCRIBER_TIMING} from "../../utils/constant";
 
 export default function Home({adsList, newsHot}) {
     const {products} = datas;
-    const brands = [];
-    products.forEach((product) => {
-        brands.push(product.brand);
-    });
+    const brands = [
+        'Tin đăng gần bạn',
+        'Tin dành cho bạn',
+        'Tin được xem nhiều nhất',
+        'Tin vip mỗi ngày'
+    ];
     const [ads, setAds] = useState(false);
     const adsHandle = () => {
         setAds(false);
@@ -57,8 +59,8 @@ export default function Home({adsList, newsHot}) {
                 <SectionStyleOne
                     products={newsHot}
                     brands={brands}
-                    categoryTitle="Mobile & Tablet"
-                    sectionTitle="Gamer World"
+                    categoryTitle="Tin mới nhất"
+                    sectionTitle="Tin mới nhất"
                     seeMoreUrl="/all-products"
                     className="category-products mb-[60px]"
                 />

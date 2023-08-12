@@ -54,14 +54,14 @@ export default function Contact() {
                     </svg>
                   </div>
                   <p className="text-[22px] text-black leading-[30px] text-center font-semibold">
-                    Phone
+                    Số điện thoại
                   </p>
                   <p className="text-[15px] text-black leading-[30px] text-center">
-                    +(323) 9847 3847 383
+                    +(84) 982 602 856
                   </p>
-                  <p className="text-[15px] text-black leading-[30px] text-center">
-                    +(434) 5466 5467 443
-                  </p>
+                  {/*<p className="text-[15px] text-black leading-[30px] text-center">*/}
+                  {/*  +(434) 5466 5467 443*/}
+                  {/*</p>*/}
                 </div>
                 <div className="xl:w-1/2 w-full h-[196px] flex flex-col item justify-center bg-[#D3EFFF] p-5">
                   <div className="flex justify-center mb-3 ">
@@ -104,11 +104,11 @@ export default function Contact() {
                     Email
                   </p>
                   <p className="text-[15px] text-black leading-[30px] text-center">
-                    Demoemail@gmail.com
+                    hotro.raovat24h.net@gmail.com
                   </p>
-                  <p className="text-[15px] text-black leading-[30px] text-center">
-                    rafiqulislamsuvobd@gmail.com
-                  </p>
+                  {/*<p className="text-[15px] text-black leading-[30px] text-center">*/}
+                  {/*  rafiqulislamsuvobd@gmail.com*/}
+                  {/*</p>*/}
                 </div>
               </div>
               <div className="p-5 flex flex-col justify-between w-full bg-[#E7F2EC]">
@@ -134,15 +134,15 @@ export default function Contact() {
                       Address
                     </h1>
                     <p className="text-[15px] text-qblack leading-[30px]">
-                      4517 Washington Ave. Manchester, Road 2342, <br />
-                      Kentucky 39495
+                      Lê Thánh Tôn, Phường Bến Nghé, Quận 1, <br />
+                      Thành phố Hồ Chí Minh
                     </p>
                   </div>
                 </div>
                 <div className="w-full h-[206px] mt-5">
                   <iframe
                     title="newWork"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.94539481518!2d-74.26675559025064!3d40.69739290398433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1656755618576!5m2!1sen!2sbd"
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1075.949061774933!2d106.70167487154822!3d10.777080615047824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zTMOqIFRow6FuaCBUw7RuLCBQLiBC4bq_biBOZ2jDqSwgUS4xLCBUUC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1691806849214!5m2!1svi!2s"
                     style={{ border: "0", width: "100%", height: "100%" }}
                     allowFullScreen=""
                     loading="lazy"
@@ -175,9 +175,9 @@ export default function Contact() {
               <div className="inputs mt-5">
                 <div className="mb-4">
                   <InputCom
-                    label="Frist Name"
-                    placeholder="Demo Name"
-                    name="first_name"
+                    label="Họ và tên"
+                    placeholder="Nguyễn Văn A"
+                    name="full_name"
                     inputClasses="h-[50px]"
                   />
                 </div>
@@ -192,15 +192,15 @@ export default function Contact() {
                 </div>
                 <div className="mb-4">
                   <InputCom
-                    label="Subject"
-                    placeholder="Your Subject here"
+                    label="Chủ đề"
+                    placeholder="Nhập chủ đề tại đấy"
                     name="subject"
                     inputClasses="h-[50px]"
                   />
                 </div>
                 <div className="mb-5">
                   <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
-                    Message
+                    Tin nhắn
                   </h6>
                   <textarea
                     placeholder="Nhập lời nhắn ở đây"
