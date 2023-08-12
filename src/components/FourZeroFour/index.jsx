@@ -17,14 +17,14 @@ export default function FourZeroFour() {
                 </div>
                 <div data-aos="fade-up" className="empty-content w-full">
                   <h1 className="sm:text-xl text-base font-semibold text-center mb-5">
-                    Sorry! We cant’t Find that page!
+                    Lấy làm tiếc! Chúng tôi không tìm thấy trang này !
                   </h1>
                   <Link href="/">
                     <div className="flex justify-center w-full ">
-                      <div className="w-[180px] h-[50px] ">
-                        <span type="button" className="yellow-btn">
-                          Back to Shop
-                        </span>
+                      <div className="w-[200px] h-[50px] ">
+                        <button type="button" className="yellow-btn">
+                          Quay trở lại trang chủ
+                        </button>
                       </div>
                     </div>
                   </Link>
