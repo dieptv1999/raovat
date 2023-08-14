@@ -1,6 +1,7 @@
 import InputCom from "../Helpers/InputCom";
 import PageTitle from "../Helpers/PageTitle";
 import Layout from "../Partials/Layout";
+import utils from "../../utils";
 
 export default function CheakoutPage() {
   return (
@@ -23,7 +24,7 @@ export default function CheakoutPage() {
                   <a href="#">
                     <div className="w-full h-full bg-[#F6F6F6] text-qblack flex justify-center items-center">
                       <span className="text-[15px] font-medium">
-                        Log into your Account
+                        Đăng nhập vào tài khoản của bạn
                       </span>
                     </div>
                   </a>
@@ -32,7 +33,7 @@ export default function CheakoutPage() {
                   <a href="#">
                     <div className="w-full h-full bg-[#F6F6F6] text-qblack flex justify-center items-center">
                       <span className="text-[15px] font-medium">
-                        Enter Coupon Code
+                        Thêm mã giảm giá
                       </span>
                     </div>
                   </a>
@@ -42,21 +43,21 @@ export default function CheakoutPage() {
             <div className="w-full lg:flex lg:space-x-[30px]">
               <div className="lg:w-1/2 w-full">
                 <h1 className="sm:text-2xl text-xl text-qblack font-medium mb-5">
-                  Billing Details
+                  Chi tiết thanh toán
                 </h1>
                 <div className="form-area">
                   <form>
                     <div className="sm:flex sm:space-x-5 items-center mb-6">
                       <div className="sm:w-1/2  mb-5 sm:mb-0">
                         <InputCom
-                          label="First Name*"
+                          label="Tên"
                           placeholder="Nguyễn Văn A"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>
                       <div className="flex-1">
                         <InputCom
-                          label="Last Name*"
+                          label="Họ"
                           placeholder="Nguyễn Văn A"
                           inputClasses="w-full h-[50px]"
                         />
@@ -73,7 +74,7 @@ export default function CheakoutPage() {
                       <div className="flex-1">
                         <InputCom
                           label="Số điện thoại"
-                          placeholder="012 3  *******"
+                          placeholder="033  *******"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>
@@ -84,7 +85,7 @@ export default function CheakoutPage() {
                       </h1>
                       <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center mb-2">
                         <span className="text-[13px] text-qgraytwo">
-                          Select Country
+                          Chọn quốc gia
                         </span>
                         <span>
                           <svg
@@ -106,7 +107,7 @@ export default function CheakoutPage() {
                       <div className="w-full">
                         <InputCom
                           label="Địa chỉ"
-                          placeholder="your address here"
+                          placeholder="Nhập địa chỉ của bạn tại đây"
                           inputClasses="w-full h-[50px]"
                         />
                       </div>
@@ -118,7 +119,7 @@ export default function CheakoutPage() {
                         </h1>
                         <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center">
                           <span className="text-[13px] text-qgraytwo">
-                            Miyami Town
+                            Hà Nội
                           </span>
                           <span>
                             <svg
@@ -152,12 +153,12 @@ export default function CheakoutPage() {
                         htmlFor="create"
                         className="text-qblack text-[15px] select-none"
                       >
-                        Create an account?
+                        Tạo một tài khoản?
                       </label>
                     </div>
                     <div>
                       <h1 className="text-2xl text-qblack font-medium mb-3">
-                        Billing Details
+                        Chi tiết thanh toán
                       </h1>
                       <div className="flex space-x-2 items-center mb-10">
                         <div>
@@ -176,17 +177,17 @@ export default function CheakoutPage() {
               </div>
               <div className="flex-1">
                 <h1 className="sm:text-2xl text-xl text-qblack font-medium mb-5">
-                  Order Summary
+                  Tổng quan đơn hàng
                 </h1>
 
                 <div className="w-full px-10 py-[30px] border border-[#EDEDED]">
                   <div className="sub-total mb-6">
                     <div className=" flex justify-between mb-5">
                       <p className="text-[13px] font-medium text-qblack uppercase">
-                        PROduct
+                        sản phẩm
                       </p>
                       <p className="text-[13px] font-medium text-qblack uppercase">
-                        total
+                        tổng
                       </p>
                     </div>
                     <div className="w-full h-[1px] bg-[#EDEDED]"></div>
@@ -260,10 +261,10 @@ export default function CheakoutPage() {
                   <div className="mt-[30px]">
                     <div className=" flex justify-between mb-5">
                       <p className="text-[13px] font-medium text-qblack uppercase">
-                        SUBTOTAL
+                        Tổng
                       </p>
                       <p className="text-[15px] font-medium text-qblack uppercase">
-                        $365
+                        {utils.formatMoney(365000)}
                       </p>
                     </div>
                   </div>
@@ -273,14 +274,14 @@ export default function CheakoutPage() {
                       <div className=" flex justify-between mb-5">
                         <div>
                           <span className="text-xs text-qgraytwo mb-3 block">
-                            SHIPPING
+                            Phí giao hàng
                           </span>
                           <p className="text-base font-medium text-qblack">
                             Tin đăng tiếp cận
                           </p>
                         </div>
                         <p className="text-[15px] font-medium text-qblack">
-                          +$0
+                          +{utils.formatMoney(1000)}
                         </p>
                       </div>
                       <div className="w-full h-[1px] bg-[#EDEDED]"></div>
@@ -289,8 +290,8 @@ export default function CheakoutPage() {
 
                   <div className="mt-[30px]">
                     <div className=" flex justify-between mb-5">
-                      <p className="text-2xl font-medium text-qblack">Total</p>
-                      <p className="text-2xl font-medium text-qred">$365</p>
+                      <p className="text-2xl font-medium text-qblack">Tổng</p>
+                      <p className="text-2xl font-medium text-qred">{utils.formatMoney(365000)}</p>
                     </div>
                   </div>
                   <div className="shipping mt-[30px]">
@@ -309,12 +310,11 @@ export default function CheakoutPage() {
                             htmlFor="transfer"
                             className="text-[18px] text-normal text-qblack"
                           >
-                            Direct Bank Transfer
+                            Chuyển khoản trực tiếp
                           </label>
                         </div>
-                        <p className="text-qgraytwo text-[15px] ml-6">
-                          Make your payment directly into our bank account.
-                          Please use your Order ID as the payment reference.
+                        <p className="text-qgraytwo text-[15px] ml-6 text-justify">
+                          Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn đặt hàng của bạn làm tham chiếu thanh toán.
                         </p>
                       </li>
                       <li>
@@ -331,7 +331,7 @@ export default function CheakoutPage() {
                             htmlFor="delivery"
                             className="text-[18px] text-normal text-qblack"
                           >
-                            Cash on Delivery
+                            Thanh toán khi giao hàng
                           </label>
                         </div>
                       </li>
@@ -349,7 +349,7 @@ export default function CheakoutPage() {
                             htmlFor="bank"
                             className="text-[18px] text-normal text-qblack"
                           >
-                            Credit/Debit Cards or Paypal
+                            Thẻ Credit/Debit hoặc Paypal
                           </label>
                         </div>
                       </li>
@@ -358,7 +358,7 @@ export default function CheakoutPage() {
                   <a href="#">
                     <div className="w-full h-[50px] black-btn flex justify-center items-center">
                       <span className="text-sm font-semibold">
-                        Place Order Now
+                        Đặt hàng ngay bây giờ
                       </span>
                     </div>
                   </a>

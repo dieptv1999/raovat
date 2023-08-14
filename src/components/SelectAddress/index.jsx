@@ -14,6 +14,7 @@ export default function SelectAddress({
         <button className="btn btn-sm btn-circle btn-ghost absolute right-3 top-3">✕</button>
         <div className="bg-white flex flex-col items-center space-y-4">
           <select
+              defaultValue={-1}
               className="w-full flex items-center select select-bordered text-xs"
               style={{outline: 'none'}}>
             <option selected value={-1}>

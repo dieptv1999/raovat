@@ -142,7 +142,7 @@ export default function CardPage({ cart = true }) {
                     </div>
                     <div className="w-full h-[50px] border border-[#EDEDED] px-5 flex justify-between items-center mb-2">
                       <span className="text-[13px] text-qgraytwo">
-                        Select Country
+                        Chọn quốc gia
                       </span>
                       <span>
                         <svg

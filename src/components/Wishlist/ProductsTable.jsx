@@ -25,7 +25,7 @@ export default function ProductsTable({ className }) {
                   <div className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED] relative">
                     <Image
                       layout="fill"
-                      src={`/assets/images/product-img-1.jpg`}
+                      src={`/assets/images/product-img-1.webp`}
                       alt="product"
                       className="w-full h-full object-contain"
                     />
@@ -87,7 +87,7 @@ export default function ProductsTable({ className }) {
                   <div className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED] relative">
                     <Image
                       layout="fill"
-                      src={`/assets/images/product-img-2.jpg`}
+                      src={`/assets/images/product-img-3.webp`}
                       alt="product"
                       className="w-full h-full object-contain"
                     />
@@ -149,7 +149,7 @@ export default function ProductsTable({ className }) {
                   <div className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED] relative">
                     <Image
                       layout="fill"
-                      src={`/assets/images/product-img-3.jpg`}
+                      src={`/assets/images/product-img-3.webp`}
                       alt="product"
                       className="w-full h-full object-contain"
                     />

@@ -23,7 +23,7 @@ export default function ProfileTab() {
           <div className="input-item flex space-x-2.5 mb-8">
             <div className="w-1/2 h-full">
               <InputCom
-                label="First Name*"
+                label="Tên"
                 placeholder="Nguyễn Văn A"
                 type="text"
                 inputClasses="h-[50px]"
@@ -31,7 +31,7 @@ export default function ProfileTab() {
             </div>
             <div className="w-1/2 h-full">
               <InputCom
-                label="Last Name*"
+                label="Họ"
                 placeholder="Nguyễn Văn A"
                 type="text"
                 inputClasses="h-[50px]"
@@ -50,7 +50,7 @@ export default function ProfileTab() {
             <div className="w-1/2 h-full">
               <InputCom
                 label="Số điện thoại"
-                placeholder="012 3  *******"
+                placeholder="033  *******"
                 type="text"
                 inputClasses="h-[50px]"
               />
@@ -70,7 +70,7 @@ export default function ProfileTab() {
             <div className="w-full">
               <InputCom
                 label="Địa chỉ"
-                placeholder="your address here"
+                placeholder="Nhập địa chỉ của bạn tại đây"
                 type="text"
                 inputClasses="h-[50px]"
               />

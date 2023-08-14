@@ -29,7 +29,7 @@ function Index() {
         className="new-products mb-[60px]"
       />
       <ProductsAds
-        ads={[`/assets/images/ads-3.png`]}
+        ads={[{cover: `/assets/images/ads-3.png`}]}
         className="products-ads-section mb-[60px]"
       />
       <SectionStyleThreeHmFour

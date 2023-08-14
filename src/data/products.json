@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "62aefe9ad8b80d5234af625a",
-      "image": "product-img-1.jpg",
+      "image": "product-img-1.webp",
       "brand": "xioami",
       "review": 3,
       "title": "Xoggle aute et pariatur adipisicing nostrud et excepteur",
@@ -15,7 +15,7 @@
     },
     {
       "id": "62aefe9a17780a9e549646c2",
-      "image": "product-img-2.jpg",
+      "image": "product-img-3.webp",
       "brand": "apple",
       "review": 5,
       "title": "Geeky ipsum esse repreh est consequat",
@@ -28,7 +28,7 @@
     },
     {
       "id": "62aefe9af9a0e865ee49c99e",
-      "image": "product-img-3.jpg",
+      "image": "product-img-3.webp",
       "brand": "apple",
       "review": 5,
       "title": "Conjurica ea magna eiusmod esse cupt anim aliquip",
@@ -132,7 +132,7 @@
     },
     {
       "id": "62aefe9af9a0e865ee49c999999e",
-      "image": "product-img-1.jpg",
+      "image": "product-img-1.webp",
       "brand": "apple",
       "review": 5,
       "title": "Conjurica ea magna eiusmod esse cupt anim aliquip",
@@ -145,7 +145,7 @@
     },
     {
       "id": "62aefe9a9a52d2ee3301918a",
-      "image": "product-img-2.jpg",
+      "image": "product-img-3.webp",
       "brand": "google",
       "review": 5,
       "title": "Empirica deserunt laborum ad quis labore labore eu",
@@ -158,7 +158,7 @@
     },
     {
       "id": "62aefe9ad1e0cfc12838c3c4",
-      "image": "product-img-3.jpg",
+      "image": "product-img-3.webp",
       "brand": "google",
       "review": 5,
       "title": "Bluplanet consequat non sunt in dolor eiusmod cillum",

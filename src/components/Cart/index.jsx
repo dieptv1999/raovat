@@ -17,7 +17,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />
@@ -51,7 +51,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />
@@ -85,7 +85,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />
@@ -119,7 +119,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />
@@ -153,7 +153,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />
@@ -187,7 +187,7 @@ export default function Cart({ className,type }) {
                   <div className="flex space-x-[6px] justify-center items-center px-4 my-[20px]">
                     <div className="w-[65px] h-full">
                       <img
-                          src={`/assets/images/product-img-1.jpg`}
+                          src={`/assets/images/product-img-1.webp`}
                           alt=""
                           className="w-full h-full object-contain"
                       />

@@ -8,10 +8,10 @@ export default function Sallers() {
     <Layout childrenClasses="pt-0 pb-0">
       <div className="sallers-page-wrapper w-full mb-[60px]">
         <PageTitle
-          title="All Seller "
+          title="Danh sách người bán hàng nổi bật"
           breadcrumb={[
             { name: "trang chủ", path: "/" },
-            { name: "Sallers", path: "/sallers" },
+            { name: "người bán", path: "/sallers" },
           ]}
         />
       </div>

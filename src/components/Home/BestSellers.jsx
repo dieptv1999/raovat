@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function BestSellers({ className }) {
+export default function BestSellers({ sellers, className }) {
   return (
     <div className={`w-full ${className || ""}`}>
       <div className="grid xl:grid-cols-6 lg:grid-cols-5 sm:grid-cols-3 grid-cols-1 xl:gap-[30px] gap-5">

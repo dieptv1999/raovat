@@ -1,5 +1,5 @@
 import React from "react";
-import BecomeSaller from "../src/components/BecomeSaller/index";
-export default function BecomeSallerPage() {
-  return <BecomeSaller />;
+import BecomeSeller from "../src/components/BecomeSeller/index";
+export default function BecomeSellerPage() {
+  return <BecomeSeller />;
 }

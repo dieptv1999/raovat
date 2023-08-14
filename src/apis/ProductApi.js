@@ -32,4 +32,9 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}subscriber`;
     return this.post(url, params);
   }
+
+  addFollower(params) {
+    const url = `${schema}addFollower`;
+    return this.post(url, params);
+  }
 }

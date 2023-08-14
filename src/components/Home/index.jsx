@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import datas from "../../data/products.json";
 import SectionStyleFour from "../Helpers/SectionStyleFour";
 import SectionStyleOne from "../Helpers/SectionStyleOne";
 import SectionStyleTwo from "../Helpers/SectionStyleTwo";
@@ -12,10 +11,10 @@ import BrandSection from "./BrandSection";
 import CampaignCountDown from "./CampaignCountDown";
 import ProductsAds from "./ProductsAds";
 import {SUBSCRIBER, SUBSCRIBER_TIMING} from "../../utils/constant";
+import {useAuthContext} from "../../context/AuthContext";
 // const AdsSlider = dynamic(() => import("./AdsSlider"), {ssr: false});
 
-export default function Home({adsList, newsHot}) {
-    const {products} = datas;
+export default function Home({adsList, newsHot, news}) {
     const brands = [
         'Tin đăng gần bạn',
         'Tin dành cho bạn',
@@ -23,28 +22,31 @@ export default function Home({adsList, newsHot}) {
         'Tin vip mỗi ngày'
     ];
     const [ads, setAds] = useState(false);
+    const [sellers, setSellers] = useState([]);
+    const {user} = useAuthContext();
+
     const adsHandle = () => {
         setAds(false);
     };
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (localStorage.getItem(SUBSCRIBER) !== 'true') {
-              let d = localStorage.getItem(SUBSCRIBER_TIMING);
-              try {
-                if (!d) {
-                  setAds(true);
-                  localStorage.setItem(SUBSCRIBER_TIMING, new Date().toString())
-                } else {
-                  let datePast = new Date(d)
-                  let diffMins = Math.round((((new Date() - datePast) % 86400000) % 3600000) / 60000);
-                  if (diffMins > 10) {
-                    setAds(true);
-                    localStorage.setItem(SUBSCRIBER_TIMING, new Date().toString())
-                  }
+                let d = localStorage.getItem(SUBSCRIBER_TIMING);
+                try {
+                    if (!d) {
+                        setAds(true);
+                        localStorage.setItem(SUBSCRIBER_TIMING, new Date().toString())
+                    } else {
+                        let datePast = new Date(d)
+                        let diffMins = Math.round((((new Date() - datePast) % 86400000) % 3600000) / 60000);
+                        if (diffMins > 10) {
+                            setAds(true);
+                            localStorage.setItem(SUBSCRIBER_TIMING, new Date().toString())
+                        }
+                    }
+                } catch (e) {
+                    localStorage.removeItem(SUBSCRIBER_TIMING)
                 }
-              } catch (e) {
-                localStorage.removeItem(SUBSCRIBER_TIMING)
-              }
             }
         }
     }, []);
@@ -63,6 +65,7 @@ export default function Home({adsList, newsHot}) {
                     sectionTitle="Tin mới nhất"
                     seeMoreUrl="/all-products"
                     className="category-products mb-[60px]"
+                    authenticated={!!user}
                 />
                 <BrandSection
                     sectionTitle="" // title of brand list
@@ -78,20 +81,24 @@ export default function Home({adsList, newsHot}) {
                     seeMoreUrl="/all-products"
                     categoryTitle="Top sản phẩm bán chạy nhất"
                 >
-                    <SectionStyleTwo products={newsHot.slice(3, newsHot.length)}/>
+                    <SectionStyleTwo
+                        products={newsHot.slice(3, newsHot.length)}
+                        authenticated={!!user}
+                    />
                 </ViewMoreTitle>
                 <ViewMoreTitle
                     className="best-sallers-section mb-[60px]"
                     seeMoreUrl="/sallers"
-                    categoryTitle="Best Saller"
+                    categoryTitle="Bán chạy nhất"
                 >
-                    <BestSellers/>
+                    <BestSellers sellers={sellers}/>
                 </ViewMoreTitle>
-                <ProductsAds
-                    ads={[`/assets/images/ads-1.webp`, `/assets/images/ads-2.webp`]}
+                {news && news.length > 1 ? <ProductsAds
+                    // ads={[`/assets/images/ads-1.webp`, `/assets/images/ads-2.webp`]}
+                    ads={news}
                     sectionHeight="sm:h-[295px] h-full"
                     className="products-ads-section mb-[60px]"
-                />
+                /> : <div/>}
                 <SectionStyleOne
                     categoryBackground={`/assets/images/section-category-2.jpg`}
                     products={newsHot.slice(4, newsHot.length)}
@@ -101,11 +108,11 @@ export default function Home({adsList, newsHot}) {
                     seeMoreUrl="/all-products"
                     className="category-products mb-[60px]"
                 />
-                <ProductsAds
-                    ads={[`/assets/images/ads-3.webp`]}
+                {news && news.length > 2 ? <ProductsAds
+                    ads={news.slice(2, 3)}
                     className="products-ads-section mb-[60px]"
                     sectionHeight="sm:h-[295px] h-full"
-                />
+                /> : <div/>}
                 {/*<SectionStyleThree*/}
                 {/*  products={newsHot}*/}
                 {/*  sectionTitle="New Arrivals"*/}

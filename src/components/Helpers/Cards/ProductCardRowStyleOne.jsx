@@ -4,8 +4,29 @@ import Star from "../icons/Star";
 import ThinLove from "../icons/ThinLove";
 import Link from "next/link";
 import utils from "../../../utils";
+import ThinLoveFill from "../icons/ThinLoveFill";
+import {useState} from "react";
+import ApiFactory from "../../../apis/ApiFactory";
 
-export default function ProductCardRowStyleTwo({className, datas, type}) {
+export default function ProductCardRowStyleTwo({
+                                                   className, datas, type,
+                                                   authenticated = false,
+                                                   onLogin = () => {
+                                                   },
+                                               }) {
+    const [liked, setLiked] = useState(true);
+
+    async function addFollow() {
+        setLiked(!liked)
+        return;
+        if (authenticated) {
+            const resp = await ApiFactory.getRequest("ProductApi").addFollower({id: datas.id});
+            console.log(resp)
+        } else {
+            onLogin();
+        }
+    }
+
     return (
         <div
             data-aos="fade-left"
@@ -52,17 +73,19 @@ export default function ProductCardRowStyleTwo({className, datas, type}) {
             </div>
             {/* quick-access-btns */}
             <div
-                className="quick-access-btns flex flex-col space-y-2 absolute group-hover:right-4 -right-10 top-[30px]  transition-all duration-300 ease-in-out">
-                <a href="#">
+                className="quick-access-btns flex flex-col space-y-2 absolute right-4 -right-10 top-[30px]  transition-all duration-300 ease-in-out">
+                <Link href={"/single-product"} passHref>
+                    <a>
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <QuickViewIco/>
           </span>
-                </a>
-                <a href="#">
+                    </a>
+                </Link>
+                <div className="cursor-pointer" onClick={addFollow}>
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
-            <ThinLove/>
+            {liked ? <ThinLoveFill/> : <ThinLove/>}
           </span>
-                </a>
+                </div>
                 <a href="#">
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <Compair/>

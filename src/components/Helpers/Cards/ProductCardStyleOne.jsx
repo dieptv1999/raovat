@@ -4,12 +4,34 @@ import Star from "../icons/Star";
 import ThinLove from "../icons/ThinLove";
 import Link from "next/link";
 import utils from "../../../utils";
+import ApiFactory from "../../../apis/ApiFactory";
+import {useState} from "react";
+import ThinLoveFill from "../icons/ThinLoveFill";
 
-export default function ProductCardStyleOne({datas, type}) {
+export default function ProductCardStyleOne({
+                                                datas, type,
+                                                authenticated = false,
+                                                onLogin = () => {
+                                                },
+                                            }) {
     const available =
         (datas.cam_product_sale /
             (datas.cam_product_available + datas.cam_product_sale)) *
         100;
+
+    const [liked, setLiked] = useState(true);
+
+    async function addFollow() {
+        setLiked(!liked)
+        return;
+        if (authenticated) {
+            const resp = await ApiFactory.getRequest("ProductApi").addFollower({id: datas.id});
+            console.log(resp)
+        } else {
+            onLogin();
+        }
+    }
+
     return (
         <div
             className="product-card-one w-full h-full bg-white relative group overflow-hidden flex flex-col"
@@ -68,7 +90,8 @@ export default function ProductCardStyleOne({datas, type}) {
                 <span>
                 <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                      xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 442.04 442.04"
-                     xmlSpace="preserve" stroke="#000000" strokeWidth="0.0044204000000000005"><g id="SVGRepo_bgCarrier"></g><g
+                     xmlSpace="preserve" stroke="#000000" strokeWidth="0.0044204000000000005"><g
+                    id="SVGRepo_bgCarrier"></g><g
                     id="SVGRepo_tracerCarrier"></g><g
                     id="SVGRepo_iconCarrier"> <g> <g> <path
                     d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z"></path> </g> <g> <path
@@ -108,17 +131,19 @@ export default function ProductCardStyleOne({datas, type}) {
             </div>
             {/* quick-access-btns */}
             <div
-                className="quick-access-btns flex flex-col space-y-2 absolute group-hover:right-4 -right-10 top-20  transition-all duration-300 ease-in-out">
-                <a href="#">
+                className="quick-access-btns flex flex-col space-y-2 absolute right-4 -right-10 top-20  transition-all duration-300 ease-in-out">
+                <Link href={"/single-product"} passHref>
+                    <a>
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <QuickViewIco/>
           </span>
-                </a>
-                <a href="#">
+                    </a>
+                </Link>
+                <div onClick={addFollow} className="cursor-pointer">
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
-            <ThinLove/>
+            {liked ? <ThinLoveFill/> : <ThinLove/>}
           </span>
-                </a>
+                </div>
                 <a href="#">
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <Compair/>
