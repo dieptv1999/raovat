@@ -41,7 +41,7 @@ function Index() {
 
       <ProductsAds
         sectionHeight="164"
-        ads={[`/assets/images/ads-4.png`]}
+        ads={[{cover: `/assets/images/ads-4.png`}]}
         className="products-ads-section mb-[60px]"
       />
       <SectionStyleFour
