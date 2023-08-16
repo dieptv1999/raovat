@@ -124,10 +124,10 @@ export default function Banner({ className }) {
                   </div>
                   <div>
                     <p className="text-white text-[15px] font-700 tracking-wide mb-1">
-                      Tin đăng tiếp cận
+                      Tiếp cận thông minh
                     </p>
                     <p className="text-sm text-qgray text-white">
-                      Hơn một triệu khách hàng tiềm năng
+                      Với hơn 20 triệu người dùng và áp dụng AI vào định tuyến tin đăng
                     </p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default function Banner({ className }) {
                   </div>
                   <div>
                     <p className="text-white text-[15px] font-700 tracking-wide mb-1">
-                      Hãy mua theo cách của bạn
+                      Tin đăng tin cậy
                     </p>
                     <p className="text-sm text-qgray text-white">
                       Hàng thật, giá thật

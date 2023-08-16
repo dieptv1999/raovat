@@ -73,9 +73,10 @@ export default function Banner({className, data}) {
             </div>
             <div
               data-aos="fade-up"
-              className="best-services w-full bg-white flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center lg:h-[110px] px-10 lg:py-0 py-10"
+              className="best-services w-full bg-white flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center lg:h-[110px]
+              px-10 lg:py-0 py-10 gap-3"
             >
-              <div className="item">
+              <div className="item flex-1">
                 <div className="flex space-x-5 items-center">
                   <div>
                     <span>
@@ -126,15 +127,15 @@ export default function Banner({className, data}) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Tin đăng tiếp cận
+                      Tiếp cận thông minh
                     </p>
                     <p className="text-sm text-qgray">
-                      Hơn một triệu khách hàng tiềm năng
+                      Với hơn 20 triệu người dùng và áp dụng AI vào định tuyến tin đăng
                     </p>
                   </div>
                 </div>
               </div>
-              {/*<div className="item">*/}
+              {/*<div className="item flex-1">*/}
               {/*  <div className="flex space-x-5 items-center">*/}
               {/*    <div>*/}
               {/*      <span>*/}
@@ -163,7 +164,7 @@ export default function Banner({className, data}) {
               {/*    </div>*/}
               {/*    <div>*/}
               {/*      <p className="text-black text-[15px] font-700 tracking-wide mb-1">*/}
-              {/*        Hãy mua theo cách của bạn*/}
+              {/*        Tin đăng tin cậy*/}
               {/*      </p>*/}
               {/*      <p className="text-sm text-qgray">*/}
               {/*        Hàng thật, giá thật*/}
@@ -171,7 +172,7 @@ export default function Banner({className, data}) {
               {/*    </div>*/}
               {/*  </div>*/}
               {/*</div>*/}
-              <div className="item">
+              <div className="item flex-1">
                 <div className="flex space-x-5 items-center">
                   <div>
                     <span>
@@ -208,15 +209,15 @@ export default function Banner({className, data}) {
                   </div>
                   <div>
                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                      Hãy mua theo cách của bạn
+                      Tin đăng tin cậy
                     </p>
                     <p className="text-sm text-qgray">
-                      Hàng thật, giá thật 100%
+                      Xác thực tin đăng, người đăng đảm bảo thông tin, hình ảnh chính xác
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="item">
+              <div className="item flex-1">
                 <div className="flex space-x-5 items-center">
                   <div>
                     <span>

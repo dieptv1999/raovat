@@ -78,10 +78,10 @@ export default function DiscountBanner({className, type, handler = () => {}}) {
                                 </div>
                                 <div>
                                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                                        Tin đăng tiếp cận
+                                        Tiếp cận thông minh
                                     </p>
                                     <p className="text-sm text-qgray">
-                                        Hơn một triệu khách hàng tiềm năng
+                                        Với hơn 20 triệu người dùng và áp dụng AI vào định tuyến tin đăng
                                     </p>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ export default function DiscountBanner({className, type, handler = () => {}}) {
                                 </div>
                                 <div>
                                     <p className="text-black text-[15px] font-700 tracking-wide mb-1">
-                                        Hãy mua theo cách của bạn
+                                        Tin đăng tin cậy
                                     </p>
                                     <p className="text-sm text-qgray">
                                         Hàng thật, giá thật

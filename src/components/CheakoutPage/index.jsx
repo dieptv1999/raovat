@@ -277,7 +277,7 @@ export default function CheakoutPage() {
                             Phí giao hàng
                           </span>
                           <p className="text-base font-medium text-qblack">
-                            Tin đăng tiếp cận
+                            Tiếp cận thông minh
                           </p>
                         </div>
                         <p className="text-[15px] font-medium text-qblack">
