@@ -12,7 +12,7 @@ export default function SelectAddress({
       <form method="dialog" className="modal-box">
         <h3 className="font-bold text-lg mb-4">Địa chỉ</h3>
         <button className="btn btn-sm btn-circle btn-ghost absolute right-3 top-3">✕</button>
-        <div className="bg-white flex flex-col items-center space-y-4">
+        <div className="bg-white flex flex-col items-center space-y-2">
           <select
               defaultValue={-1}
               className="w-full flex items-center select select-bordered text-xs"

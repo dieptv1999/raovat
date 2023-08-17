@@ -37,7 +37,7 @@ export default function Footer({type}) {
                 </div>
                 <div className="lg:flex justify-between mb-[50px]">
                     <div className="lg:w-[424px]  ml-0 w-full mb-10 lg:mb-0">
-                        <div className="mb-8">
+                        <div className="mb-2">
                             {type === 3 ? (
                                 <Link href="/">
                                     <img
@@ -57,20 +57,19 @@ export default function Footer({type}) {
                                     />
                                 </Link>
                             )}
-
                         </div>
                         <h1 className="text-[18px] font-semibold tracking-wide uppercase text-[#2F2F2F] mb-5">Raovat24h</h1>
-                        <p className="text-[#9A9A9A] text-[15px] w-[247px] leading-[28px] mb-6">
+                        <p className="text-gray-700 text-[16px] w-[247px] leading-[28px] mb-6 font-semibold">
                             Kênh rao vặt, mua bán tốt nhất Việt Nam.
                         </p>
-                        <span className="">
+                        <span className="text-sm">
               <span className="font-bold mr-1">Trụ sở chính:</span>
               <span>Lê Thánh Tôn, P. Bến Nghé, Q.1, TP. Hồ Chí Minh</span>
             </span>
                         <div className="mt-2">
-              <span className="font-bold mr-1">Email:</span>
-              <span>hotroraovat24h@gmail.com</span>
-            </div>
+                            <span className="font-bold mr-1">Email:</span>
+                            <span>hotroraovat24h@gmail.com</span>
+                        </div>
                     </div>
                     <div className="flex-1">
                         <div className="flex flex-wrap w-full">
@@ -81,7 +80,7 @@ export default function Footer({type}) {
                                     </h6>
                                 </div>
                                 <div>
-                                    <ul className="flex flex-col space-y-4 ">
+                                    <ul className="flex flex-col space-y-2 ">
                                         <li>
                                             <Link href="/about">
                                 <span
@@ -142,7 +141,7 @@ export default function Footer({type}) {
                                         </h6>
                                     </div>
                                     <div>
-                                        <ul className="flex flex-col space-y-4 ">
+                                        <ul className="flex flex-col space-y-2 ">
                                             <li>
                                                 <Link href="/blogs">
 
@@ -200,7 +199,7 @@ export default function Footer({type}) {
                                         </h6>
                                     </div>
                                     <div>
-                                        <ul className="flex flex-col space-y-4 ">
+                                        <ul className="flex flex-col space-y-2 ">
                                             <li>
                                                 <Link href="#">
                           <span
@@ -226,7 +225,9 @@ export default function Footer({type}) {
                                                 </Link>
                                             </li>
                                             <li className="block lg:hidden">
-                                                <Image src={'/assets/images/raovat24h.png'} width={120} height={120}
+                                                <Image src={'/assets/images/brand/raovat24h.png'} width={120}
+                                                       height={120}
+                                                       quality={100}
                                                        alt={"qr"}/>
                                             </li>
                                         </ul>
@@ -292,7 +293,9 @@ export default function Footer({type}) {
                                                 <Image
                                                     width={114.5}
                                                     height={35}
-                                                    src={'/assets/images/brand/logo-bocongthuong.png'} alt={'bocongthuong'}
+                                                    quality={100}
+                                                    src={'/assets/images/brand/logo-bocongthuong.png?v=1'}
+                                                    alt={'bocongthuong'}
                                                 />
                                             </div>
                                             <div className="flex flex-col justify-between items-center py-1">
@@ -330,7 +333,14 @@ export default function Footer({type}) {
                         </div>
                         <div className="lg:flex gap-3 mt-3 ml-[-5px] hidden">
                             <div>
-                                <Image src={'/assets/images/raovat24h.png'} width={120} height={120} alt={"qr"}/>
+                                <img
+                                    src={'/assets/images/brand/raovat24h.png?v=1'}
+                                    // width={120}
+                                    // height={120}
+                                    className="w-[120px] h-[120px]"
+                                    alt={"qr"}
+                                    style={{objectFit: "contain"}}
+                                />
                             </div>
                             <div className="flex flex-col justify-between items-center py-1">
                                 <div>
@@ -365,10 +375,11 @@ export default function Footer({type}) {
                                     <Link href={'https://facebook.com/ungdungmuaban'} passHref>
                                         <a target={'_blank'}>
                                             <Image
-                                                src={'/assets/images/brand/icons8-facebook-100.png'}
+                                                src={'/assets/images/brand/icons8-facebook-100.png?v=1'}
                                                 alt={'facebook'}
                                                 width={50}
                                                 height={50}
+                                                quality={100}
                                                 className="cursor-pointer"
                                             />
                                         </a>
@@ -376,10 +387,11 @@ export default function Footer({type}) {
                                     <Link href={'https://facebook.com/ungdungmuaban'} passHref>
                                         <a target={'_blank'}>
                                             <Image
-                                                src={'/assets/images/brand/icons8-zalo-144.png'}
+                                                src={'/assets/images/brand/icons8-zalo-144.png?v=1'}
                                                 alt={'zalo'}
                                                 width={45}
                                                 height={45}
+                                                quality={100}
                                                 className="cursor-pointer"
                                             />
                                         </a>
@@ -387,10 +399,11 @@ export default function Footer({type}) {
                                     <Link href={'https://www.youtube.com/@muabanraovat24h'} passHref>
                                         <a target={'_blank'}>
                                             <Image
-                                                src={'/assets/images/brand/icons8-youtube-100.png'}
+                                                src={'/assets/images/brand/icons8-youtube-100.png?v=1'}
                                                 alt={'youtube'}
                                                 width={50}
                                                 height={50}
+                                                quality={100}
                                                 className="cursor-pointer"
                                             />
                                         </a>
@@ -398,10 +411,11 @@ export default function Footer({type}) {
                                     <Link href={'https://www.tiktok.com/@muabanraovat'} passHref>
                                         <a target={'_blank'}>
                                             <Image
-                                                src={'/assets/images/brand/icons8-tiktok-100.png'}
+                                                src={'/assets/images/brand/icons8-tiktok-100.png?v=1'}
                                                 alt={'tiktok'}
                                                 width={50}
                                                 height={50}
+                                                quality={100}
                                                 className="cursor-pointer"
                                             />
                                         </a>
@@ -411,6 +425,7 @@ export default function Footer({type}) {
                                     <Image
                                         width={164}
                                         height={50}
+                                        quality={100}
                                         src={'/assets/images/brand/logo-bocongthuong.png'} alt={'bocongthuong'}
                                     />
                                 </div>
@@ -461,7 +476,8 @@ export default function Footer({type}) {
                             {/*    src={`/assets/images/payment-getways.png`}*/}
                             {/*    alt="payment-getways"*/}
                             {/*/>*/}
-                            <span className="text-sm lg:text-base">Lê Thánh Tôn, P. Bến Nghé, Q.1, TP. Hồ Chí Minh</span>
+                            <span
+                                className="text-sm lg:text-base">Lê Thánh Tôn, P. Bến Nghé, Q.1, TP. Hồ Chí Minh</span>
                         </Link>
                     </div>
                 </div>
