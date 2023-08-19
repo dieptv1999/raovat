@@ -6,6 +6,7 @@ import Link from "next/link";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import signIn from "../../../../firebase/auth/signIn";
+import signInWithSocial from "../../../../firebase/auth/signInWithSocial";
 
 const SignInSchema = Yup.object().shape({
     phone: Yup.string()
@@ -75,7 +76,8 @@ export default function Login() {
                                             value={formik.values.phone}
                                             inputClasses="h-[50px]"
                                         />
-                                        {formik.errors.phone ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.phone}</div> : null}
+                                        {formik.errors.phone ? <div
+                                            className="text-red-500 text-xs mt-0.5">{formik.errors.phone}</div> : null}
                                     </div>
                                     <div className="input-item mb-5">
                                         <InputCom
@@ -88,7 +90,8 @@ export default function Login() {
                                             value={formik.values.password}
                                             inputClasses="h-[50px]"
                                         />
-                                        {formik.errors.password ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.password}</div> : null}
+                                        {formik.errors.password ? <div
+                                            className="text-red-500 text-xs mt-0.5">{formik.errors.password}</div> : null}
                                     </div>
                                     <div className="forgot-password-area flex justify-between items-center mb-7">
                                         <div/>
@@ -140,9 +143,12 @@ export default function Login() {
                                         </div>
                                         <div
                                             className="inline-flex md:space-x-3 w-full flex-col md:flex-row space-y-3 md:space-y-0">
-                                            <a
-                                                href="#"
-                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
+                                            <div
+                                                onClick={() => {
+                                                    signInWithSocial('facebook')
+                                                }}
+                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
+                                                 justify-center bg-[#FAFAFA] items-center cursor-pointer"
                                             >
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -154,10 +160,13 @@ export default function Login() {
                                                 <span className="text-[18px] text-qgraytwo font-normal">
                         Facebook
                       </span>
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
+                                            </div>
+                                            <div
+                                                onClick={() => {
+                                                    signInWithSocial('google')
+                                                }}
+                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
+                                                 justify-center bg-[#FAFAFA] items-center cursor-pointer"
                                             >
                                                 <svg
                                                     width="19"
@@ -207,10 +216,13 @@ export default function Login() {
                                                 <span className="text-[18px] text-qgraytwo font-normal">
                         Google
                       </span>
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
+                                            </div>
+                                            <div
+                                                onClick={() => {
+                                                    signInWithSocial('apple')
+                                                }}
+                                                className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
+                                                 justify-center bg-[#FAFAFA] items-center cursor-pointer"
                                             >
                                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -225,14 +237,16 @@ export default function Login() {
                                                 <span className="text-[18px] text-qgraytwo font-normal">
                         Apple ID
                       </span>
-                                            </a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="signup-area flex justify-center">
                                         <div className="text-base text-qgraytwo font-normal inline-flex">
                                             <div>Bạn không có tài khoản?</div>
                                             <Link href="/signup">
-                                                <div className="ml-2 text-qyellow underline cursor-pointer">Đăng ký miễn phí</div>
+                                                <div className="ml-2 text-qyellow underline cursor-pointer">Đăng ký miễn
+                                                    phí
+                                                </div>
                                             </Link>
                                         </div>
                                     </div>
