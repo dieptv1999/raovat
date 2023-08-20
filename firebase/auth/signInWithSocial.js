@@ -1,11 +1,12 @@
 import firebase_app from "../config";
 import {GoogleAuthProvider, getAuth, signInWithPopup, FacebookAuthProvider, OAuthProvider} from "firebase/auth";
 import ApiFactory from "../../src/apis/ApiFactory";
+import * as url from "url";
 
 const auth = getAuth(firebase_app);
 
 
-export default async function signInWithSocial(type) {
+export default async function signInWithSocial(type, prevUrl = '/') {
     let result = null,
         error = null,
         token = null;
@@ -25,11 +26,14 @@ export default async function signInWithSocial(type) {
         // The signed-in user info.
         const user = result.user;
         const resp = await ApiFactory.getRequest("ProductApi").login({
-            code: user.id,
-            type: 3,
+            code: user.uid,
+            type: type === 'google' ? 3 :
+                type === 'facebook' ? 1 : 2,
             auth_token: token,
         })
-        console.log(resp);
+        if (resp.success) {
+            window.location.replace(prevUrl)
+        }
         console.log({credential, token, user});
     } catch (e) {
         error = e;

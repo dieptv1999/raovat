@@ -4,6 +4,7 @@ import {
     getAuth,
 } from 'firebase/auth';
 import firebase_app from '../../firebase/config';
+import {SESSION} from "../utils/constant";
 
 const auth = getAuth(firebase_app);
 
@@ -19,7 +20,8 @@ export const AuthContextProvider = ({
 
     React.useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
+            const token = localStorage.getItem(SESSION)
+            if (user && !!token && token !== '') {
                 setUser(user);
             } else {
                 setUser(null);

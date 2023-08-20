@@ -64,7 +64,7 @@ export default function Middlebar({className, type}) {
                             {/*  </span>*/}
                             {/*</div>*/}
                             <div className="favorite relative">
-                                <Link href={user ? "/wishlist" : "/login"} passHref>
+                                <Link href={user ? "/wishlist" : "/login?url=%2Fwishlist"} passHref>
                                     <a rel="noopener noreferrer">
                     <span>
                     <ThinLove/>
@@ -78,7 +78,7 @@ export default function Middlebar({className, type}) {
                             </div>
                             <div className="cart-wrapper group relative py-4">
                                 <div className="cart relative cursor-pointer">
-                                    <Link href={user ? "/cart" : "/login"} passHref>
+                                    <Link href={user ? "/cart" : "/login?url=%2Fcart"} passHref>
                                         <a rel="noopener noreferrer">
                       <span>
                       <ThinBag/>
@@ -95,7 +95,7 @@ export default function Middlebar({className, type}) {
                                     : <div/>}
                             </div>
                             <div>
-                                <Link href={user ? '/profile#dashboard' : '/login'} passHref>
+                                <Link href={user ? '/profile#dashboard' : '/login?url=%2Fprofile#dashboard'} passHref>
                                     <a rel="noopener noreferrer">
                     <span>
                     {user ? <ThinPeople/> : <LoginIcon/>}

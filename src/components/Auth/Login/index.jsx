@@ -7,6 +7,7 @@ import {useFormik} from "formik";
 import * as Yup from "yup";
 import signIn from "../../../../firebase/auth/signIn";
 import signInWithSocial from "../../../../firebase/auth/signInWithSocial";
+import {useRouter} from "next/router";
 
 const SignInSchema = Yup.object().shape({
     phone: Yup.string()
@@ -21,6 +22,7 @@ const SignInSchema = Yup.object().shape({
 });
 
 export default function Login() {
+    const router = useRouter();
     const [checked, setValue] = useState(false);
     const formik = useFormik({
         initialValues: {
@@ -32,9 +34,8 @@ export default function Login() {
             signIn(values)
         },
     });
-    const rememberMe = () => {
-        setValue(!checked);
-    };
+
+    const prevUrl = router.query.url ?? '/';
 
     return (
         <Layout childrenClasses="pt-0 pb-0">
@@ -145,7 +146,7 @@ export default function Login() {
                                             className="inline-flex md:space-x-3 w-full flex-col md:flex-row space-y-3 md:space-y-0">
                                             <div
                                                 onClick={() => {
-                                                    signInWithSocial('facebook')
+                                                    signInWithSocial('facebook', prevUrl)
                                                 }}
                                                 className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
                                                  justify-center bg-[#FAFAFA] items-center cursor-pointer"
@@ -163,7 +164,7 @@ export default function Login() {
                                             </div>
                                             <div
                                                 onClick={() => {
-                                                    signInWithSocial('google')
+                                                    signInWithSocial('google', prevUrl)
                                                 }}
                                                 className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
                                                  justify-center bg-[#FAFAFA] items-center cursor-pointer"
@@ -219,7 +220,7 @@ export default function Login() {
                                             </div>
                                             <div
                                                 onClick={() => {
-                                                    signInWithSocial('apple')
+                                                    signInWithSocial('apple', prevUrl)
                                                 }}
                                                 className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3
                                                  justify-center bg-[#FAFAFA] items-center cursor-pointer"
