@@ -7,9 +7,11 @@ import * as Yup from "yup";
 import {useFormik} from "formik";
 import signIn from "../../../../firebase/auth/signIn";
 import signUp from "../../../../firebase/auth/signUp";
+import signInWithSocial from "../../../../firebase/auth/signInWithSocial";
+import {useRouter} from "next/router";
 
 const SignUpSchema = Yup.object().shape({
-    phone: Yup.string()
+    email: Yup.string()
         .min(10, 'Số điện thoại không hợp lệ')
         .max(10, 'Số điện thoại không hợp lệ')
         .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, {message: 'Số điện thoại sai định dạng'})
@@ -24,11 +26,12 @@ const SignUpSchema = Yup.object().shape({
 });
 
 export default function Signup() {
+    const router = useRouter()
     const [checked, setValue] = useState(false);
 
     const formik = useFormik({
         initialValues: {
-            phone: '',
+            email: '',
             password: '',
             fullName: ''
         },
@@ -41,6 +44,8 @@ export default function Signup() {
     const rememberMe = () => {
         setValue(!checked);
     };
+
+    const prevUrl = router.query.url ?? '/';
     return (
         <Layout childrenClasses="pt-0 pb-0">
             <div className="login-page-wrapper w-full py-10">
@@ -89,14 +94,14 @@ export default function Signup() {
                                         <InputCom
                                             placeholder="0333 333 333"
                                             label="Số điện thoại"
-                                            name="phone"
+                                            name="email"
                                             type="text"
                                             inputHandler={formik.handleChange}
                                             onBlur={formik.handleBlur}
-                                            value={formik.values.phone}
+                                            value={formik.values.email}
                                             inputClasses="h-[50px]"
                                         />
-                                        {formik.errors.phone ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.phone}</div> : null}
+                                        {formik.errors.email ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.email}</div> : null}
                                     </div>
                                     <div className="input-item mb-5">
                                         <InputCom
@@ -155,9 +160,11 @@ export default function Signup() {
                                     </div>
 
                                     <div
-                                        className="inline-flex md:space-x-3 w-full flex-col md:flex-row space-y-3 md:space-y-0">
-                                        <a
-                                            href="#"
+                                        className="inline-flex md:space-x-3 w-full flex-col md:flex-row space-y-3 md:space-y-0 cursor-pointer">
+                                        <div
+                                            onClick={() => {
+                                                signInWithSocial('facebook', prevUrl)
+                                            }}
                                             className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
                                         >
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -170,9 +177,11 @@ export default function Signup() {
                                             <span className="text-[18px] text-qgraytwo font-normal">
                         Facebook
                       </span>
-                                        </a>
-                                        <a
-                                            href="#"
+                                        </div>
+                                        <div
+                                            onClick={() => {
+                                                signInWithSocial('google', prevUrl)
+                                            }}
                                             className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
                                         >
                                             <svg
@@ -223,9 +232,11 @@ export default function Signup() {
                                             <span className="text-[18px] text-qgraytwo font-normal">
                         Google
                       </span>
-                                        </a>
-                                        <a
-                                            href="#"
+                                        </div>
+                                        <div
+                                            onClick={() => {
+                                                signInWithSocial('apple', prevUrl)
+                                            }}
                                             className="flex-1 w-full border py-2 border-gray-300 rounded h-[50px] flex space-x-3  justify-center bg-[#FAFAFA] items-center"
                                         >
                                             <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -241,7 +252,7 @@ export default function Signup() {
                                             <span className="text-[18px] text-qgraytwo font-normal">
                         Apple ID
                       </span>
-                                        </a>
+                                        </div>
                                     </div>
 
                                     <div className="signup-area flex justify-center mt-4">

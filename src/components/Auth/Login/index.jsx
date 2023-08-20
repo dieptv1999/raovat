@@ -8,34 +8,45 @@ import * as Yup from "yup";
 import signIn from "../../../../firebase/auth/signIn";
 import signInWithSocial from "../../../../firebase/auth/signInWithSocial";
 import {useRouter} from "next/router";
+import OtpInput from 'react-otp-input';
+import signInWithPhone from "../../../../firebase/auth/signInWithPhone";
+import verifyOtp from "../../../../firebase/auth/verifyOtp";
 
 const SignInSchema = Yup.object().shape({
     phone: Yup.string()
         .min(10, 'Số điện thoại không hợp lệ')
         .max(10, 'Số điện thoại không hợp lệ')
         .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, {message: 'Số điện thoại sai định dạng'})
-        .required('Số điện thoại là bắt buộc'),
-    password: Yup.string()
-        .min(6, 'Mật khẩu quá ngắn')
-        .max(30, 'Mật khẩu quá dài')
-        .required('Mật khẩu là bắt buộc'),
+        .required('Số điện thoại là bắt buộc')
 });
 
 export default function Login() {
     const router = useRouter();
     const [checked, setValue] = useState(false);
+    const [otp, setOtp] = useState('');
+    const [verificationId, setVerificationId] = useState(() => {})
     const formik = useFormik({
         initialValues: {
             phone: '',
-            password: ''
         },
         validationSchema: SignInSchema,
-        onSubmit: values => {
-            signIn(values)
+        onSubmit: async values => {
+            setVerificationId(await signInWithPhone({
+                ...values,
+            }))
+            document.getElementById('login_otp_modal').showModal()
         },
     });
 
     const prevUrl = router.query.url ?? '/';
+
+    function checkOtp(otp) {
+        setOtp(otp)
+
+        if (otp?.length === 6) {
+            verifyOtp(verificationId, otp, '/')
+        }
+    }
 
     return (
         <Layout childrenClasses="pt-0 pb-0">
@@ -80,20 +91,6 @@ export default function Login() {
                                         {formik.errors.phone ? <div
                                             className="text-red-500 text-xs mt-0.5">{formik.errors.phone}</div> : null}
                                     </div>
-                                    <div className="input-item mb-5">
-                                        <InputCom
-                                            placeholder="● ● ● ● ● ●"
-                                            label="Mật khẩu"
-                                            name="password"
-                                            type="password"
-                                            inputHandler={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            value={formik.values.password}
-                                            inputClasses="h-[50px]"
-                                        />
-                                        {formik.errors.password ? <div
-                                            className="text-red-500 text-xs mt-0.5">{formik.errors.password}</div> : null}
-                                    </div>
                                     <div className="forgot-password-area flex justify-between items-center mb-7">
                                         <div/>
 
@@ -125,18 +122,12 @@ export default function Login() {
                                         {/*    Remember Me*/}
                                         {/*  </span>*/}
                                         {/*</div>*/}
-                                        <a
-                                            href="/forgot-password"
-                                            className="text-base text-qyellow underline"
-                                        >
-                                            Quên mật khẩu?
-                                        </a>
                                     </div>
                                     <div className="signin-area mb-3.5">
                                         <div className="flex justify-center">
                                             <button
                                                 type="submit"
-
+                                                id={'recaptcha-container'}
                                                 className="black-btn mb-6 text-sm text-white w-full h-[50px] font-semibold flex justify-center bg-purple items-center"
                                             >
                                                 <span>Đăng nhập</span>
@@ -265,6 +256,23 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+            <dialog id="login_otp_modal" className="modal">
+                <form method="dialog" className="modal-box flex flex-col items-center">
+                    <h3 className="font-bold text-lg">Nhập mã OTP tại đây</h3>
+                    <OtpInput
+                        shouldAutoFocus={true}
+                        value={otp}
+                        onChange={checkOtp}
+                        numInputs={6}
+                        inputStyle="input input-bordered w-16 aspect-square !w-8 md:!w-12 p-0 md:p-2 input-sm md:input-md"
+                        renderSeparator={<span className="mx-1">-</span>}
+                        renderInput={(props) => <input {...props} />}
+                    />
+                </form>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </Layout>
     );
 }

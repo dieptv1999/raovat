@@ -7,6 +7,7 @@ export default async function signOutFirebase() {
     let result = null,
         error = null;
     try {
+        localStorage.clear()
         result = await signOut(auth);
     } catch (e) {
         error = e;
