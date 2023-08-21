@@ -29,7 +29,7 @@ export default async function signInWithSocial(type, prevUrl = '/') {
         const resp = await ApiFactory.getRequest("ProductApi").login({
             code: '117965753955654130549',
             type: type === 'google' ? 3 :
-                type === 'apple' ? 2 : 4,
+                type === 'apple' ? 2 : 0,
             authen_token: token,
             name: user.displayName,
             email: user.email,
