@@ -9,6 +9,9 @@ import signIn from "../../../../firebase/auth/signIn";
 import signUp from "../../../../firebase/auth/signUp";
 import signInWithSocial from "../../../../firebase/auth/signInWithSocial";
 import {useRouter} from "next/router";
+import signInWithPhone from "../../../../firebase/auth/signInWithPhone";
+import verifyOtp from "../../../../firebase/auth/verifyOtp";
+import OtpInput from "react-otp-input";
 
 const SignUpSchema = Yup.object().shape({
     email: Yup.string()
@@ -16,10 +19,6 @@ const SignUpSchema = Yup.object().shape({
         .max(10, 'Số điện thoại không hợp lệ')
         .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, {message: 'Số điện thoại sai định dạng'})
         .required('Số điện thoại là bắt buộc'),
-    password: Yup.string()
-        .min(6, 'Mật khẩu quá ngắn')
-        .max(30, 'Mật khẩu quá dài')
-        .required('Mật khẩu là bắt buộc'),
 
     fullName: Yup.string()
         .max(100, 'Tên người dùng quá dài'),
@@ -28,18 +27,30 @@ const SignUpSchema = Yup.object().shape({
 export default function Signup() {
     const router = useRouter()
     const [checked, setValue] = useState(false);
+    const [otp, setOtp] = useState('');
+    const [verificationId, setVerificationId] = useState(() => {})
 
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: '',
+            phone: '',
             fullName: ''
         },
         validationSchema: SignUpSchema,
-        onSubmit: values => {
-            signUp(values)
+        onSubmit: async values => {
+            setVerificationId(await signInWithPhone({
+                ...values,
+            }))
+            document.getElementById('register_otp_modal').showModal()
         },
     });
+
+    function checkOtp(otp) {
+        setOtp(otp)
+
+        if (otp?.length === 6) {
+            verifyOtp(verificationId, otp, '/')
+        }
+    }
 
     const rememberMe = () => {
         setValue(!checked);
@@ -76,10 +87,10 @@ export default function Signup() {
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="input-area">
+                                <form className="input-area" onSubmit={formik.handleSubmit}>
                                     <div className="input-item mb-5">
                                         <InputCom
-                                            placeholder="0333 333 333"
+                                            placeholder="Nguyễn Văn A"
                                             label="Họ và tên"
                                             name="fullName"
                                             type="text"
@@ -94,27 +105,14 @@ export default function Signup() {
                                         <InputCom
                                             placeholder="0333 333 333"
                                             label="Số điện thoại"
-                                            name="email"
+                                            name="phone"
                                             type="text"
                                             inputHandler={formik.handleChange}
                                             onBlur={formik.handleBlur}
-                                            value={formik.values.email}
+                                            value={formik.values.phone}
                                             inputClasses="h-[50px]"
                                         />
-                                        {formik.errors.email ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.email}</div> : null}
-                                    </div>
-                                    <div className="input-item mb-5">
-                                        <InputCom
-                                            placeholder="● ● ● ● ● ●"
-                                            label="Mật khẩu"
-                                            name="password"
-                                            type="password"
-                                            inputHandler={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            value={formik.values.password}
-                                            inputClasses="h-[50px]"
-                                        />
-                                        {formik.errors.password ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.password}</div> : null}
+                                        {formik.errors.phone ? <div className="text-red-500 text-xs mt-0.5">{formik.errors.phone}</div> : null}
                                     </div>
                                     <div className="forgot-password-area mb-7">
                                         <div className="remember-checkbox flex items-center space-x-2.5">
@@ -151,7 +149,7 @@ export default function Signup() {
                                     <div className="signin-area mb-3">
                                         <div className="flex justify-center">
                                             <button
-                                                type="button"
+                                                type="submit"
                                                 className="black-btn text-sm text-white w-full h-[50px] font-semibold flex justify-center bg-purple items-center"
                                             >
                                                 <span>Đăng ký</span>
@@ -264,7 +262,7 @@ export default function Signup() {
                                             </Link>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div className="flex-1 lg:flex hidden transform scale-60 xl:scale-100   xl:justify-center">
@@ -278,6 +276,23 @@ export default function Signup() {
                     </div>
                 </div>
             </div>
+            <dialog id="register_otp_modal" className="modal">
+                <form method="dialog" className="modal-box flex flex-col items-center">
+                    <h3 className="font-bold text-lg">Nhập mã OTP tại đây</h3>
+                    <OtpInput
+                        shouldAutoFocus={true}
+                        value={otp}
+                        onChange={checkOtp}
+                        numInputs={6}
+                        inputStyle="input input-bordered w-16 aspect-square !w-8 md:!w-12 p-0 md:p-2 input-sm md:input-md"
+                        renderSeparator={<span className="mx-1">-</span>}
+                        renderInput={(props) => <input {...props} />}
+                    />
+                </form>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
         </Layout>
     );
 }

@@ -5,9 +5,9 @@ import {useEffect} from "react";
 const cherryConfig = {
     id: 'markdown-container',
     externals: {
-        echarts: window.echarts,
-        katex: window.katex,
-        MathJax: window.MathJax,
+        // echarts: window.echarts,
+        // katex: window.katex,
+        // MathJax: window.MathJax,
     },
     engine: {
         global: {
@@ -17,27 +17,11 @@ const cherryConfig = {
             },
         },
         syntax: {
-            fontEmphasis: {
-                allowWhitespace: true, // 是否允许首尾空格
-            },
-            mathBlock: {
-                engine: 'MathJax', // katex或MathJax
-                src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
-            },
-            inlineMath: {
-                engine: 'MathJax', // katex或MathJax
-            },
             emoji: {
                 useUnicode: false,
                 customResourceURL: 'https://github.githubassets.com/images/icons/emoji/unicode/${code}.png?v8',
                 upperCase: true,
             },
-            // toc: {
-            //     tocStyle: 'nested'
-            // }
-            // 'header': {
-            //   strict: false
-            // }
         },
     },
     toolbars: {
@@ -74,7 +58,7 @@ const cherryConfig = {
 export default function PostInfo() {
     useEffect(() => {
         if (typeof window !== 'undefined' && !!navigator) {
-            var config = Object.assign({}, cherryConfig, {value: '# welcome to cherry editor!'});
+            let config = Object.assign({}, cherryConfig, {value: '# welcome to cherry editor!'});
             window.cherry = new Cherry(config);
             // const cherryInstance = new Cherry({
             //     id: 'markdown-container',
@@ -110,7 +94,7 @@ export default function PostInfo() {
                 required={true}
                 inputClasses="h-[50px]"
             />
-            <div id={'markdown-container'} className="h-[300px] w-full"/>
+            <div id={'markdown-container'} className="!h-[300px] w-full overflow-y-scroll"/>
         </div>
     )
 }

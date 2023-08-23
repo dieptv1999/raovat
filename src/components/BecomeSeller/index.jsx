@@ -2,21 +2,91 @@ import {useRef, useState} from "react";
 import InputCom from "../Helpers/InputCom";
 import PageTitle from "../Helpers/PageTitle";
 import Layout from "../Partials/Layout";
-import {CATEGORIES} from "../../utils/constant";
+import {CATEGORIES, SESSION} from "../../utils/constant";
 import Arrow from "../Helpers/icons/Arrow";
 import SelectAddress from "../SelectAddress";
 import dynamic from "next/dynamic";
 import Vehicle from "./Vehicle";
+import RealEstate from "./RealEstate";
+import {useFormik} from "formik";
+import * as Yup from "yup";
+import ApiFactory from "../../apis/ApiFactory";
+import {find} from "lodash/collection";
+import utils from "../../utils";
 
 const DropZone = dynamic(() => import("../DropZone").then(e => e.DropZone), {ssr: false})
 
-export default function BecomeSeller() {
+const userSchema = Yup.object().shape({
+    contact_name:
+        Yup.string().required('Bạn cần nhập tên người dùng để tiếp tục'),
+    contact_phone: Yup.string()
+        .min(10, 'Số điện thoại không hợp lệ')
+        .max(10, 'Số điện thoại không hợp lệ')
+        .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/g, {message: 'Số điện thoại sai định dạng'})
+        .required('Số điện thoại là bắt buộc'),
+    city: Yup.string().required('Bạn cần nhập địa chỉ đề tiếp tục'),
+})
+
+const RealEstateSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required(),
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    des: Yup.string().required(),
+    city: Yup.string().required('Bạn cần nhập địa chỉ đề tiếp tục'),
+})
+
+
+export default function BecomeSeller({}) {
     const [category, setCategory] = useState(-1);
 
+    const userFormik = useFormik({
+        initialValues: {
+            contact_name: '',
+            contact_phone: '',
+            city: '',
+        },
+        validationSchema: userSchema,
+        onSubmit: values => {
+            alert(JSON.stringify(values, null, 2));
+        },
+    });
+
+    const realEstateFormik = useFormik({
+        initialValues: {
+            title: "",
+            des: '',
+            city: '',
+            sub_collection: '',
+            type: '',
+            price: '',
+        },
+        validateOnBlur: true,
+        validationSchema: RealEstateSchema,
+        onSubmit: (values) => {
+            onSubmit(values)
+        },
+    })
+
     function renderBody() {
-        console.log(category)
-        if (category == 1) return <Vehicle onSubmit={(values) => {}}/>
+        if (category === "1") return <Vehicle onSubmit={(values) => {}}/>
+        if (category === "2") return <RealEstate onSubmit={(values) => {}} formik={realEstateFormik}/>
         else return <div />
+    }
+
+    async function onSell() {
+        const categoryName = find(CATEGORIES, e => e.id === category)?.name;
+        console.log(categoryName)
+        const resp = await ApiFactory.getRequest("ProductApi").submitSell({
+            collection: categoryName,
+            ...realEstateFormik.values,
+            ...userFormik.values,
+        })
+        if (resp && resp.success) {
+            utils.showMessage('Đăng bài viết', 'Bạn đã đăng bài viết thành công')
+        } else {
+            utils.showMessage('Đăng bài viết', 'Bạn đã đăng bài viết không thành công', 'error')
+        }
     }
 
     return (
@@ -69,15 +139,28 @@ export default function BecomeSeller() {
                                             Thông tin người bán
                                         </h1>
                                     </div>
-                                    <div className="input-area">
-                                        <div className="mb-5">
+                                    <form id='user-form-seller' className="input-area" onSubmit={userFormik.handleSubmit}>
+                                        <div className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                                             <InputCom
                                                 placeholder="Nguyễn Văn A"
                                                 label="Tên người bán"
-                                                name="shopname"
+                                                name="contact_name"
+                                                inputHandler={userFormik.handleChange}
+                                                value={userFormik.values.contact_name}
                                                 type="text"
                                                 required={true}
                                                 inputClasses="h-[50px]"
+                                                error={userFormik.errors.contact_name}
+                                            />
+                                            <InputCom
+                                                placeholder="0 333 333 333"
+                                                label="Số điện thoại"
+                                                name="contact_phone"
+                                                type="phone"
+                                                inputHandler={userFormik.handleChange}
+                                                value={userFormik.values.contact_phone}
+                                                inputClasses="h-[50px]"
+                                                error={userFormik.errors.contact_phone}
                                             />
                                         </div>
                                         <div className="mb-5">
@@ -88,7 +171,7 @@ export default function BecomeSeller() {
                                                          document.getElementById("modal-select-address-1").showModal();
                                                      }
                                                  }}>
-                                                <div>Số 1, Cầu Giấy, Hà Nội</div>
+                                                <div>{userFormik.values.city ? userFormik.values.city : 'Địa chỉ cụ thế'}</div>
                                                 <div>
                                                     <Arrow
                                                         width="5.78538"
@@ -103,7 +186,9 @@ export default function BecomeSeller() {
                                             <div className="flex justify-center">
                                                 <button
                                                     type="button"
-                                                    className="black-btn text-sm text-white w-[490px] h-[50px] font-semibold flex justify-center bg-purple items-center"
+                                                    onClick={onSell}
+                                                    disabled={!(userFormik.isValid && realEstateFormik.isValid) || category === -1}
+                                                    className="text-sm text-white w-[490px] h-[50px] font-semibold flex justify-center items-center btn btn-neutral"
                                                 >
                                                     <span>Đăng tin</span>
                                                 </button>
@@ -118,7 +203,7 @@ export default function BecomeSeller() {
                                         {/*        </Link>*/}
                                         {/*    </p>*/}
                                         {/*</div>*/}
-                                    </div>
+                                    </form>
                                 </div>
                                 <div className="flex-1 mb-10 xl:mb-0">
                                     <div className="update-profile w-full mb-9">
@@ -154,7 +239,10 @@ export default function BecomeSeller() {
                         </div>
                     </div>
                 </div>
-                <SelectAddress id={'modal-select-address-1'}/>
+                <SelectAddress id={'modal-select-address-1'} onSubmitAddress={addr => {
+                    console.log(addr)
+                    userFormik.setFieldValue('city', addr)
+                }}/>
             </div>
         </Layout>
     )

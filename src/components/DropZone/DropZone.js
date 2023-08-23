@@ -31,15 +31,16 @@ export function DropZone(props) {
             'image/*': []
         },
         onDrop: acceptedFiles => {
-            setFiles(acceptedFiles.map(file => Object.assign(file, {
+            setFiles([...files, ...acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
-            })));
+            }))]);
         }
     });
 
     const thumbs = files.map(file => (
-        <div className="inline-flex border rounded-lg overflow-hidden aspect-square w-48 shadow-lg cursor-pointer relative"
-             key={file.name}>
+        <div
+            className="inline-flex border rounded-lg overflow-hidden aspect-square w-36 shadow-lg cursor-pointer relative"
+            key={file.name}>
             <img
                 src={file.preview}
                 style={img}
@@ -79,7 +80,7 @@ export function DropZone(props) {
             <aside className="flex flex-wrap gap-3 mt-3">
                 {thumbs}
                 <div {...getRootProps({className: 'dropzone'})}
-                     className="border-2 border-dashed p-3 lg:p-5 rounded lg:rounded-lg overflow-hidden aspect-square w-48 flex items-center justify-center">
+                     className="border-2 border-dashed p-3 lg:p-5 rounded lg:rounded-lg overflow-hidden aspect-square w-36 flex items-center justify-center">
                     <input {...getInputProps()} />
                     <span>
                     <svg width="91px" height="91px" viewBox="0 0 48 48" version="1" xmlns="http://www.w3.org/2000/svg"

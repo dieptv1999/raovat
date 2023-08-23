@@ -94,6 +94,16 @@ function showMessage(title, message, status = 'success') {
             progress: undefined,
             theme: "light",
         })
+    } else if (status === 'error') {
+        toast.error(message, {
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
     }
 }
 

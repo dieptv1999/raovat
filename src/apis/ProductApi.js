@@ -42,4 +42,9 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}loginAPI`;
     return this.post(url, params);
   }
+
+  submitSell(params) {
+    const url = `${schema}submitSell`;
+    return this.post(url, params);
+  }
 }

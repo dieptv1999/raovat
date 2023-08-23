@@ -7,6 +7,9 @@ export const SUBSCRIBER = 'classified-advertising-subscriber';
 export const SUBSCRIBER_TIMING = 'classified-advertising-subscriber-timing';
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://api.raovat24h.net/api/';
 
+export const NEXT_URL =
+    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://localhost:5001";
+
 export const CATEGORIES = [
     {
         id: 1,
@@ -67,5 +70,105 @@ export const CATEGORIES = [
         id: 12,
         name: 'Thời trang, đồ dùng cá nhân',
         key: 'Thời trang, Đồ dùng cá nhân',
+    },
+]
+
+export const TYPE_OF_POST = [
+    {
+        id: "1",
+        value: "0",
+        name: 'Cần bán'
+    },
+    {
+        id: "2",
+        value: "1",
+        name: 'Cần mua'
+    },
+    {
+        id: "3",
+        value: "1",
+        name: 'Cần thuê'
+    },
+    {
+        id: "4",
+        value: "0",
+        name: 'Cho thuê'
+    },
+    {
+        id: "5",
+        name: 'Khác'
+    },
+]
+
+export const OBJECT_TYPE = [
+    {
+        id: 1,
+        name: 'Bán chuyên'
+    },
+    {
+        id: 2,
+        name: 'Cá nhân'
+    },
+    {
+        id: 3,
+        name: 'Đại lý'
+    },
+]
+
+export const POSITION_HOUSE = [
+    {
+        id: 1,
+        name: 'Đông'
+    },
+    {
+        id: 2,
+        name: 'Nam'
+    },
+    {
+        id: 3,
+        name: 'Tây'
+    },
+    {
+        id: 4,
+        name: 'Đông Bắc'
+    },
+    {
+        id: 5,
+        name: 'Đông Nam'
+    },
+    {
+        id: 6,
+        name: 'Tây Nam'
+    },
+    {
+        id: 7,
+        name: 'Tây Bắc'
+    },
+]
+
+export const REAL_ESTATE_TYPE = [
+    {
+        id: 1,
+        name: 'Đất'
+    },
+    {
+        id: 2,
+        name: 'Liền kề, biệt thự, nhà mặt phố'
+    },
+    {
+        id: 3,
+        name: 'Căn hộ/Chung cư'
+    },
+    {
+        id: 4,
+        name: 'Nhà ở'
+    },
+    {
+        id: 5,
+        name: 'Văn phòng, mặt bằng kinh doanh'
+    },
+    {
+        id: 6,
+        name: 'Phòng trọ'
     },
 ]
