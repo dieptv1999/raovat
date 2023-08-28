@@ -2,6 +2,7 @@ import {BASE_URL, SESSION, USER_ID} from "./constant";
 import moment from "moment";
 import {toast} from "react-toastify";
 import {forEach} from "lodash/collection";
+import signOutFirebase from "../../firebase/auth/signOut";
 
 function getToken() {
     if (process.browser) {
@@ -118,6 +119,12 @@ function getFormData(obj) {
     return bodyFormData
 }
 
+function logout() {
+    localStorage.clear()
+    signOutFirebase()
+    window.location.href = '/'
+}
+
 export default {
     getToken,
     getBaseURL,
@@ -132,4 +139,5 @@ export default {
     getUrlTweet,
     getFormData,
     getUserId,
+    logout,
 }

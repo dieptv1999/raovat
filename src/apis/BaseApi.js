@@ -2,6 +2,7 @@ import React from "react";
 import _, { isEmpty } from 'lodash';
 import client from "./Client";
 import {API_VERSION, BASE_URL} from "../utils/constant";
+import utils from "../utils";
 
 export default class BaseApi {
   version = API_VERSION;
@@ -35,7 +36,6 @@ export default class BaseApi {
   }
 
   async post(url, data = {}, params = {}, showNoti = true, contentType) {
-    console.log(params.headers)
     try {
       const response = await client(this.baseUrl, contentType).post(`${this.version}/${url}`, data, {...params});
       return this._responseHandler(response, showNoti);
@@ -62,8 +62,10 @@ export default class BaseApi {
   }
 
   _errorHandler(err) {
-    if (!isEmpty(err.response) && (err.response.status === 401 || err.response.status === 405)) { // Unauthorized (session timeout)
-      // utils.logout()
+    console.log(err)
+    if (err.response.status === 401) { // Unauthorized (session timeout)
+      utils.logout()
+      console.log('401')
       throw err;
     }
   }
