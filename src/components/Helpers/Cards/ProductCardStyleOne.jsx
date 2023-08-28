@@ -7,6 +7,7 @@ import utils from "../../../utils";
 import ApiFactory from "../../../apis/ApiFactory";
 import {useState} from "react";
 import ThinLoveFill from "../icons/ThinLoveFill";
+import useLikePost from "../../../../hooks/useLikePost";
 
 export default function ProductCardStyleOne({
                                                 datas, type,
@@ -14,19 +15,15 @@ export default function ProductCardStyleOne({
                                                 onLogin = () => {
                                                 },
                                             }) {
+    const {liked, onLike} = useLikePost({postId: datas.id});
     const available =
         (datas.cam_product_sale /
             (datas.cam_product_available + datas.cam_product_sale)) *
         100;
 
-    const [liked, setLiked] = useState(true);
-
     async function addFollow() {
-        setLiked(!liked)
-        return;
         if (authenticated) {
-            const resp = await ApiFactory.getRequest("ProductApi").addFollower({id: datas.id});
-            console.log(resp)
+            onLike()
         } else {
             onLogin();
         }
@@ -83,7 +80,7 @@ export default function ProductCardStyleOne({
             <div className="product-card-details px-[18px] pb-[30px] relative flex flex-col flex-1">
                 {/* add to card button */}
                 <div
-                    className="absolute w-full h-10 px-[30px] left-0 top-40 group-hover:top-[85px] transition-all duration-300 ease-in-out">
+                    className="absolute w-full h-10 left-0 top-40 group-hover:top-[85px] transition-all duration-300 ease-in-out">
                     <button type="button" className={type === 3 ? 'blue-btn' : 'yellow-btn'}>
                         <div className="flex items-center space-x-3">
               <span>

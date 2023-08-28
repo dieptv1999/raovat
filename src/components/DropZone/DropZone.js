@@ -24,8 +24,7 @@ const img = {
 };
 
 
-export function DropZone(props) {
-    const [files, setFiles] = useState([]);
+export function DropZone({files, setFiles}) {
     const {getRootProps, getInputProps} = useDropzone({
         accept: {
             'image/*': []

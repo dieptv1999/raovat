@@ -1,7 +1,7 @@
 import firebase_app from "../config";
 import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider} from "firebase/auth";
 import ApiFactory from "../../src/apis/ApiFactory";
-import {SESSION} from "../../src/utils/constant";
+import {SESSION, USER_ID} from "../../src/utils/constant";
 
 const auth = getAuth(firebase_app);
 
@@ -24,6 +24,7 @@ export default async function signUp({email, password, fullName}) {
         })
         if (resp.success) {
             localStorage.setItem(SESSION, resp.token)
+            localStorage.setItem(USER_ID, resp.user?.id)
             window.location.replace('/')
         }
         console.log({credential, token, user});

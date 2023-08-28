@@ -2,7 +2,7 @@ import utils from "../utils";
 import axios from "axios";
 import qs from "qs";
 
-export function getInstanceAxios(baseAPI) {
+export function getInstanceAxios(baseAPI, contentType = 'application/json') {
   const instance = axios.create({
     baseURL: baseAPI,
     paramsSerializer: (params) => {
@@ -15,14 +15,15 @@ export function getInstanceAxios(baseAPI) {
     async function (config) {
       if (utils.getToken())
         config.headers = {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Authorization": utils.getToken()
+          Accept: contentType,
+          "Content-Type": contentType,
+          "api-token": utils.getToken(),
+          'user-id': utils.getUserId(),
         }
       else {
         config.headers = {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: contentType,
+          "Content-Type": contentType,
         }
       }
       return config
@@ -65,4 +66,4 @@ export function getInstanceAxios(baseAPI) {
   return instance
 }
 
-export default (url = '') => getInstanceAxios(url || utils.getBaseURL())
+export default (url = '', contentType) => getInstanceAxios(url || utils.getBaseURL(), contentType)

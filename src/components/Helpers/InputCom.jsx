@@ -12,7 +12,8 @@ export default function InputCom({
                                      disabled = false,
                                      labelClasses = "text-qgray text-[13px] font-normal",
                                      error = '',
-    minValue = 0
+                                     inputType = 'input',
+                                     minValue = 0
                                  }) {
     return (
         <div className="input-com w-full h-full">
@@ -25,7 +26,7 @@ export default function InputCom({
                 </label>
             )}
             <div className="input-wrapper w-full h-full overflow-hidden relative ">
-                <input
+                {inputType === 'input' ? <input
                     placeholder={placeholder}
                     disabled={disabled}
                     value={value}
@@ -39,6 +40,18 @@ export default function InputCom({
                     name={name}
                     id={name}
                 />
+                    : <textarea
+                        placeholder={placeholder}
+                        disabled={disabled}
+                        value={value}
+                        onChange={inputHandler}
+                        className={`textarea textarea-bordered placeholder:text-sm text-sm px-6 py-3 text-dark-gray w-full font-normal bg-white focus:ring-0 focus:outline-none ${
+                            inputClasses || ""
+                        } ${error ? 'textarea-error' : ''}`}
+                        onBlur={onBlur}
+                        name={name}
+                        id={name}
+                />}
                 {children && children}
             </div>
             {error ? <label className="label">

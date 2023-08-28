@@ -2,7 +2,7 @@ import firebase_app from "../config";
 import {GoogleAuthProvider, getAuth, signInWithPopup, FacebookAuthProvider, OAuthProvider} from "firebase/auth";
 import ApiFactory from "../../src/apis/ApiFactory";
 import * as url from "url";
-import {SESSION} from "../../src/utils/constant";
+import {SESSION, USER_ID} from "../../src/utils/constant";
 
 const auth = getAuth(firebase_app);
 
@@ -37,6 +37,7 @@ export default async function signInWithSocial(type, prevUrl = '/') {
         })
         if (resp.success) {
             localStorage.setItem(SESSION, resp.token)
+            localStorage.setItem(USER_ID, resp.user?.id)
             window.location.replace(prevUrl)
         }
         console.log({credential, token, user});

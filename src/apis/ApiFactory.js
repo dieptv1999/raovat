@@ -1,6 +1,8 @@
 import ProductApi from "./ProductApi";
+import UserApi from "./UserApi";
 const requestMap = {
   ProductApi,
+  UserApi,
 };
 
 const instances = {};

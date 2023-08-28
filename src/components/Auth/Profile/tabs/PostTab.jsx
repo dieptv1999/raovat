@@ -1,11 +1,16 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import InputQuantityCom from "../../../Helpers/InputQuantityCom";
 import * as util from "util";
 import utils from "../../../../utils";
+import ApiFactory from "../../../../apis/ApiFactory";
+import {useAuthContext} from "../../../../context/AuthContext";
+import get from "lodash/get";
 
 export default function PostTab({
                                     classTableName = ''
                                 }) {
+    const {user} = useAuthContext()
+    const [data, setData] = useState([])
     const [active, setActive] = useState(1);
     const [tabs, setTabs] = useState([{
         id: 1, name: "đang hiển thị", visible: true,
@@ -23,6 +28,21 @@ export default function PostTab({
         id: 7, name: "đã ẩn", visible: true,
     }])
 
+    const fetchData = useCallback(async () => {
+        if (!user.userId) return
+        const resp = await ApiFactory.getRequest("UserApi").getListMySell({
+            user_id: user.userId,
+        })
+        if (resp.success) {
+            setData(resp.listSell)
+        } else {
+            // * sai request
+        }
+    }, [user.userId])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
 
     return (<div className="tabs">
         {tabs.map(e => (<div
@@ -42,142 +62,65 @@ export default function PostTab({
                                 Tên sản phẩm
                             </td>
                             <td className="py-4 whitespace-nowrap text-center">
-                                stock status
+                                Danh mục
                             </td>
                             <td className="py-4 whitespace-nowrap text-center">giá</td>
                             <td className="py-4 whitespace-nowrap  text-center">
-                                số lượng
+                                Kiểu tin
                             </td>
-                            <td className="py-4 whitespace-nowrap  text-center">Tổng</td>
+                            <td className="py-4 whitespace-nowrap  text-center">Địa chỉ</td>
                             <td className="py-4 whitespace-nowrap text-right w-[114px] block"></td>
                         </tr>
                         {/* table heading end */}
-                        <tr className="bg-white border-b hover:bg-gray-50">
-                            <td className="pl-10  py-4 ">
-                                <div className="flex space-x-6 items-center">
-                                    <div
-                                        className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED]">
-                                        <img
-                                            src={`/assets/images/product-img-1.webp`}
-                                            alt="product"
-                                            className="w-full h-full object-contain"
-                                        />
+                        {data.map(e => (
+                            <tr className="bg-white border-b hover:bg-gray-50" key={e.id}>
+                                <td className="pl-10  py-4 ">
+                                    <div className="flex space-x-6 items-center">
+                                        <div
+                                            className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED]">
+                                            <img
+                                                src={e.thumb ? e.thumb : `/assets/images/product-img-2.webp`}
+                                                alt="product"
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                        <div className="flex-1 flex flex-col">
+                                            <p className="font-medium text-[15px] text-qblack">
+                                                {e.title}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 flex flex-col">
-                                        <p className="font-medium text-[15px] text-qblack">
-                                            iPhone 12 Pro Max 128GB
-                                        </p>
+                                </td>
+                                <td className="text-center py-4 px-2">
+                                    <span className="text-[15px] font-normal text-center whitespace-nowrap">
+                                        {e.collection}
+                                    </span>
+                                </td>
+                                <td className="text-center py-4 px-2">
+                                    <div className="flex space-x-1 items-center justify-center">
+                                        <span className="text-[15px] font-normal">{utils.formatMoney(e.price)}</span>
                                     </div>
-                                </div>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <span className="text-[15px] font-normal">Online</span>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">{utils.formatMoney(38000)}</span>
-                                </div>
-                            </td>
-                            <td className=" py-4">
-                                <div className="flex justify-center items-center">
-                                    <InputQuantityCom/>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">$38</span>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <input type="checkbox" className="toggle toggle-warning" checked/>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b hover:bg-gray-50">
-                            <td className="pl-10  py-4  w-[380px]">
-                                <div className="flex space-x-6 items-center">
-                                    <div
-                                        className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED]">
-                                        <img
-                                            src={`/assets/images/product-img-3.webp`}
-                                            alt="product"
-                                            className="w-full h-full object-contain"
-                                        />
+                                </td>
+                                <td className=" py-4">
+                                    <div className="flex justify-center items-center text-center whitespace-nowrap">
+                                        {/*<InputQuantityCom/>*/}
+                                        {e.type}
                                     </div>
-                                    <div className="flex-1 flex flex-col">
-                                        <p className="font-medium text-[15px] text-qblack">
-                                            iPhone 12 Pro Max 128GB
-                                        </p>
+                                </td>
+                                <td className="text-right py-4">
+                                    <div className="flex space-x-1 items-center justify-center">
+                                        <span className="text-[15px] font-normal min-w-[100px] text-center mx-1">
+                                            {`${e.address_more}, ${e.district}, ${e.city}`}
+                                        </span>
                                     </div>
-                                </div>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <span className="text-[15px] font-normal">Online</span>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">$38</span>
-                                </div>
-                            </td>
-                            <td className=" py-4">
-                                <div className="flex justify-center items-center">
-                                    <InputQuantityCom/>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">$38</span>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <input type="checkbox" className="toggle toggle-warning" checked/>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b hover:bg-gray-50">
-                            <td className="pl-10  py-4  w-[380px]">
-                                <div className="flex space-x-6 items-center">
-                                    <div
-                                        className="w-[80px] h-[80px] overflow-hidden flex justify-center items-center border border-[#EDEDED]">
-                                        <img
-                                            src={`/assets/images/product-img-3.webp`}
-                                            alt="product"
-                                            className="w-full h-full object-contain"
-                                        />
+                                </td>
+                                <td className="text-right py-4">
+                                    <div className="flex space-x-1 items-center justify-center">
+                                        <input type="checkbox" className="toggle toggle-warning" checked/>
                                     </div>
-                                    <div className="flex-1 flex flex-col">
-                                        <p className="font-medium text-[15px] text-qblack">
-                                            iPhone 12 Pro Max 128GB
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <span className="text-[15px] font-normal">Online</span>
-                            </td>
-                            <td className="text-center py-4 px-2">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">$38</span>
-                                </div>
-                            </td>
-                            <td className=" py-4">
-                                <div className="flex justify-center items-center">
-                                    <InputQuantityCom/>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <span className="text-[15px] font-normal">$38</span>
-                                </div>
-                            </td>
-                            <td className="text-right py-4">
-                                <div className="flex space-x-1 items-center justify-center">
-                                    <input type="checkbox" className="toggle toggle-warning" checked={false}/>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
                 </div>

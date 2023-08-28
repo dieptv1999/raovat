@@ -34,9 +34,10 @@ export default class BaseApi {
     }
   }
 
-  async post(url, data = {}, params = {}, showNoti = true) {
+  async post(url, data = {}, params = {}, showNoti = true, contentType) {
+    console.log(params.headers)
     try {
-      const response = await client(this.baseUrl).post(`${this.version}/${url}`, data, { params });
+      const response = await client(this.baseUrl, contentType).post(`${this.version}/${url}`, data, {...params});
       return this._responseHandler(response, showNoti);
     } catch (error) {
       this._errorHandler(error);

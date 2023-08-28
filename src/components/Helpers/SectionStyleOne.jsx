@@ -4,6 +4,7 @@ import ProductCardStyleOne from "./Cards/ProductCardStyleOne";
 import DataIteration from "./DataIteration";
 import ViewMoreTitle from "./ViewMoreTitle";
 import {useRouter} from "next/router";
+import {useAuthContext} from "../../context/AuthContext";
 
 export default function SectionStyleOne({
                                             className,
@@ -15,6 +16,7 @@ export default function SectionStyleOne({
                                             categoryBackground,
                                             authenticated = false,
                                         }) {
+    const {user} = useAuthContext()
     const filterBrands = brands.filter(
         (value, index, array) => array.indexOf(value) === index
     );
@@ -46,6 +48,7 @@ export default function SectionStyleOne({
                                 <div key={datas.id} className="item">
                                     <ProductCardStyleOne
                                         datas={datas}
+                                        authenticated={!!user}
                                         onLogin={() => router.push('/login')}
                                     />
                                 </div>

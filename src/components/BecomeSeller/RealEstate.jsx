@@ -1,5 +1,3 @@
-import {Form, Formik, useFormik} from "formik";
-import * as Yup from "yup";
 import countryList from 'react-select-country-list'
 import InputCom from "../Helpers/InputCom";
 import {useEffect, useMemo} from "react";
@@ -7,6 +5,7 @@ import dynamic from "next/dynamic";
 import {CATEGORIES, OBJECT_TYPE, POSITION_HOUSE, REAL_ESTATE_TYPE, TYPE_OF_POST} from "../../utils/constant";
 import Arrow from "../Helpers/icons/Arrow";
 import SelectAddress from "../SelectAddress";
+import {forEach} from "lodash/collection";
 
 // Bất động sản
 export default function RealEstate({
@@ -42,7 +41,7 @@ export default function RealEstate({
                                 Chọn mục
                             </option>
                             {REAL_ESTATE_TYPE.map(e => (
-                                <option key={e.id} value={e.id}>{e.name}</option>
+                                <option key={e.id} value={e.name}>{e.name}</option>
                             ))}
                         </select>
                     </div>
@@ -59,7 +58,7 @@ export default function RealEstate({
                                 Loại tin đăng
                             </option>
                             {TYPE_OF_POST.map(e => (
-                                <option key={e.id} value={e.value}>{e.name}</option>
+                                <option key={e.id} value={e.name}>{e.name}</option>
                             ))}
                         </select>
                     </div>
@@ -77,7 +76,7 @@ export default function RealEstate({
                                      document.getElementById("modal-select-address-2").showModal();
                                  }
                              }}>
-                            <div>{values.city ? values.city : 'Địa chỉ cụ thế'}</div>
+                            <div>{values.city ? `${values.address_more}, ${values.district}, ${values.city}` : 'Địa chỉ cụ thế'}</div>
                             <div>
                                 <Arrow
                                     width="5.78538"
@@ -107,47 +106,48 @@ export default function RealEstate({
                         <InputCom
                             placeholder="200m2"
                             label="Diện tích"
-                            name="area"
+                            name="size"
                             type="text"
                             required={true}
                             inputClasses="h-[50px]"
                             inputHandler={handleChange}
                             value={values.area}
+                            error={errors.size}
                         />
 
-                        <InputCom
-                            placeholder="3.8"
-                            label="Mặt tiền"
-                            name="lname"
-                            type="text"
-                            required={true}
-                            inputClasses="h-[50px]"
-                            inputHandler={handleChange}
-                            value={values.prev}
-                        />
+                        {/*<InputCom*/}
+                        {/*    placeholder="3.8"*/}
+                        {/*    label="Mặt tiền"*/}
+                        {/*    name="lname"*/}
+                        {/*    type="text"*/}
+                        {/*    required={true}*/}
+                        {/*    inputClasses="h-[50px]"*/}
+                        {/*    inputHandler={handleChange}*/}
+                        {/*    value={values.prev}*/}
+                        {/*/>*/}
                     </div>
-                    <div
-                        className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                        <InputCom
-                            placeholder="3.8"
-                            label="Đường vào"
-                            name="area"
-                            type="text"
-                            required={true}
-                            inputClasses="h-[50px]"
-                            inputHandler={handleChange}
-                        />
+                    {/*<div*/}
+                    {/*    className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">*/}
+                    {/*    <InputCom*/}
+                    {/*        placeholder="3.8"*/}
+                    {/*        label="Đường vào"*/}
+                    {/*        name="area"*/}
+                    {/*        type="text"*/}
+                    {/*        required={true}*/}
+                    {/*        inputClasses="h-[50px]"*/}
+                    {/*        inputHandler={handleChange}*/}
+                    {/*    />*/}
 
-                        <InputCom
-                            placeholder="3"
-                            label="Số phòng ngủ"
-                            name="lname"
-                            type="text"
-                            required={true}
-                            inputClasses="h-[50px]"
-                            inputHandler={handleChange}
-                        />
-                    </div>
+                    {/*    <InputCom*/}
+                    {/*        placeholder="3"*/}
+                    {/*        label="Số phòng ngủ"*/}
+                    {/*        name="lname"*/}
+                    {/*        type="text"*/}
+                    {/*        required={true}*/}
+                    {/*        inputClasses="h-[50px]"*/}
+                    {/*        inputHandler={handleChange}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
 
                     <div
@@ -155,24 +155,25 @@ export default function RealEstate({
                         <select
                             value={values.list}
                             onChange={handleChange}
-                            name={'type'}
+                            name={'orientation'}
                             className="w-full flex items-center px-4 select select-bordered text-xs mb-3">
                             <option value={-1}>
                                 Hướng nhà, hướng ban công
                             </option>
                             {POSITION_HOUSE.map(e => (
-                                <option key={e.id} value={e.id}>{e.name}</option>
+                                <option key={e.id} value={e.name}>{e.name}</option>
                             ))}
                         </select>
                         <select
-                            value={values.list}
+                            value={values.sell_type}
                             onChange={handleChange}
+                            name={'sell_type'}
                             className="w-full flex items-center px-4 select select-bordered text-xs mb-3">
-                            <option value={-1}>
+                            <option value={null}>
                                 Loại
                             </option>
                             {OBJECT_TYPE.map(e => (
-                                <option key={e.id} value={e.id}>{e.name}</option>
+                                <option key={e.id} value={e.name}>{e.name}</option>
                             ))}
                         </select>
                     </div>
@@ -190,26 +191,34 @@ export default function RealEstate({
                             inputClasses="h-[50px]"
                             inputHandler={handleChange}
                             value={values.title}
+                            error={errors.title}
                         />
                     </div>
                     <div
                         className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                            <textarea
+                            <InputCom
                                 name={'des'}
-                                className="textarea textarea-bordered w-full"
+                                inputHandler={handleChange}
                                 placeholder={'Mô tả'}
+                                label="Mô tả chi tiết"
+                                inputClasses="min-h-[100px]"
+                                required={true}
                                 onChange={handleChange}
                                 value={values.des}
+                                error={errors.des}
+                                inputType={'textarea'}
                             >
 
-                            </textarea>
+                            </InputCom>
                     </div>
                     {/*<PostInfo/>*/}
                 </div>
             </form>
             <SelectAddress id={'modal-select-address-2'} onSubmitAddress={addr => {
-                console.log(addr)
-                setFieldValue('city', addr)
+                forEach(addr, (val, key) => {
+                    console.log(key, val)
+                    setFieldValue(key, val)
+                })
             }}/>
         </div>
     )

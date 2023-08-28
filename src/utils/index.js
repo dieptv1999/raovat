@@ -1,7 +1,7 @@
-import {BASE_URL, SESSION} from "./constant";
+import {BASE_URL, SESSION, USER_ID} from "./constant";
 import moment from "moment";
 import {toast} from "react-toastify";
-import get from "lodash/get";
+import {forEach} from "lodash/collection";
 
 function getToken() {
     if (process.browser) {
@@ -16,6 +16,12 @@ function getToken() {
         } else {
             return undefined;
         }
+    } else return undefined
+}
+
+function getUserId() {
+    if (process.browser) {
+        return localStorage.getItem(USER_ID)
     } else return undefined
 }
 
@@ -107,6 +113,16 @@ function showMessage(title, message, status = 'success') {
     }
 }
 
+function getFormData(obj) {
+    let bodyFormData = new FormData();
+    if (!obj) return bodyFormData;
+    forEach(obj, (value, key) => {
+        bodyFormData.append(key, value)
+    })
+
+    return bodyFormData
+}
+
 export default {
     getToken,
     getBaseURL,
@@ -119,4 +135,6 @@ export default {
     getUrlTelegram,
     getUrlFacebook,
     getUrlTweet,
+    getFormData,
+    getUserId,
 }

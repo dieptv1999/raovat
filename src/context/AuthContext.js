@@ -4,7 +4,8 @@ import {
     getAuth,
 } from 'firebase/auth';
 import firebase_app from '../../firebase/config';
-import {SESSION} from "../utils/constant";
+import {SESSION, USER_ID} from "../utils/constant";
+import axios from "axios";
 
 const auth = getAuth(firebase_app);
 
@@ -21,8 +22,19 @@ export const AuthContextProvider = ({
     React.useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             const token = localStorage.getItem(SESSION)
+            const userId = localStorage.getItem(USER_ID)
             if (user && !!token && token !== '') {
-                setUser(user);
+                setUser({
+                    ...user,
+                    token,
+                    userId,
+                });
+
+                axios.interceptors.request.use(function (config) {
+                    config.headers['api-token'] =  token;
+                    config.headers['user-id'] =  userId;
+                    return config;
+                });
             } else {
                 setUser(null);
             }

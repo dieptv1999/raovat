@@ -4,7 +4,7 @@ import countryList from 'react-select-country-list'
 import InputCom from "../Helpers/InputCom";
 import {useEffect, useMemo} from "react";
 import dynamic from "next/dynamic";
-import {CATEGORIES, OBJECT_TYPE, TYPE_OF_POST} from "../../utils/constant";
+import {CATEGORIES, OBJECT_TYPE, TYPE_OF_POST, VEHICLE_TYPE} from "../../utils/constant";
 
 // const PostInfo = dynamic(() => import("./PostInfo"), {ssr: false})
 
@@ -48,7 +48,7 @@ export default function Vehicle({
                                 <option value={-1}>
                                     Chọn mục
                                 </option>
-                                {CATEGORIES.map(e => (
+                                {VEHICLE_TYPE.map(e => (
                                     <option key={e.id} value={e.id} >{e.name}</option>
                                 ))}
                             </select>

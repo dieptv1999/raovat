@@ -36,7 +36,11 @@ export default function SelectAddress({
         onSubmit: values => {
             const provinceName = find(provinces, e => e.code === values.province)?.name_with_type;
             const districtName = find(districts, e => e.code === values.district)?.name_with_type;
-            onSubmitAddress(`${values.address}, ${districtName}, ${provinceName}`)
+            onSubmitAddress({
+                city: provinceName,
+                district: districtName,
+                address_more: values.address,
+            })
             document.getElementById(`${id}-btn`).click();
         },
     });
