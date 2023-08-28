@@ -8,7 +8,7 @@ export default function useLikePost({postId}) {
     const [liked, setLiked] = useState(false);
 
     const onLike = useCallback(async () => {
-        if (!user.userId) return
+        if (!user?.userId) return
         const resp = await ApiFactory.getRequest("UserApi").addFollow({
             user_id: user.userId,
             sell_id: postId,
@@ -16,10 +16,10 @@ export default function useLikePost({postId}) {
         if (resp.success) {
             setLiked(true)
         }
-    }, [postId, user.userId])
+    }, [postId, user?.userId])
 
     const fetchFollow = useCallback(async () => {
-        if (!user.userId) return
+        if (!user?.userId) return
         const resp = await ApiFactory.getRequest("UserApi").checkFollow({
             user_id: user.userId,
             sell_id: postId,
@@ -27,7 +27,7 @@ export default function useLikePost({postId}) {
         if (resp.success) {
             setLiked(true)
         }
-    }, [postId, user.userId])
+    }, [postId, user?.userId])
 
     useEffect(() => {
         fetchFollow()
