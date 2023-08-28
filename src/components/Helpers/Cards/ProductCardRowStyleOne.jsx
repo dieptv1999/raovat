@@ -7,6 +7,7 @@ import utils from "../../../utils";
 import ThinLoveFill from "../icons/ThinLoveFill";
 import {useState} from "react";
 import ApiFactory from "../../../apis/ApiFactory";
+import useLikePost from "../../../../hooks/useLikePost";
 
 export default function ProductCardRowStyleTwo({
                                                    className, datas, type,
@@ -14,14 +15,11 @@ export default function ProductCardRowStyleTwo({
                                                    onLogin = () => {
                                                    },
                                                }) {
-    const [liked, setLiked] = useState(true);
+    const {liked, onLike} = useLikePost({postId: datas.id});
 
     async function addFollow() {
-        setLiked(!liked)
-        return;
         if (authenticated) {
-            const resp = await ApiFactory.getRequest("ProductApi").addFollower({id: datas.id});
-            console.log(resp)
+            await onLike()
         } else {
             onLogin();
         }

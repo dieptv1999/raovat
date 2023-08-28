@@ -1,5 +1,6 @@
 import ProductCardRowStyleOne from "./Cards/ProductCardRowStyleOne";
 import DataIteration from "./DataIteration";
+import {useAuthContext} from "../../context/AuthContext";
 
 export default function SectionStyleTwo({className, products, type, authenticated = false}) {
     return (
@@ -11,7 +12,11 @@ export default function SectionStyleTwo({className, products, type, authenticate
             <DataIteration datas={products} startLength={0} endLength={4}>
                 {({datas}) => (
                     <div key={datas.id} className="item w-full">
-                        <ProductCardRowStyleOne type={type} datas={datas} authenticated={authenticated}/>
+                        <ProductCardRowStyleOne
+                            type={type}
+                            datas={datas}
+                            authenticated={authenticated}
+                        />
                     </div>
                 )}
             </DataIteration>
