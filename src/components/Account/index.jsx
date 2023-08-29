@@ -8,6 +8,7 @@ import DataIteration from "../Helpers/DataIteration";
 import ProductCardStyleOne from "../Helpers/Cards/ProductCardStyleOne";
 import ViewMoreTitle from "../Helpers/ViewMoreTitle";
 import {useAuthContext} from "../../context/AuthContext";
+import {ListCardLoading} from "../Loading";
 
 export default function Account({user}) {
     console.log(user)
@@ -15,12 +16,15 @@ export default function Account({user}) {
     const [data, setData] = useState([])
     const [followed, setFollowed] = useState(false)
     const [wantCancelFollow, setWantCancelFollow] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const fetchData = useCallback(async () => {
         if (!user.id) return;
+        setLoading(true)
         const resp = await ApiFactory.getRequest("UserApi").getListSellViaUser({
             user_id: user.id,
         })
+        setLoading(false)
         if (resp.success) {
             setData(resp.listSell ?? [])
         }
@@ -53,7 +57,7 @@ export default function Account({user}) {
     useEffect(() => {
         fetchData()
         checkFollow()
-    }, [checkFollow, fetchData]);
+    }, [fetchData]);
 
     return (
         <Layout childrenClasses="pt-0 pb-0">
@@ -118,6 +122,7 @@ export default function Account({user}) {
                                     )}
                                 </DataIteration>
                             </div>
+                            {loading ? <ListCardLoading/> : <div/>}
                         </div>
                     </div>
                 </div>
