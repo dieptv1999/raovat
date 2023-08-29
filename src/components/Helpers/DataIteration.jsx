@@ -1,11 +1,13 @@
 function DataIteration(props) {
   const { datas = [], startLength, endLength, children } = props;
+
+  const endLens = datas.length >= endLength ? endLength : datas.length;
+
   return (
     <>
       {datas &&
-        datas.length >= endLength &&
         datas
-          .slice(startLength, endLength)
+          .slice(startLength, endLens)
           .map((value) => children({ datas: value }))}
     </>
   );

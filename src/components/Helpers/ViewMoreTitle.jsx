@@ -14,7 +14,7 @@ export default function ViewMoreTitle({
             </h1>
           </div>
           <div>
-            <a href={seeMoreUrl}>
+            {seeMoreUrl ? <a href={seeMoreUrl}>
               <div className="flex space-x-2 items-center">
                 <p className="text-base font-600 text-qblack">Xem thêm</p>
                 <span className="animate-right-dir">
@@ -36,7 +36,7 @@ export default function ViewMoreTitle({
                   </svg>
                 </span>
               </div>
-            </a>
+            </a> : <div />}
           </div>
         </div>
         <div className="section-content">{children && children}</div>

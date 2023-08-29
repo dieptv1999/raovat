@@ -80,7 +80,7 @@ export default function ProductCardStyleOne({
             <div className="product-card-details px-[18px] pb-[30px] relative flex flex-col flex-1">
                 {/* add to card button */}
                 <div
-                    className="absolute w-full h-10 left-0 top-40 group-hover:top-[85px] transition-all duration-300 ease-in-out">
+                    className="absolute w-full h-10 left-0 bottom-[-85px] group-hover:bottom-[0px] transition-all duration-300 ease-in-out">
                     <button type="button" className={type === 3 ? 'blue-btn' : 'yellow-btn'}>
                         <div className="flex items-center space-x-3">
               <span>

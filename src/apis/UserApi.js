@@ -22,4 +22,24 @@ export default class UserApi extends BaseApi {
     const url = `${schema}checkFollow`;
     return this.post(url, params);
   }
+
+  getListSellViaUser(params) {
+    const url = `${schema}getListSellViaUser`;
+    return this.post(url, params);
+  }
+
+  addFollower(params) {
+    const url = `${schema}addFollower`;
+    return this.post(url, params);
+  }
+
+  getListMyFollower(params) {
+    const url = `${schema}getListMyFollower`;
+    return this.post(url, params);
+  }
+
+  checkFollower(params) {
+    const url = `${schema}checkFollower`;
+    return this.post(url, params);
+  }
 }
