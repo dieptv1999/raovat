@@ -14,6 +14,7 @@ import ApiFactory from "../../apis/ApiFactory";
 import {find, forEach, reduce} from "lodash/collection";
 import utils from "../../utils";
 import {useAuthContext} from "../../context/AuthContext";
+import ElectronicDevice from "./ElectronicDevice";
 
 const DropZone = dynamic(() => import("../DropZone").then(e => e.DropZone), {ssr: false})
 
@@ -40,10 +41,22 @@ const RealEstateSchema = Yup.object().shape({
     address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
 })
 
+const VehicleSchema = Yup.object().shape({
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    brand: Yup.string().notOneOf([Yup.ref('-1')]),
+    model: Yup.string().notOneOf([Yup.ref('-1')]),
+})
+
+const ElectronicSchema = Yup.object().shape({
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    brand: Yup.string().notOneOf([Yup.ref('-1')]),
+    model: Yup.string().notOneOf([Yup.ref('-1')]),
+})
+
 
 export default function BecomeSeller({}) {
     const {user} = useAuthContext()
-    const [category, setCategory] = useState(-1);
+    const [category, setCategory] = useState('-1');
     const [loading, setLoading] = useState(false);
     const [files, setFiles] = useState([]);
 
@@ -79,11 +92,51 @@ export default function BecomeSeller({}) {
         },
     })
 
+    const vehicleFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            brand: '',
+            model: '',
+            car_status: '',
+            gear_car: '',
+            slot_car: '',
+            style_car: '',
+            fuel_car: '',
+            source_car: '',
+        },
+        validateOnBlur: true,
+        validationSchema: VehicleSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const electronicFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            brand: '',
+            model: '',
+            car_status: '',
+            gear_car: '',
+            slot_car: '',
+            style_car: '',
+            fuel_car: '',
+            source_car: '',
+        },
+        validateOnBlur: true,
+        validationSchema: ElectronicSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
     function renderBody() {
         if (category === "1") return <Vehicle onSubmit={(values) => {
-        }}/>
+        }} formik={vehicleFormik}/>
         if (category === "2") return <RealEstate onSubmit={(values) => {
         }} formik={realEstateFormik}/>
+        if (category === "3") return <ElectronicDevice onSubmit={(values) => {
+        }} formik={electronicFormik}/>
         else return <div/>
     }
 

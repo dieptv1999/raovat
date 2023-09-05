@@ -1,232 +1,310 @@
-import {Form, Formik} from "formik";
-import * as Yup from "yup";
+import {Form, Formik, getIn} from "formik";
 import countryList from 'react-select-country-list'
 import InputCom from "../Helpers/InputCom";
-import {useEffect, useMemo} from "react";
-import dynamic from "next/dynamic";
-import {CATEGORIES, OBJECT_TYPE, TYPE_OF_POST, VEHICLE_TYPE} from "../../utils/constant";
-
-// const PostInfo = dynamic(() => import("./PostInfo"), {ssr: false})
-
-const VehicleSchema = Yup.object().shape({
-    email:
-        Yup.string().email("Email không hợp lệ").required('Bạn cần nhập email để tiếp tục'),
-})
+import {useEffect, useMemo, useState} from "react";
+import {
+    CAPACITY_MOTOR_BIKE,
+    CAR_STATUS,
+    CATEGORIES, FUEL_CAR,
+    GEAR_CAR,
+    OBJECT_TYPE, SLOT_CAR, SOURCE_CAR, STYLE_CAR, STYLE_MOTOR_BIKE,
+    TYPE_OF_POST,
+    VEHICLE_BRAND_CAR,
+    VEHICLE_TYPE
+} from "../../utils/constant";
+import {find} from "lodash/collection";
 
 export default function Vehicle({
                                     onSubmit = () => {
-                                    }
+                                    },
+                                    formik,
                                 }) {
     const options = useMemo(() => countryList().getData(), [])
+    // * dòng xe
+    const [vehicles, setVehicles] = useState([])
+
+    const {
+        handleChange,
+        values,
+        errors,
+        setFieldValue,
+        handleSubmit
+    } = formik;
+
+    const getBrand = () => {
+        if (values.sub_collection && values.sub_collection !== -1) {
+            return find(VEHICLE_TYPE, e => e.name === values.sub_collection)?.brand
+        } else return null
+    }
+
+    const brand = getIn(values, 'brand')
 
     useEffect(() => {
-        console.log("vehicle")
-    }, []);
+        const brands = getBrand()
+
+        if (brand && brand !== -1) {
+            setVehicles(find(brands, e => e.name === brand)?.brand)
+        } else return setVehicles(null)
+    }, [brand]);
 
     return (
-        <Formik
-            initialValues={{
-                email: "",
-                list: -1,
-            }}
-            validateOnBlur={true}
-            validationSchema={VehicleSchema}
-            onSubmit={onSubmit}
-            render={({
-                         handleChange,
-                         values,
-                         errors
-                     }) => (
-                <Form className="flex flex-col">
-                    <div className="input-area">
-                        <div
+        <div>
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+                <div className="input-area">
+                    <div
+                        className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
+                        <select
+                            value={values.sub_collection}
+                            onChange={handleChange}
+                            name={'sub_collection'}
+                            className="w-full flex items-center px-4 select select-bordered text-xs">
+                            <option value={'-1'}>
+                                Chọn mục
+                            </option>
+                            {VEHICLE_TYPE.map(e => (
+                                <option key={e.id} value={e.name}>{e.name}</option>
+                            ))}
+                        </select>
+                    </div>
+                    {getBrand() ? <div
                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                             <select
-                                value={values.list}
+                                value={values.brand}
                                 onChange={handleChange}
-                                className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
-                                    Chọn mục
-                                </option>
-                                {VEHICLE_TYPE.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div
-                            className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                            <select
-                                value={values.list}
-                                onChange={handleChange}
+                                name={'brand'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
                                 <option value={-1}>
                                     Chọn hãng xe
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {getBrand().map(e => (
+                                    <option key={e.name} value={e.name}>{e.name}</option>
                                 ))}
                             </select>
-                            <select
-                                value={values.list}
-                                onChange={handleChange}
-                                className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
-                                    Chọn dòng xe
-                                </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
-                                ))}
-                            </select>
+                            {vehicles ? <select
+                                    value={values.model}
+                                    onChange={handleChange}
+                                    name={'model'}
+                                    className="w-full flex items-center px-4 select select-bordered text-xs">
+                                    <option value={'-1'}>
+                                        Chọn dòng xe
+                                    </option>
+                                    {vehicles.map(e => (
+                                        <option key={e} value={e}>{e}</option>
+                                    ))}
+                                </select>
+                                : null}
                         </div>
+                        : null
+                    }
 
-
-                        <div className="mb-3">Thông tin chi tiết</div>
+                    {/* * --------------------- thông tin chi tiết của car ------------------------ */}
+                    <div className="mb-3">Thông tin chi tiết</div>
+                    {values.sub_collection === 'Ô tô' ? <div className="flex flex-col w-full">
                         <div
                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                             <select
-                                value={values.list}
+                                value={values.car_status}
                                 onChange={handleChange}
+                                name={'car_status'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
+                                <option value={'-1'}>
                                     Tình trạng
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {CAR_STATUS.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                             <select
-                                value={values.list}
+                                value={values.gear_car}
                                 onChange={handleChange}
+                                name={'gear_car'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
                                 <option value={-1}>
                                     Hộp số
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {GEAR_CAR.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                         </div>
                         <div
                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                             <select
-                                value={values.list}
+                                value={values.fuel_car}
                                 onChange={handleChange}
+                                name={'fuel_car'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
+                                <option value={'-1'}>
                                     Nhiên liệu
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {FUEL_CAR.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                             <select
-                                value={values.list}
+                                value={values.source_car}
                                 onChange={handleChange}
+                                name={'source_car'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
+                                <option value={'-1'}>
                                     Nguồn gốc
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {SOURCE_CAR.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                         </div>
                         <div
                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                             <select
-                                value={values.list}
+                                value={values.style_car}
                                 onChange={handleChange}
+                                name={'style_car'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
+                                <option value={'-1'}>
                                     Kiểu dáng
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {STYLE_CAR.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                             <select
-                                value={values.list}
+                                value={values.slot_car}
                                 onChange={handleChange}
+                                name={'slot_car'}
                                 className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
+                                <option value={'-1'}>
                                     Số chỗ ngồi
                                 </option>
-                                {CATEGORIES.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
+                                {SLOT_CAR.map(e => (
+                                    <option key={e} value={e}>{e}</option>
                                 ))}
                             </select>
                         </div>
+                    </div>
+                    : values.sub_collection === 'Xe máy' ?
+                            <div className="flex flex-col w-full">
+                                <div
+                                    className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
+                                    <select
+                                        value={values.car_status}
+                                        onChange={handleChange}
+                                        name={'car_status'}
+                                        className="w-full flex items-center px-4 select select-bordered text-xs">
+                                        <option value={'-1'}>
+                                            Tình trạng
+                                        </option>
+                                        {CAR_STATUS.map(e => (
+                                            <option key={e} value={e}>{e}</option>
+                                        ))}
+                                    </select>
+                                    <select
+                                        value={values.fuel_car}
+                                        onChange={handleChange}
+                                        name={'fuel_car'}
+                                        className="w-full flex items-center px-4 select select-bordered text-xs">
+                                        <option value={'-1'}>
+                                            Dung tích
+                                        </option>
+                                        {CAPACITY_MOTOR_BIKE.map(e => (
+                                            <option key={e} value={e}>{e}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div
+                                    className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
+                                    <select
+                                        value={values.style_car}
+                                        onChange={handleChange}
+                                        name={'style_car'}
+                                        className="w-full flex items-center px-4 select select-bordered text-xs">
+                                        <option value={'-1'}>
+                                            Kiểu xe
+                                        </option>
+                                        {STYLE_MOTOR_BIKE.map(e => (
+                                            <option key={e} value={e}>{e}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                    : null}
 
-                        {/* ------------------------------------- end info detail ---------------------------------- */}
-                        <div
-                            className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                            <select
-                                value={values.list}
-                                onChange={handleChange}
-                                className="w-full flex items-center px-4 select select-bordered text-xs">
-                                <option value={-1}>
-                                    Loại tin đăng
-                                </option>
-                                {TYPE_OF_POST.map(e => (
-                                    <option key={e.id} value={e.id} >{e.name}</option>
-                                ))}
-                            </select>
-                        </div>
+                    {/* ------------------------------------- end info detail ---------------------------------- */}
 
-                        {/* --------------- mô tả thông tin -------------------------------------*/}
-                        <div className="mb-3">Mô tả thông tin</div>
+                    {/* --------------- mô tả thông tin -------------------------------------*/}
+                    <div className="mb-3">Mô tả thông tin</div>
+                    <div
+                        className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                         <select
-                            value={values.list}
+                            value={values.type}
                             onChange={handleChange}
-                            className="w-full flex items-center px-4 select select-bordered text-xs mb-3">
+                            name={'type'}
+                            className="w-full flex items-center px-4 select select-bordered text-xs">
                             <option value={-1}>
-                                Loại
+                                Loại tin đăng
                             </option>
-                            {OBJECT_TYPE.map(e => (
-                                <option key={e.id} value={e.id} >{e.name}</option>
+                            {TYPE_OF_POST.map(e => (
+                                <option key={e.id} value={e.id}>{e.name}</option>
                             ))}
                         </select>
-                        <div
-                            className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                            <InputCom
-                                placeholder="Giá của xe"
-                                label="Giá"
-                                name="price"
-                                type="text"
-                                required={true}
-                                inputClasses="h-[50px]"
-                            />
-
-                            <InputCom
-                                placeholder="Người liên hệ"
-                                label="Người liên hệ"
-                                name="lname"
-                                type="text"
-                                inputClasses="h-[50px]"
-                            />
-                        </div>
-                        <div
-                            className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
-                            <InputCom
-                                placeholder="0 333 333 333"
-                                label="Số điện thoại"
-                                name="phone"
-                                type="phone"
-                                inputClasses="h-[50px]"
-                            />
-
-                            <InputCom
-                                placeholder="Cần bán/ mua xe..."
-                                label="Tiêu đề"
-                                name="title"
-                                type="text"
-                                inputClasses="h-[50px]"
-                            />
-                        </div>
-                        {/*<PostInfo/>*/}
                     </div>
-                </Form>
-            )}
-        />
+                    <select
+                        value={values.sell_type}
+                        onChange={handleChange}
+                        name={'sell_type'}
+                        className="w-full flex items-center px-4 select select-bordered text-xs mb-3">
+                        <option value={null}>
+                            Loại
+                        </option>
+                        {OBJECT_TYPE.map(e => (
+                            <option key={e.id} value={e.name}>{e.name}</option>
+                        ))}
+                    </select>
+                    <div
+                        className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
+                        <InputCom
+                            placeholder="Giá của xe"
+                            label="Giá"
+                            name="price"
+                            type="number"
+                            minValue={0}
+                            required={true}
+                            inputClasses="h-[50px]"
+                            error={errors.price}
+                            inputHandler={handleChange}
+                            value={values.price}
+                        />
+                        <InputCom
+                            placeholder="Cần bán/ mua..."
+                            label="Tiêu đề"
+                            name="title"
+                            type="text"
+                            required={true}
+                            inputClasses="h-[50px]"
+                            inputHandler={handleChange}
+                            value={values.title}
+                            error={errors.title}
+                        />
+                    </div>
+                    <div
+                        className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
+                        <InputCom
+                            name={'des'}
+                            inputHandler={handleChange}
+                            placeholder={'Mô tả'}
+                            label="Mô tả chi tiết"
+                            inputClasses="min-h-[100px]"
+                            required={true}
+                            onChange={handleChange}
+                            value={values.des}
+                            error={errors.des}
+                            inputType={'textarea'}
+                        >
+
+                        </InputCom>
+                    </div>
+                </div>
+            </form>
+        </div>
     )
 }

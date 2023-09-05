@@ -7,7 +7,7 @@ import Arrow from "../Helpers/icons/Arrow";
 import SelectAddress from "../SelectAddress";
 import {forEach} from "lodash/collection";
 
-// Bất động sản
+// * Bất động sản
 export default function RealEstate({
                                        onSubmit = () => {
                                        },
@@ -183,7 +183,7 @@ export default function RealEstate({
                         className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
 
                         <InputCom
-                            placeholder="Cần bán/ mua xe..."
+                            placeholder="Cần bán/ mua..."
                             label="Tiêu đề"
                             name="title"
                             type="text"
