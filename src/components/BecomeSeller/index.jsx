@@ -50,6 +50,9 @@ const VehicleSchema = Yup.object().shape({
     title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
     brand: Yup.string().notOneOf([Yup.ref('-1')]),
     model: Yup.string().notOneOf([Yup.ref('-1')]),
+    city: Yup.string().required('Bạn cần nhập tỉnh/ thành phố đề tiếp tục'),
+    district: Yup.string().required('Bạn cần nhập quận/ huyện đề tiếp tục'),
+    address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
 })
 
 const ElectronicSchema = Yup.object().shape({
@@ -61,6 +64,9 @@ const ElectronicSchema = Yup.object().shape({
     sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
     brand: Yup.string().notOneOf([Yup.ref('-1')]),
     model: Yup.string().notOneOf([Yup.ref('-1')]),
+    city: Yup.string().required('Bạn cần nhập tỉnh/ thành phố đề tiếp tục'),
+    district: Yup.string().required('Bạn cần nhập quận/ huyện đề tiếp tục'),
+    address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
 })
 
 
@@ -107,17 +113,20 @@ export default function BecomeSeller({}) {
             sub_collection: '',
             brand: '',
             model: '',
-            car_status: '',
-            gear_car: '',
-            slot_car: '',
-            style_car: '',
-            fuel_car: '',
-            source_car: '',
+            car_status: 'Tất cả',
+            gear_car: 'Tất cả',
+            slot_car: 'Tất cả',
+            style_car: 'Tất cả',
+            fuel_car: 'Tất cả',
+            source_car: 'Tất cả',
             type: '',
             price: '',
             sell_type: '',
             title: '',
-            des: ''
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
         },
         validateOnBlur: true,
         validationSchema: VehicleSchema,
@@ -159,10 +168,18 @@ export default function BecomeSeller({}) {
         setLoading(true);
         const categoryName = find(CATEGORIES, e => e.id == category)?.key;
         const total = files.length;
+
+        const values = category === '2' ? realEstateFormik.values
+            : category === '1' ? vehicleFormik.values
+                : category === '3' ? electronicFormik.values
+                    : null
+
+        console.log(values)
+
         const resp = await ApiFactory.getRequest("ProductApi").submitSell(utils.getFormData({
             ...DEFAULT_VAL_SELL,
             collection: categoryName,
-            ...realEstateFormik.values,
+            ...values,
             ...userFormik.values,
             ...reduce(files, (rlt, e, idx) => ({...rlt, [`part_${idx}`]: e}), {}),
             user_id: user.userId,
@@ -179,6 +196,16 @@ export default function BecomeSeller({}) {
             utils.showMessage('Đăng bài viết', 'Bạn đã đăng bài viết không thành công', 'error')
         }
     }
+
+    const isValidSegment = (category === "1" && realEstateFormik.isValid)
+        || (category === "2" && vehicleFormik.isValid)
+        || (category === "3" && electronicFormik.isValid)
+
+    console.log(isValidSegment)
+
+    const isDisableSubmit = !(userFormik.isValid && isValidSegment)
+        || category === -1
+        || (!files || files.length <= 1)
 
     return (
         <Layout childrenClasses="pt-0 pb-0">
@@ -280,10 +307,7 @@ export default function BecomeSeller({}) {
                                                 <button
                                                     type="button"
                                                     onClick={onSell}
-                                                    disabled={
-                                                    !(userFormik.isValid && realEstateFormik.isValid)
-                                                        || category === -1
-                                                || (!files || files.length <= 1)}
+                                                    disabled={isDisableSubmit}
                                                     className="text-sm text-white w-[490px] h-[50px] font-semibold flex justify-center items-center btn btn-neutral"
                                                 >
                                                     <span>Đăng tin</span>

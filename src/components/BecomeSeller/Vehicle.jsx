@@ -12,7 +12,9 @@ import {
     VEHICLE_BRAND_CAR,
     VEHICLE_TYPE
 } from "../../utils/constant";
-import {find} from "lodash/collection";
+import {find, forEach} from "lodash/collection";
+import Arrow from "../Helpers/icons/Arrow";
+import SelectAddress from "../SelectAddress";
 
 export default function Vehicle({
                                     onSubmit = () => {
@@ -80,7 +82,7 @@ export default function Vehicle({
                                     <option key={e.name} value={e.name}>{e.name}</option>
                                 ))}
                             </select>
-                            {vehicles ? <select
+                            {vehicles && vehicles.length > 0 ? <select
                                     value={values.model}
                                     onChange={handleChange}
                                     name={'model'}
@@ -98,7 +100,8 @@ export default function Vehicle({
                     }
 
                     {/* * --------------------- thông tin chi tiết của car ------------------------ */}
-                    <div className="mb-3">Thông tin chi tiết</div>
+                    {values.sub_collection === 'Ô tô'
+                        || values.sub_collection === 'Xe máy'? <div className="mb-3">Thông tin chi tiết</div> : null}
                     {values.sub_collection === 'Ô tô' ? <div className="flex flex-col w-full">
                         <div
                             className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
@@ -233,6 +236,27 @@ export default function Vehicle({
 
                     {/* --------------- mô tả thông tin -------------------------------------*/}
                     <div className="mb-3">Mô tả thông tin</div>
+                    <div className="mb-5">
+                        <div
+                            className="input-label capitalize block mb-2 text-qgray text-[13px] font-normal">Địa
+                            chỉ bất động sản <span className="text-red-500">(*)</span></div>
+                        <div className="text-sm text-gray-400 border border-gray-300
+                                            rounded-lg px-6 py-2 cursor-pointer active:opacity-70 flex items-center justify-between"
+                             onClick={() => {
+                                 if (document) {
+                                     document.getElementById("modal-select-address-3").showModal();
+                                 }
+                             }}>
+                            <div>{values.city ? `${values.address_more}, ${values.district}, ${values.city}` : 'Địa chỉ cụ thế'}</div>
+                            <div>
+                                <Arrow
+                                    width="5.78538"
+                                    height="1.28564"
+                                    className="fill-current text-qblacktext"
+                                />
+                            </div>
+                        </div>
+                    </div>
                     <div
                         className="flex sm:flex-row flex-col space-y-5 sm:space-y-0 sm:space-x-5 mb-5">
                         <select
@@ -305,6 +329,12 @@ export default function Vehicle({
                     </div>
                 </div>
             </form>
+            <SelectAddress id={'modal-select-address-3'} onSubmitAddress={addr => {
+                forEach(addr, (val, key) => {
+                    console.log(key, val)
+                    setFieldValue(key, val)
+                })
+            }}/>
         </div>
     )
 }
