@@ -600,3 +600,93 @@ export const ELECTRONIC_DEVICE = [
     {name: "Phụ kiện(Màn hình, chuột,..)", brand: [],},
     {name: "Linh kiện(RAM, Card...)", brand: [],},
 ]
+
+export const ELECTRONIC_DEVICE_STATUS = [
+    "Còn bảo hành",
+    "Mới",
+    "Đã sử dụng"
+]
+
+export const ELECTRONIC_CHIP = [
+    "AMD",
+    "Athlon",
+    "Intel Atom",
+    "Intel Celeron",
+    "Intel Core 2 Duo",
+    "Intel Core 2 Quad",
+    "Intel Core i3",
+    "Intel Core i5",
+    "Intel Core i7",
+    "Intel Core i9",
+    "Intel Pentium",
+    "Intel Quark",
+    "Intel Xeon",
+    "Ryzen 3",
+    "Ryzen 5",
+    "Ryzen 7",
+    "Ryzen 9",
+    "Khác"
+]
+
+export const ELECTRONIC_RAM = [
+    "Dưới 1 GB",
+    "1 GB",
+    "2 GB",
+    "4 GB",
+    "6 GB",
+    "8 GB",
+    "16 GB",
+    "32 GB",
+    "Trên 32GB"
+]
+
+export const ELECTRONIC_HARD_DRIVE = [
+    "HDD",
+    "SSD",
+    "SSD và HDD",
+    "Khác"
+]
+
+export const ELECTRONIC_CARD = [
+    "Onboard",
+    "AMD",
+    "NVIDIA",
+    "Khác"
+]
+
+export const ELECTRONIC_SIZE = [
+    "Dưới 9 inch",
+    "9 - 10.9 inch",
+    "11 - 12.9 inch",
+    "13 - 14.9 inch",
+    "15 - 16.9 inch",
+    "17 - 18.9 inch",
+    "19 - 20.9 inch",
+    "Trên 21 inch"
+]
+
+export const ELECTRONIC_COLOR = [
+    "Bạc",
+    "Đen",
+    "Đen bóng-Jetblack",
+    "Đỏ",
+    "Hồng",
+    "Trắng",
+    "Vàng",
+    "Vàng hồng",
+    "Xám",
+    "Xanh dương",
+    "Xanh lá",
+    "Màu khác"
+]
+
+export const ELECTRONIC_STORAGE = [
+    "Dưới 8GB",
+    "8 GB",
+    "16 GB",
+    "32 GB",
+    "64 GB",
+    "128 GB",
+    "256 GB",
+    "Trên 256 GB"
+]

@@ -239,7 +239,7 @@ export default function Vehicle({
                     <div className="mb-5">
                         <div
                             className="input-label capitalize block mb-2 text-qgray text-[13px] font-normal">Địa
-                            chỉ bất động sản <span className="text-red-500">(*)</span></div>
+                            chỉ chi tiết <span className="text-red-500">(*)</span></div>
                         <div className="text-sm text-gray-400 border border-gray-300
                                             rounded-lg px-6 py-2 cursor-pointer active:opacity-70 flex items-center justify-between"
                              onClick={() => {
