@@ -42,12 +42,22 @@ const RealEstateSchema = Yup.object().shape({
 })
 
 const VehicleSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required('Vui lòng chọn loại bài viết'),
     sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    des: Yup.string().required('Nhập mô tả chi tiết để tiếp tục'),
+    title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
     brand: Yup.string().notOneOf([Yup.ref('-1')]),
     model: Yup.string().notOneOf([Yup.ref('-1')]),
 })
 
 const ElectronicSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required('Vui lòng chọn loại bài viết'),
+    des: Yup.string().required('Nhập mô tả chi tiết để tiếp tục'),
+    title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
     sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
     brand: Yup.string().notOneOf([Yup.ref('-1')]),
     model: Yup.string().notOneOf([Yup.ref('-1')]),
@@ -103,6 +113,11 @@ export default function BecomeSeller({}) {
             style_car: '',
             fuel_car: '',
             source_car: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: ''
         },
         validateOnBlur: true,
         validationSchema: VehicleSchema,

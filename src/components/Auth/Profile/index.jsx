@@ -151,14 +151,14 @@ export default function Profile() {
                                             </Link>
                                         </div>
                                         <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#address">
+                                            <Link href="/profile#follower">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
                             <IcoAdress/>
                           </span>
                                                     <span className=" font-normal text-base">
-                            Địa chỉ
+                            Người đang theo dõi
                           </span>
                                                 </div>
                                             </Link>
@@ -243,7 +243,7 @@ export default function Profile() {
                                             <>
                                                 <WishlistTab/>
                                             </>
-                                        ) : active === "address" ? (
+                                        ) : active === "follower" ? (
                                             <>
                                                 <AddressesTab/>
                                             </>
