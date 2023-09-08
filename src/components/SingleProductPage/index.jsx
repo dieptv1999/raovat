@@ -224,7 +224,7 @@ export default function SingleProductPage({product}) {
             <div className="container-x mx-auto">
               <div className="w-full py-[60px]">
                 <h1 className="sm:text-3xl text-xl font-600 text-qblacktext leading-none mb-[30px]">
-                  Sản phẩm liên quan
+                  Tin đăng liên quan
                 </h1>
                 <div
                   data-aos="fade-up"
