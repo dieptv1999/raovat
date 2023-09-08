@@ -50,7 +50,7 @@ export default function ProductCardRowStyleTwo({
                 </span>
                             ))}
                         </div>
-                        <Link href="/single-product">
+                        <Link href={`/single-product/${datas.id}`}>
                             <p className="title mb-2 sm:text-[15px] text-[13px] font-600 text-qblack leading-[24px] line-clamp-2 hover:text-qyellow cursor-pointer">
                                 {datas.title}
                             </p>
@@ -84,7 +84,7 @@ export default function ProductCardRowStyleTwo({
             {/* quick-access-btns */}
             <div
                 className="quick-access-btns flex flex-col space-y-2 absolute right-4 -right-10 top-[30px]  transition-all duration-300 ease-in-out">
-                <Link href={"/single-product"} passHref>
+                <Link href={`/single-product/${datas.id}`} passHref>
                     <a>
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <QuickViewIco/>

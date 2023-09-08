@@ -3,40 +3,22 @@ import Star from "../Helpers/icons/Star";
 import Selectbox from "../Helpers/Selectbox";
 import utils from "../../utils";
 import {useRouter} from "next/router";
+import {filter} from "lodash/collection";
+import Image from "next/image";
 
-export default function ProductView({className, reportHandler}) {
-    const productsImg = [
-        {
-            id: 1,
-            src: "product-details-1.png",
-            color: "#FFBC63",
-        },
-        {
-            id: 2,
-            src: "product-details-2.png",
-            color: "#649EFF",
-        },
-        {
-            id: 3,
-            src: "product-details-3.png",
-            color: "#FFFFFF",
-        },
-        {
-            id: 4,
-            src: "product-details-4.png",
-            color: "#FF7173",
-        },
-        {
-            id: 6,
-            src: "product-details-5.png",
-            color: "",
-        },
-    ];
+export default function ProductView({className, reportHandler, product}) {
+    console.log(product)
+    const productsImg = filter(product.list_image.split(';'), e => !!e).map((e, idx) => ({
+        id: idx,
+        src: e,
+        color: "#FFBC63",
+    }));
 
     const router = useRouter();
 
     const [src, setSrc] = useState(productsImg[0].src);
     const [url, setUrl] = useState('')
+    const [showPhone, setShowPhone] = useState(false);
     const changeImgHandler = (current) => {
         setSrc(current);
     };
@@ -67,14 +49,14 @@ export default function ProductView({className, reportHandler}) {
                     <div
                         className="w-full h-[600px] border border-qgray-border flex justify-center items-center overflow-hidden relative mb-3">
                         <img
-                            src={`/assets/images/${src}`}
+                            src={src}
                             alt=""
-                            className="object-contain"
+                            className="object-contain h-full w-full"
                         />
-                        <div
-                            className="w-[80px] h-[80px] rounded-full bg-qyellow text-qblack flex justify-center items-center text-xl font-medium absolute left-[30px] top-[30px]">
-                            <span>-50%</span>
-                        </div>
+                        {/*<div*/}
+                        {/*    className="w-[80px] h-[80px] rounded-full bg-qyellow text-qblack flex justify-center items-center text-xl font-medium absolute left-[30px] top-[30px]">*/}
+                        {/*    <span>-50%</span>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="flex gap-2 flex-wrap">
                         {productsImg &&
@@ -86,7 +68,7 @@ export default function ProductView({className, reportHandler}) {
                                     className="w-[110px] h-[110px] p-[15px] border border-qgray-border cursor-pointer"
                                 >
                                     <img
-                                        src={`/assets/images/${img.src}`}
+                                        src={img.src}
                                         alt=""
                                         className={`w-full h-full object-contain ${
                                             src !== img.src ? "opacity-50" : ""
@@ -103,13 +85,13 @@ export default function ProductView({className, reportHandler}) {
               data-aos="fade-up"
               className="text-qgray text-xs font-normal uppercase tracking-wider mb-2 inline-block"
           >
-            Mobile Phones
+            {product.collection}
           </span>
                     <p
                         data-aos="fade-up"
                         className="text-xl font-medium text-qblack mb-4"
                     >
-                        Samsung Galaxy Z Fold3 5G 3 colors in 512GB
+                        {product.title}
                     </p>
 
                     <div
@@ -129,87 +111,60 @@ export default function ProductView({className, reportHandler}) {
                     </div>
 
                     <div data-aos="fade-up" className="flex space-x-2 items-center mb-7">
-            <span className="text-sm font-500 text-qgray line-through mt-2">
-              $9.99
-            </span>
-                        <span className="text-2xl font-500 text-qred">$6.99</span>
+                        {/*<span className="text-sm font-500 text-qgray line-through mt-2">*/}
+                        {/*  $9.99*/}
+                        {/*</span>*/}
+                        <span className="text-2xl font-500 text-qred">{utils.formatMoney(product.price)}</span>
                     </div>
 
                     <p
                         data-aos="fade-up"
                         className="text-qgray text-sm text-normal mb-[30px] leading-7"
                     >
-                        It is a long established fact that a reader will be distracted by
-                        the readable there content of a page when looking at its layout.
+                        {product.des}
                     </p>
 
-                    <div data-aos="fade-up" className="colors mb-[30px]">
-            <span className="text-sm font-normal uppercase text-qgray mb-[14px] inline-block">
-              MÀU
-            </span>
-
-                        <div className="flex space-x-4 items-center">
-                            {productsImg &&
-                                productsImg.length > 0 &&
-                                productsImg.map((img) => (
-                                    <div key={img.id}>
-                                        {img.color && img.color !== "" && (
-                                            <button
-                                                onClick={() => changeImgHandler(img.src)}
-                                                type="button"
-                                                style={{"--tw-ring-color": `${img.color}`}}
-                                                className="w-[20px] h-[20px]  rounded-full focus:ring-2  ring-offset-2 flex justify-center items-center"
-                                            >
-                        <span
-                            style={{background: `${img.color}`}}
-                            className="w-[20px] h-[20px] block rounded-full border"
-                        ></span>
-                                            </button>
-                                        )}
-                                    </div>
-                                ))}
+                    <div data-aos="fade-up"
+                         className="flex flex-col space-y-2 md:space-y-0 md:flex-row justify-between mb-[30px]">
+                        <div className="flex space-x-2 items-center cursor-pointer">
+                            <div>
+                                <Image
+                                    src={product.avatar ? product.avatar : `/assets/images/user_default.png?v=1`}
+                                    alt={'account avatar'}
+                                    width={32}
+                                    height={32}
+                                />
+                            </div>
+                            <div className={'font-semibold font-lg'}>{product.contact_name}</div>
+                        </div>
+                        <div
+                            className="bg-[#33a837] inline-flex space-x-1 px-3 py-1 md:py-0 flex rounded items-center cursor-pointer hover:bg-[#3b8122]"
+                            onClick={() => showPhone ? utils.copyToMem(product.contact_phone) : setShowPhone(true)}
+                        >
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M4.00655 7.93309C3.93421 9.84122 4.41713 13.0817 7.6677 16.3323C8.45191 17.1165 9.23553 17.7396 10 18.2327M5.53781 4.93723C6.93076 3.54428 9.15317 3.73144 10.0376 5.31617L10.6866 6.4791C11.2723 7.52858 11.0372 8.90532 10.1147 9.8278C10.1147 9.8278 10.1147 9.8278 10.1147 9.8278C10.1146 9.82792 8.99588 10.9468 11.0245 12.9755C13.0525 15.0035 14.1714 13.8861 14.1722 13.8853C14.1722 13.8853 14.1722 13.8853 14.1722 13.8853C15.0947 12.9628 16.4714 12.7277 17.5209 13.3134L18.6838 13.9624C20.2686 14.8468 20.4557 17.0692 19.0628 18.4622C18.2258 19.2992 17.2004 19.9505 16.0669 19.9934C15.2529 20.0243 14.1963 19.9541 13 19.6111"
+                                        stroke="white" strokeWidth="1.5" strokeLinecap="round"></path>
+                                </g>
+                            </svg>
+                            <div
+                                className="text-white w-[120px]">{utils.transformPhone(product.contact_phone, showPhone)}</div>
+                            <div
+                                className={'text-white flex-1 text-end'}>{showPhone ? 'Bấm để sao chép' : 'Bấm để hiện số'}</div>
                         </div>
                     </div>
 
-                    <div data-aos="fade-up" className="product-size mb-[30px]">
-            <span className="text-sm font-normal uppercase text-qgray mb-[14px] inline-block">
-              Kích thước
-            </span>
-                        <div className="w-full">
-                            <div
-                                className=" border border-qgray-border h-[50px] flex justify-between items-center px-6 cursor-pointer">
-                                <Selectbox
-                                    className="w-full"
-                                    datas={["Small", "Medium", "Large", "Extra Large"]}
-                                >
-                                    {({item}) => (
-                                        <>
-                                            <div>
-                                                <span className="text-[13px] text-qblack">{item}</span>
-                                            </div>
-                                            <div className="flex space-x-10 items-center">
-                        <span className="text-[13px] text-qblack">
-                          3”W x 3”D x 7”H
-                        </span>
-                                                <span>
-                          <svg
-                              width="11"
-                              height="7"
-                              viewBox="0 0 11 7"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                                d="M5.4 6.8L0 1.4L1.4 0L5.4 4L9.4 0L10.8 1.4L5.4 6.8Z"
-                                fill="#222222"
-                            />
-                          </svg>
-                        </span>
-                                            </div>
-                                        </>
-                                    )}
-                                </Selectbox>
-                            </div>
+                    <div data-aos="fade-up" className="flex flex-col mb-[30px]">
+                        <div className="text-sm font-normal uppercase text-qgray mb-[14px] inline-block">
+                            Địa chỉ
+                        </div>
+                        <div className={'inline-flex space-x-2'}>
+                            <svg width="24px" height="24px" viewBox="0 -0.05 26.1 26.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Group_719" data-name="Group 719" transform="translate(-50 -100)"> <path id="Path_1486" data-name="Path 1486" d="M63,126c-7.2,0-13-1.6-13-3.5,0-1.3,2.6-2.4,6.5-3l1.6,1.7c-3.6.2-5.5.8-5.5,1.3,0,.8,4.3,1.5,10.4,1.5s10.5-.7,10.5-1.5c0-.6-1.9-1.1-5.5-1.3l1.6-1.7c3.9.6,6.5,1.7,6.5,3C76,124.4,70.2,126,63,126Zm4-17a4,4,0,1,1-4-4A4.012,4.012,0,0,1,67,109Zm-6,0a2,2,0,1,0,2-2A2.006,2.006,0,0,0,61,109Zm3,12-1,1-1-1c-.3-.4-6.6-5.8-7.8-10.5-.1-.3-.3-1.4.8-1.5.9-.1,1.1,1,1.1,1,.8,3.5,5.2,6.9,6.9,9,1.8-2.3,7-6.1,7-10,0-4.5-2.6-7-7-7-3.3,0-5.6,1.4-6.5,4,0,0-.4,1.2-1.1,1-.8-.2-.9-.8-.6-1.7A9,9,0,0,1,72,109C72,114,64.4,120.6,64,121Z" fill="#444"></path> </g> </g></svg>
+                            <span>{product.city ? `${product.address_more}, ${product.district}, ${product.city}` : ''}</span>
                         </div>
                     </div>
 
@@ -217,27 +172,8 @@ export default function ProductView({className, reportHandler}) {
                         data-aos="fade-up"
                         className="quantity-card-wrapper w-full flex items-center h-[50px] space-x-[10px] mb-[30px]"
                     >
-                        <div className="w-[120px] h-full px-[26px] flex items-center border border-qgray-border">
-                            <div className="flex justify-between items-center w-full">
-                                <button
-                                    onClick={decrement}
-                                    type="button"
-                                    className="text-base text-qgray"
-                                >
-                                    -
-                                </button>
-                                <span className="text-qblack">{quantity}</span>
-                                <button
-                                    onClick={increment}
-                                    type="button"
-                                    className="text-base text-qgray"
-                                >
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                        <div className="w-[60px] h-full flex justify-center items-center border border-qgray-border">
-                            <button type="button">
+                        <div className="px-3 h-full flex justify-center items-center border border-qgray-border">
+                            <button type="button" className='inline-flex space-x-2'>
                 <span>
                   <svg
                       width="24"
@@ -248,13 +184,14 @@ export default function ProductView({className, reportHandler}) {
                   >
                     <path
                         d="M17 1C14.9 1 13.1 2.1 12 3.7C10.9 2.1 9.1 1 7 1C3.7 1 1 3.7 1 7C1 13 12 22 12 22C12 22 23 13 23 7C23 3.7 20.3 1 17 1Z"
-                        stroke="#D5D5D5"
+                        stroke="black"
                         strokeWidth="2"
                         strokeMiterlimit="10"
                         strokeLinecap="square"
                     />
                   </svg>
                 </span>
+                                <span>Lưu tin</span>
                             </button>
                         </div>
                         <div className="flex-1 h-full">
@@ -262,20 +199,20 @@ export default function ProductView({className, reportHandler}) {
                                 type="button"
                                 className="black-btn text-sm font-semibold w-full h-full"
                             >
-                                Xem tin &gt;&gt;
+                                Mua ngay &gt;&gt;
                             </button>
                         </div>
                     </div>
 
                     <div data-aos="fade-up" className="mb-[20px]">
                         <p className="text-[13px] text-qgray leading-7">
-                            <span className="text-qblack">Danh mục :</span> Kitchen
+                            <span className="text-qblack">Danh mục :</span> {product.collection}
                         </p>
                         <p className="text-[13px] text-qgray leading-7">
-                            <span className="text-qblack">Tags :</span> Beer, Foamer
+                            <span className="text-qblack">Danh mục con :</span> {product.collection_sub}
                         </p>
                         <p className="text-[13px] text-qgray leading-7">
-                            <span className="text-qblack">SKU:</span> KE-91039
+                            <span className="text-qblack">{product.type} - {product.sell_type}</span>
                         </p>
                     </div>
 

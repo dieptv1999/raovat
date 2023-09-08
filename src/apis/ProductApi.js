@@ -47,4 +47,9 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}submitSell`;
     return this.post(url, params, config, true, 'multipart/form-data');
   }
+
+  getDetailSell(params) {
+    const url = `${schema}getDetailSell`;
+    return this.post(url, params);
+  }
 }

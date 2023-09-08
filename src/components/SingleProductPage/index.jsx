@@ -9,7 +9,7 @@ import ProductView from "./ProductView";
 import Reviews from "./Reviews";
 import SallerInfo from "./SallerInfo";
 
-export default function SingleProductPage() {
+export default function SingleProductPage({product}) {
   const [tab, setTab] = useState("des");
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -20,7 +20,7 @@ export default function SingleProductPage() {
   const [reviewLoading, setLoading] = useState(false);
   const reviewElement = useRef(null);
   const [report, setReport] = useState(false);
-  const [commnets, setComments] = useState([
+  const [comments, setComments] = useState([
     {
       id: Math.random(),
       author: "Rafiqul Islam",
@@ -92,14 +92,17 @@ export default function SingleProductPage() {
                 <BreadcrumbCom
                   paths={[
                     { name: "trang chủ", path: "/" },
-                    { name: "single product", path: "/single-product" },
+                    { name: product.title, path: "#" },
                   ]}
                 />
               </div>
             </div>
             <div className="w-full bg-white pb-[60px]">
               <div className="container-x mx-auto">
-                <ProductView reportHandler={() => setReport(!report)} />
+                <ProductView
+                    reportHandler={() => setReport(!report)}
+                    product={product}
+                />
               </div>
             </div>
           </div>
@@ -155,22 +158,8 @@ export default function SingleProductPage() {
               <div className="container-x mx-auto">
                 {tab === "des" && (
                   <div data-aos="fade-up" className="w-full tab-content-item">
-                    <h6 className="text-[18px] font-medium text-qblack mb-2">
-                      Introduction
-                    </h6>
                     <p className="text-[15px] text-qgray text-normal mb-10">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industrys
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book. It has survived not only five
-                      centuries but also the on leap into electronic
-                      typesetting, remaining essentially unchanged. It wasn’t
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, andei more
-                      recently with desktop publishing software like Aldus
-                      PageMaker including versions of Lorem Ipsum to make a type
-                      specimen book.
+                      {product.des}
                     </p>
                     <div>
                       <h6 className="text-[18px] text-medium mb-4">
@@ -205,7 +194,7 @@ export default function SingleProductPage() {
                       <Reviews
                         reviewLoading={reviewLoading}
                         reviewAction={reviewAction}
-                        comments={commnets.slice(0, 2)}
+                        comments={comments.slice(0, 2)}
                         name={name}
                         nameHandler={(e) => setName(e.target.value)}
                         email={email}
@@ -325,3 +314,5 @@ export default function SingleProductPage() {
     </>
   );
 }
+
+

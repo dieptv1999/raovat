@@ -182,8 +182,6 @@ export default function BecomeSeller({}) {
                 : category === '3' ? electronicFormik.values
                     : null
 
-        console.log(values)
-
         const resp = await ApiFactory.getRequest("ProductApi").submitSell(utils.getFormData({
             ...DEFAULT_VAL_SELL,
             collection: categoryName,
@@ -208,8 +206,6 @@ export default function BecomeSeller({}) {
     const isValidSegment = (category === "1" && realEstateFormik.isValid)
         || (category === "2" && vehicleFormik.isValid)
         || (category === "3" && electronicFormik.isValid)
-
-    console.log(isValidSegment)
 
     const isDisableSubmit = !(userFormik.isValid && isValidSegment)
         || category === -1

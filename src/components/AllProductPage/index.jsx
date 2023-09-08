@@ -66,7 +66,10 @@ export default function AllProductPage() {
     };
     const [filterToggle, setToggle] = useState(false);
 
+    const keyword = router.query.keyword ?? ''
+
     function fetchData() {
+        console.log(categories)
         if (!categories || categories.length === 0) {
             fetchSell()
         } else {
@@ -78,6 +81,7 @@ export default function AllProductPage() {
         setLoading(true)
         const resp = await ApiFactory.getRequest("ProductApi").getListSellMore({
             create_dt: products?.length > 0 ? products[products[products.length - 1].create_dt] : null, // ngày của item cuối page trước đó
+            keyword,
         })
 
         setLoading(false)
@@ -101,6 +105,7 @@ export default function AllProductPage() {
             // collection_id: typeof categories == 'string' ? categories : categories[0], // id của collection,
             collection: collection_name,
             create_dt: create_dt, // ngày của item cuối page trước đó
+            keyword,
         })
 
         setLoading(false)
@@ -118,7 +123,7 @@ export default function AllProductPage() {
                 fetchData()
             }, 400, {trailing: true})()
         }
-    }, [router.query.categories]);
+    }, [router.query.categories, router.query.keyword]);
 
     return (
         <>

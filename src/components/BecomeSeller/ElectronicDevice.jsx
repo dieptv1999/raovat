@@ -264,7 +264,7 @@ export default function ElectronicDevice({
                                 Loại tin đăng
                             </option>
                             {TYPE_OF_POST.map(e => (
-                                <option key={e.id} value={e.id}>{e.name}</option>
+                                <option key={e.id} value={e.name}>{e.name}</option>
                             ))}
                         </select>
                     </div>

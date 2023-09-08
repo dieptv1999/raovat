@@ -125,6 +125,18 @@ function logout() {
     window.location.href = '/'
 }
 
+function transformPhone(str, hide) {
+    if (!hide) return str.substring(0, str.length - 4) + '****'
+    else return str;
+}
+
+function copyToMem(text) {
+    navigator.clipboard.writeText(text);
+
+    // Alert the copied text
+    alert("Đã sao chép số diện thoại vào bộ nhớ tạm");
+}
+
 export default {
     getToken,
     getBaseURL,
@@ -140,4 +152,6 @@ export default {
     getFormData,
     getUserId,
     logout,
+    transformPhone,
+    copyToMem,
 }

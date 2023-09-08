@@ -10,7 +10,8 @@ import ThinLoveFill from "../icons/ThinLoveFill";
 import useLikePost from "../../../../hooks/useLikePost";
 
 export default function ProductCardStyleOne({
-                                                datas, type,
+                                                datas,
+                                                type,
                                                 authenticated = false,
                                                 onLogin = () => {
                                                 },
@@ -107,7 +108,7 @@ export default function ProductCardStyleOne({
                 {/*    </span>*/}
                 {/*  ))}*/}
                 {/*</div>*/}
-                <Link href="/single-product">
+                <Link href={`/single-product/${datas.id}`}>
                     <p className="title text-[15px] font-600 text-qblack leading-[24px] line-clamp-2 hover:text-qyellow cursor-pointer mt-2">
                         {datas.title}
                     </p>
@@ -141,7 +142,7 @@ export default function ProductCardStyleOne({
             {/* quick-access-btns */}
             <div
                 className="quick-access-btns flex flex-col space-y-2 absolute right-4 -right-10 top-20  transition-all duration-300 ease-in-out">
-                <Link href={"/single-product"} passHref>
+                <Link href={`/single-product/${datas.id}`} passHref>
                     <a>
           <span className="w-10 h-10 flex justify-center items-center bg-primarygray rounded">
             <QuickViewIco/>
