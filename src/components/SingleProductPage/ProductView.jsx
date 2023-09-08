@@ -5,6 +5,7 @@ import utils from "../../utils";
 import {useRouter} from "next/router";
 import {filter} from "lodash/collection";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductView({className, reportHandler, product}) {
     console.log(product)
@@ -121,22 +122,26 @@ export default function ProductView({className, reportHandler, product}) {
                         data-aos="fade-up"
                         className="text-qgray text-sm text-normal mb-[30px] leading-7"
                     >
-                        {product.des}
+                        {utils.transformDesc(product.des)}
                     </p>
 
                     <div data-aos="fade-up"
                          className="flex flex-col space-y-2 md:space-y-0 md:flex-row justify-between mb-[30px]">
-                        <div className="flex space-x-2 items-center cursor-pointer">
-                            <div>
-                                <Image
-                                    src={product.avatar ? product.avatar : `/assets/images/user_default.png?v=1`}
-                                    alt={'account avatar'}
-                                    width={32}
-                                    height={32}
-                                />
+                        <Link href={`/account/${product.user_id}`}>
+                            <div
+                                className="flex space-x-2 items-center cursor-pointer"
+                            >
+                                <div>
+                                    <Image
+                                        src={product.avatar ? product.avatar : `/assets/images/user_default.png?v=1`}
+                                        alt={'account avatar'}
+                                        width={32}
+                                        height={32}
+                                    />
+                                </div>
+                                <div className={'font-semibold font-lg'}>{product.contact_name}</div>
                             </div>
-                            <div className={'font-semibold font-lg'}>{product.contact_name}</div>
-                        </div>
+                        </Link>
                         <div
                             className="bg-[#33a837] inline-flex space-x-1 px-3 py-1 md:py-0 flex rounded items-center cursor-pointer hover:bg-[#3b8122]"
                             onClick={() => showPhone ? utils.copyToMem(product.contact_phone) : setShowPhone(true)}
@@ -163,12 +168,38 @@ export default function ProductView({className, reportHandler, product}) {
                             Địa chỉ
                         </div>
                         <div className={'inline-flex space-x-2'}>
-                            <svg width="24px" height="24px" viewBox="0 -0.05 26.1 26.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Group_719" data-name="Group 719" transform="translate(-50 -100)"> <path id="Path_1486" data-name="Path 1486" d="M63,126c-7.2,0-13-1.6-13-3.5,0-1.3,2.6-2.4,6.5-3l1.6,1.7c-3.6.2-5.5.8-5.5,1.3,0,.8,4.3,1.5,10.4,1.5s10.5-.7,10.5-1.5c0-.6-1.9-1.1-5.5-1.3l1.6-1.7c3.9.6,6.5,1.7,6.5,3C76,124.4,70.2,126,63,126Zm4-17a4,4,0,1,1-4-4A4.012,4.012,0,0,1,67,109Zm-6,0a2,2,0,1,0,2-2A2.006,2.006,0,0,0,61,109Zm3,12-1,1-1-1c-.3-.4-6.6-5.8-7.8-10.5-.1-.3-.3-1.4.8-1.5.9-.1,1.1,1,1.1,1,.8,3.5,5.2,6.9,6.9,9,1.8-2.3,7-6.1,7-10,0-4.5-2.6-7-7-7-3.3,0-5.6,1.4-6.5,4,0,0-.4,1.2-1.1,1-.8-.2-.9-.8-.6-1.7A9,9,0,0,1,72,109C72,114,64.4,120.6,64,121Z" fill="#444"></path> </g> </g></svg>
+                            <svg width="24px" height="24px" viewBox="0 -0.05 26.1 26.1"
+                                 xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g id="Group_719" data-name="Group 719" transform="translate(-50 -100)">
+                                        <path id="Path_1486" data-name="Path 1486"
+                                              d="M63,126c-7.2,0-13-1.6-13-3.5,0-1.3,2.6-2.4,6.5-3l1.6,1.7c-3.6.2-5.5.8-5.5,1.3,0,.8,4.3,1.5,10.4,1.5s10.5-.7,10.5-1.5c0-.6-1.9-1.1-5.5-1.3l1.6-1.7c3.9.6,6.5,1.7,6.5,3C76,124.4,70.2,126,63,126Zm4-17a4,4,0,1,1-4-4A4.012,4.012,0,0,1,67,109Zm-6,0a2,2,0,1,0,2-2A2.006,2.006,0,0,0,61,109Zm3,12-1,1-1-1c-.3-.4-6.6-5.8-7.8-10.5-.1-.3-.3-1.4.8-1.5.9-.1,1.1,1,1.1,1,.8,3.5,5.2,6.9,6.9,9,1.8-2.3,7-6.1,7-10,0-4.5-2.6-7-7-7-3.3,0-5.6,1.4-6.5,4,0,0-.4,1.2-1.1,1-.8-.2-.9-.8-.6-1.7A9,9,0,0,1,72,109C72,114,64.4,120.6,64,121Z"
+                                              fill="#444"></path>
+                                    </g>
+                                </g>
+                            </svg>
                             <span>{product.city ? `${product.address_more}, ${product.district}, ${product.city}` : ''}</span>
                         </div>
 
                         <div className={'inline-flex space-x-2 mt-2'}>
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C21.4816 18.1752 21.7706 17.3001 21.8985 16" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M10 16H6" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14 16H12.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M2 10L7 10M22 10L11 10" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M22 12C22 8.22876 22 6.34315 20.8284 5.17157C19.6569 4 17.7712 4 14 4H10C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H14C17.7712 20 19.6569 20 20.8284 18.8284C21.4816 18.1752 21.7706 17.3001 21.8985 16"
+                                        stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path d="M10 16H6" stroke="#1C274C" stroke-width="1.5"
+                                          stroke-linecap="round"></path>
+                                    <path d="M14 16H12.5" stroke="#1C274C" stroke-width="1.5"
+                                          stroke-linecap="round"></path>
+                                    <path d="M2 10L7 10M22 10L11 10" stroke="#1C274C" strokeWidth="1.5"
+                                          strokeLinecap="round"></path>
+                                </g>
+                            </svg>
                             <span>{product.car_status || product.bicycle_status || product.mobile_status || product.computer_status}</span>
                         </div>
                     </div>

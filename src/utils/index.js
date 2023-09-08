@@ -137,6 +137,12 @@ function copyToMem(text) {
     alert("Đã sao chép số diện thoại vào bộ nhớ tạm");
 }
 
+function transformDesc(desc) {
+    if (!desc) return ''
+    if (desc.length < 30) return desc
+    return desc.substring(0, 120) + '...'
+}
+
 export default {
     getToken,
     getBaseURL,
@@ -154,4 +160,5 @@ export default {
     logout,
     transformPhone,
     copyToMem,
+    transformDesc,
 }

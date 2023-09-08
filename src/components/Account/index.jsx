@@ -19,7 +19,7 @@ export default function Account({user}) {
     const [loading, setLoading] = useState(false);
 
     const fetchData = useCallback(async () => {
-        if (!user.id) return;
+        if (!user.id || !selfUser?.userId) return;
         setLoading(true)
         const resp = await ApiFactory.getRequest("UserApi").getListSellViaUser({
             user_id: user.id,
@@ -31,7 +31,7 @@ export default function Account({user}) {
     }, [user])
 
     const checkFollow = useCallback(async () => {
-        if (!user.id) return;
+        if (!user.id || !selfUser?.userId) return;
         const resp = await ApiFactory.getRequest("UserApi").checkFollower({
             receive: user.id,
             send: selfUser.userId
@@ -39,7 +39,7 @@ export default function Account({user}) {
         if (resp.success) {
             setFollowed(true)
         }
-    }, [selfUser.userId, user.id])
+    }, [selfUser?.userId, user.id])
 
     const follow = useCallback(async () => {
         if (!user.id) return;
@@ -52,7 +52,7 @@ export default function Account({user}) {
         } else {
             setFollowed(false)
         }
-    }, [selfUser.userId, user.id])
+    }, [selfUser?.userId, user?.id])
 
     useEffect(() => {
         fetchData()
