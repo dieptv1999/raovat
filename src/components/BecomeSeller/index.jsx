@@ -15,6 +15,17 @@ import {find, forEach, reduce} from "lodash/collection";
 import utils from "../../utils";
 import {useAuthContext} from "../../context/AuthContext";
 import ElectronicDevice from "./ElectronicDevice";
+import PostJob from "./PostJob";
+import Tourism from "./Tourism";
+import Infant from "./Infant";
+import Pet from "./Pet";
+import Food from "./Food";
+import RefrigeratorAndAirConditioner from "./RefrigeratorAndAirConditioner";
+import HouseholdGood from "./HouseholdGood";
+import SportAndEntertainment from "./SportAndEntertainment";
+import Fashion from "./Fashion";
+import TicketAndGift from "./TicketAndGift";
+import {router} from "next/client";
 
 const DropZone = dynamic(() => import("../DropZone").then(e => e.DropZone), {ssr: false})
 
@@ -69,6 +80,42 @@ const ElectronicSchema = Yup.object().shape({
     address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
 })
 
+const JobSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required('Vui lòng chọn loại bài viết'),
+    des: Yup.string().required('Nhập mô tả chi tiết để tiếp tục'),
+    title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    city: Yup.string().required('Bạn cần nhập tỉnh/ thành phố đề tiếp tục'),
+    district: Yup.string().required('Bạn cần nhập quận/ huyện đề tiếp tục'),
+    address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
+})
+
+const TourismSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required('Vui lòng chọn loại bài viết'),
+    des: Yup.string().required('Nhập mô tả chi tiết để tiếp tục'),
+    title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    city: Yup.string().required('Bạn cần nhập tỉnh/ thành phố đề tiếp tục'),
+    district: Yup.string().required('Bạn cần nhập quận/ huyện đề tiếp tục'),
+    address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
+})
+
+const InfantSchema = Yup.object().shape({
+    price:
+        Yup.number().min(0, 'Giá không thể là số âm').required('Bạn cần nhập giá để tiếp tục'),
+    type: Yup.string().required('Vui lòng chọn loại bài viết'),
+    sell_type: Yup.string().required('Vui lòng chọn loại bài viết').notOneOf([Yup.ref('-1')]),
+    des: Yup.string().required('Nhập mô tả chi tiết để tiếp tục'),
+    title: Yup.string().min(6, 'Tiêu đề quá ngắn').required('Tiêu đề là bắt buộc'),
+    sub_collection: Yup.string().required().notOneOf([Yup.ref('-1')]),
+    city: Yup.string().required('Bạn cần nhập tỉnh/ thành phố đề tiếp tục'),
+    district: Yup.string().required('Bạn cần nhập quận/ huyện đề tiếp tục'),
+    address_more: Yup.string().required('Bạn cần nhập địa chỉ chi tiết đề tiếp tục'),
+})
 
 export default function BecomeSeller({}) {
     const {user} = useAuthContext()
@@ -162,6 +209,196 @@ export default function BecomeSeller({}) {
         },
     })
 
+    const jobFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: JobSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const tourismFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: TourismSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const infantFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const petFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const foodFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const refrigeratorAndAirConditionerFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const householdGoodFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const sportAndEntertainmentFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const fashionFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const ticketFormik = useFormik({
+        initialValues: {
+            sub_collection: '',
+            type: '',
+            price: '',
+            sell_type: '',
+            title: '',
+            des: '',
+            city: '',
+            district: '',
+            address_more: '',
+        },
+        validateOnBlur: true,
+        validationSchema: InfantSchema,
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
     function renderBody() {
         if (category === "1") return <Vehicle onSubmit={(values) => {
         }} formik={vehicleFormik}/>
@@ -169,6 +406,26 @@ export default function BecomeSeller({}) {
         }} formik={realEstateFormik}/>
         if (category === "3") return <ElectronicDevice onSubmit={(values) => {
         }} formik={electronicFormik}/>
+        if (category === "4") return  <PostJob onSubmit={(values) => {
+        }} formik={jobFormik}/>
+        if (category === "5") return  <Tourism onSubmit={(values) => {
+        }} formik={tourismFormik}/>
+        if (category === "6") return  <Infant onSubmit={(values) => {
+        }} formik={infantFormik}/>
+        if (category === "7") return  <Pet onSubmit={(values) => {
+        }} formik={petFormik}/>
+        if (category === "8") return  <Food onSubmit={(values) => {
+        }} formik={foodFormik}/>
+        if (category === "9") return  <RefrigeratorAndAirConditioner onSubmit={(values) => {
+        }} formik={refrigeratorAndAirConditionerFormik}/>
+        if (category === "10") return  <HouseholdGood onSubmit={(values) => {
+        }} formik={householdGoodFormik}/>
+        if (category === "11") return  <SportAndEntertainment onSubmit={(values) => {
+        }} formik={sportAndEntertainmentFormik}/>
+        if (category === "12") return  <Fashion onSubmit={(values) => {
+        }} formik={fashionFormik}/>
+        if (category === "13") return  <TicketAndGift onSubmit={(values) => {
+        }} formik={ticketFormik}/>
         else return <div/>
     }
 
@@ -177,10 +434,52 @@ export default function BecomeSeller({}) {
         const categoryName = find(CATEGORIES, e => e.id == category)?.key;
         const total = files.length;
 
-        const values = category === '2' ? realEstateFormik.values
-            : category === '1' ? vehicleFormik.values
-                : category === '3' ? electronicFormik.values
-                    : null
+        let values
+
+        switch (category) {
+            case '1':
+                values = vehicleFormik.values
+                break
+            case '2':
+                values = realEstateFormik.values
+                break
+            case '3':
+                values = electronicFormik.values
+                break
+            case '4':
+                values = jobFormik.values
+                break
+            case '5':
+                values = tourismFormik.values
+                break
+            case '6':
+                values = infantFormik.values
+                break
+            case '7':
+                values = petFormik.values
+                break
+            case '8':
+                values = foodFormik.values
+                break
+            case '9':
+                values = refrigeratorAndAirConditionerFormik.values
+                break
+            case '10':
+                values = householdGoodFormik.values
+                break
+            case '11':
+                values = sportAndEntertainmentFormik.values
+                break
+            case '12':
+                values = fashionFormik.values
+                break
+            case '13':
+                values = ticketFormik.values
+                break
+            default:
+                values = {}
+                break;
+        }
 
         const resp = await ApiFactory.getRequest("ProductApi").submitSell(utils.getFormData({
             ...DEFAULT_VAL_SELL,
@@ -198,6 +497,7 @@ export default function BecomeSeller({}) {
         setLoading(false);
         if (resp && resp.success) {
             utils.showMessage('Đăng bài viết', 'Bạn đã đăng bài viết thành công')
+            router.replace('/profile/#post').then()
         } else {
             utils.showMessage('Đăng bài viết', 'Bạn đã đăng bài viết không thành công', 'error')
         }
@@ -206,6 +506,16 @@ export default function BecomeSeller({}) {
     const isValidSegment = (category === "1" && realEstateFormik.isValid)
         || (category === "2" && vehicleFormik.isValid)
         || (category === "3" && electronicFormik.isValid)
+        || (category === "4" && jobFormik.isValid)
+        || (category === "5" && tourismFormik.isValid)
+        || (category === "6" && infantFormik.isValid)
+        || (category === "7" && petFormik.isValid)
+        || (category === "8" && foodFormik.isValid)
+        || (category === "9" && refrigeratorAndAirConditionerFormik.isValid)
+        || (category === "10" && householdGoodFormik.isValid)
+        || (category === "11" && sportAndEntertainmentFormik.isValid)
+        || (category === "12" && fashionFormik.isValid)
+        || (category === "13" && ticketFormik.isValid)
 
     const isDisableSubmit = !(userFormik.isValid && isValidSegment)
         || category === -1
@@ -359,6 +669,7 @@ export default function BecomeSeller({}) {
                                         <div className="flex xl:justify-center justify-start">
                                             <DropZone files={files} setFiles={setFiles}/>
                                         </div>
+                                        {(files && files.length > 1) ? null : <span className="label-text-alt text-red-500">Bạn cần chọn ảnh đề tiếp tục</span>}
                                     </div>
                                 </div>
                             </div>

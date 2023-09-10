@@ -1,3 +1,5 @@
+import Tourism from "../components/BecomeSeller/Tourism";
+
 export const PREFIX_FRONT_URL = '';
 export const API_VERSION = '';
 export const SEO_DEFAULT_URL = process.env.NEXT_PUBLIC_SEO_DEFAULT_URL || 'https://raovat24h.net/';
@@ -35,8 +37,8 @@ export const CATEGORIES = [
     },
     {
         id: 5,
-        name: 'Du lịch',
-        key: 'Du lịch',
+        name: 'Dịch vụ, Du lịch',
+        key: 'Dịch vụ, Du lịch',
     },
     {
         id: 6,
@@ -55,7 +57,7 @@ export const CATEGORIES = [
     },
     {
         id: 9,
-        name: 'Tủ lạnh, máy giặt, máy lạnh',
+        name: 'Tủ lạnh, máy lạnh, máy giặt',
         key: 'Tủ lạnh, máy lạnh, máy giặt',
     },
     {
@@ -65,14 +67,19 @@ export const CATEGORIES = [
     },
     {
         id: 11,
-        name: 'Giải trí, thể thao, sở thích',
-        key: 'Giải trí, thể thao, sở thích',
+        name: 'Giải trí, Thể thao, Sở thích',
+        key: 'Giải trí, Thể thao, Sở thích',
     },
     {
         id: 12,
-        name: 'Thời trang, đồ dùng cá nhân',
+        name: 'Thời trang, Đồ dùng cá nhân',
         key: 'Thời trang, Đồ dùng cá nhân',
     },
+    {
+        id: 13,
+        name: 'Vé, Quà tặng',
+        key: 'Vé, Quà tặng',
+    }
 ]
 
 export const TYPE_OF_POST = [
@@ -505,9 +512,9 @@ export const ELECTRONIC_DEVICE = [
         name: "Điện thoại", brand: [
             {name: "Tất cả", brand: []},
             {name: "Alcatel", brand: []},
-            {name: "Apple", brand: [
-
-                ]},
+            {
+                name: "Apple", brand: []
+            },
             {name: "Aquos", brand: []},
             {name: "Arbutus", brand: []},
             {name: "Asanzo", brand: []},
@@ -689,4 +696,72 @@ export const ELECTRONIC_STORAGE = [
     "128 GB",
     "256 GB",
     "Trên 256 GB"
+]
+
+export const JOB_TYPE = [
+    {name: "Danh sách việc làm", id: 1},
+    {name: "Danh sách người tìm việc", id: 2},
+]
+
+export const TOURISM_TYPE = [
+    {name: "Dịch vụ", id: 1},
+    {name: "Du lịch", id: 2},
+]
+
+export const INFANT_TYPE = [
+    {name: "Mẹ và bé", id: 1},
+]
+
+export const PET_TYPE = [
+    {name: "Gà", id: 1},
+    {name: "Chó", id: 2},
+    {name: "Chim", id: 3},
+    {name: "Mèo", id: 4},
+    {name: "Thú cưng khác", id: 5},
+    {name: "Phụ kiện, Thức ăn, Dịch vụ", id: 6},
+]
+
+export const FOOD_TYPE = [
+    {name: "Đồ ăn thực phẩm", id: 1},
+]
+
+export const REFRIGERATOR_AIR_CONDITIONER_TYPE = [
+    {name: "Tủ lạnh", id: 1},
+    {name: "Máy lạnh, điều hoà", id: 2},
+    {name: "Máy giặt", id: 3},
+]
+
+export const HOUSEHOLD_GOOD_TYPE = [
+    {name: "Bàn ghế", id: 1},
+    {name: "Tủ, kệ gia đình", id: 2},
+    {name: "Gường, chăn ga gối đệm", id: 3},
+    {name: "Bếp,lò, đồ điện nhà bếp", id: 4},
+    {name: "Dụng cụ nhà bếp", id: 5},
+    {name: "Quạt", id: 6},
+    {name: "Đèn", id: 7},
+    {name: "Cây cảnh, đồ trang trí", id: 8},
+    {name: "Thiết bị vệ sinh, nhà tắm", id: 9},
+    {name: "Nội thất, đồ gia dụng khác", id: 10},
+]
+
+export const SPORT_ENTERTAINMENT_TYPE = [
+    {name: "Nhạc cụ",id: 1},
+    {name: "Sách",id: 2},
+    {name: "Đồ thể thao, Dã ngoại",id: 3},
+    {name: "Đồ sưu tầm, đồ cổ",id: 4},
+    {name: "Thiết bị chơi game",id: 5},
+    {name: "Sở thích khác", id: 6},
+]
+
+export const FASHION_TYPE = [
+    {name: "Quần áo", id: 1},
+    {name: "Đồng hồ", id: 2},
+    {name: "Giày dép", id: 3},
+    {name: "Túi xách", id: 4},
+    {name: "Nước hoa", id: 5},
+    {name: "Phụ kiện thời trang khác", id: 6},
+]
+
+export const TICKET_GIFT_TYPE = [
+    {name: "Quà tặng", id: 1},
 ]

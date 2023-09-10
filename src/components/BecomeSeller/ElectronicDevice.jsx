@@ -327,7 +327,7 @@ export default function ElectronicDevice({
                 </div>
             </form>
 
-            <SelectAddress id={'modal-select-address-3'} onSubmitAddress={addr => {
+            <SelectAddress id={'modal-select-address-4'} onSubmitAddress={addr => {
                 forEach(addr, (val, key) => {
                     setFieldValue(key, val)
                 })

@@ -1,11 +1,40 @@
 import Link from "next/link";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Compair from "../../Helpers/icons/Compair";
 import ThinLove from "../../Helpers/icons/ThinLove";
 import {useAuthContext} from "../../../context/AuthContext";
+import {useRouter} from "next/router";
 export default function Drawer({ className, open, action }) {
   const {user} = useAuthContext();
+  const router = useRouter()
   const [tab, setTab] = useState("category");
+  const [searchText, setSearchText] = useState('');
+
+  function goToDetail() {
+    if (router.pathname.includes('all-products')) {
+      router.query = {
+        keyword: searchText,
+      }
+
+      router.replace(router).then()
+    } else {
+      router.push({
+        pathname: '/all-products',
+        query: {
+          keyword: searchText,
+        }
+      }).then();
+    }
+
+    action()
+  }
+
+  useEffect(() => {
+    if (router.query.keyword) {
+      setSearchText(router.query.keyword)
+    }
+  }, [router.query.keyword]);
+
   return (
     <>
       <div
@@ -74,12 +103,26 @@ export default function Drawer({ className, open, action }) {
             <div className="search-bar w-full h-[34px]  flex ">
               <div className="flex-1 bg-white h-full border border-r-0 border-[#E9E9E9]">
                 <input
-                  type="text"
+                    type="text"
+                    value={searchText}
+                    onChange={e => {
+                      setSearchText(e.target.value)
+                    }}
+                    onKeyUp={e => {
+                      if (e.key === 'Enter' || e.keyCode === 13) {
+                        goToDetail()
+                      }
+                    }}
                   className="w-full text-xs h-full focus:outline-none foucus:ring-0 placeholder:text-qgraytwo pl-2.5 "
                   placeholder="Tìm kiếm sản phẩm..."
                 />
               </div>
-              <div className="w-[40px] h-full bg-qyellow flex justify-center items-center">
+              <div
+                  className="w-[40px] h-full bg-qyellow flex justify-center items-center"
+                  onClick={() => {
+                    goToDetail()
+                  }}
+              >
                 <span>
                   <svg
                     width="23"

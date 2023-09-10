@@ -13,8 +13,8 @@ export default function useLikePost({postId}) {
             user_id: user.userId,
             sell_id: postId,
         })
-        if (resp && resp.success) {
-            setLiked(true)
+        if (resp) {
+            setLiked(resp.success)
         }
     }, [postId, user?.userId])
 

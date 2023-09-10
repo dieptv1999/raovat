@@ -30,12 +30,12 @@ export default function Profile() {
     const [switchDashboard, setSwitchDashboard] = useState(false);
     const location = useRouter();
     const getHashContent = location.asPath.split("#");
-    const [active, setActive] = useState("dashboard");
+    const [active, setActive] = useState("profile");
     useEffect(() => {
         setActive(
             getHashContent && getHashContent.length > 1
                 ? getHashContent[1]
-                : "dashboard"
+                : "profile"
         );
     }, [getHashContent]);
     return (
@@ -69,37 +69,11 @@ export default function Profile() {
                                 {/*  </button>*/}
                                 {/*</div>*/}
                             </div>
-                            <div className="profile-wrapper w-full mt-8 flex flex-col lg:flex-row lg:space-x-10">
-                                <div className="lg:w-[236px] lg:min-h-[600px] border-r border-[rgba(0, 0, 0, 0.1)]">
-                                    <div className="flex lg:flex-col lg:space-y-10 overflow-y-scroll lg:overflow-y-auto space-x-6 lg:space-x-0
-                  items-center lg:items-start border-b lg:border-none pb-3 lg:pb-0">
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#dashboard">
-                                                <div
-                                                    className={`flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer`}>
-                          <span>
-                            <IcoDashboard/>
-                          </span>
-                                                    <span className=" font-normal text-base">
-                            Bảng quản lý
-                          </span>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#post">
-                                                <div
-                                                    className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
-                          <span>
-                            <IcoList/>
-                          </span>
-                                                    <span className=" font-normal text-base">
-                            Quản lý tin
-                          </span>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
+                            <div className="profile-wrapper w-full mt-8 flex flex-col xl:flex-row xl:space-x-10">
+                                <div className="xl:w-[236px] xl:min-h-[600px] border-r border-[rgba(0, 0, 0, 0.1)]">
+                                    <div className="flex xl:flex-col xl:space-y-10 overflow-y-scroll xl:overflow-y-auto space-x-6 xl:space-x-0
+                  items-center xl:items-start border-b xl:border-none pb-3 xl:pb-0">
+                                        <div className="item group whitespace-nowrap xl:whitespace-normal">
                                             <Link href="/profile#profile">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
@@ -112,32 +86,45 @@ export default function Profile() {
                                                 </div>
                                             </Link>
                                         </div>
-
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#payment">
+                                        <div className="item group whitespace-nowrap xl:whitespace-normal">
+                                            <Link href="/profile#post">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
                           <span>
-                            <IcoPayment/>
+                            <IcoList/>
                           </span>
                                                     <span className=" font-normal text-base">
-                            Phương thức thanh toán
+                            Quản lý tin
                           </span>
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#order">
-                                                <div
-                                                    className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
-                          <span>
-                            <IcoCart/>
-                          </span>
-                                                    <span className=" font-normal text-base">Đơn hàng</span>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
+
+                          {/*              <div className="item group whitespace-nowrap xl:whitespace-normal">*/}
+                          {/*                  <Link href="/profile#payment">*/}
+                          {/*                      <div*/}
+                          {/*                          className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
+                          {/*<span>*/}
+                          {/*  <IcoPayment/>*/}
+                          {/*</span>*/}
+                          {/*                          <span className=" font-normal text-base">*/}
+                          {/*  Phương thức thanh toán*/}
+                          {/*</span>*/}
+                          {/*                      </div>*/}
+                          {/*                  </Link>*/}
+                          {/*              </div>*/}
+                          {/*              <div className="item group whitespace-nowrap xl:whitespace-normal">*/}
+                          {/*                  <Link href="/profile#order">*/}
+                          {/*                      <div*/}
+                          {/*                          className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
+                          {/*<span>*/}
+                          {/*  <IcoCart/>*/}
+                          {/*</span>*/}
+                          {/*                          <span className=" font-normal text-base">Đơn hàng</span>*/}
+                          {/*                      </div>*/}
+                          {/*                  </Link>*/}
+                          {/*              </div>*/}
+                                        <div className="item group whitespace-normal">
                                             <Link href="/profile#wishlist">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
@@ -150,7 +137,7 @@ export default function Profile() {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
+                                        <div className="item group whitespace-nowrap">
                                             <Link href="/profile#follower">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
@@ -163,33 +150,33 @@ export default function Profile() {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#review">
-                                                <div
-                                                    className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
-                          <span>
-                            <IcoReviewHand/>
-                          </span>
-                                                    <span className=" font-normal text-base">
-                            Đánh giá
-                          </span>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
-                                            <Link href="/profile#password">
-                                                <div
-                                                    className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">
-                          <span>
-                            <IcoPassword/>
-                          </span>
-                                                    <span className=" font-normal text-base">
-                            Đổi mật khẩu
-                          </span>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        {/*<div className="item group whitespace-nowrap lg:whitespace-normal">*/}
+                          {/*              <div className="item group whitespace-nowrap xl:whitespace-normal">*/}
+                          {/*                  <Link href="/profile#review">*/}
+                          {/*                      <div*/}
+                          {/*                          className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
+                          {/*<span>*/}
+                          {/*  <IcoReviewHand/>*/}
+                          {/*</span>*/}
+                          {/*                          <span className=" font-normal text-base">*/}
+                          {/*  Đánh giá*/}
+                          {/*</span>*/}
+                          {/*                      </div>*/}
+                          {/*                  </Link>*/}
+                          {/*              </div>*/}
+                          {/*              <div className="item group whitespace-nowrap xl:whitespace-normal">*/}
+                          {/*                  <Link href="/profile#password">*/}
+                          {/*                      <div*/}
+                          {/*                          className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
+                          {/*<span>*/}
+                          {/*  <IcoPassword/>*/}
+                          {/*</span>*/}
+                          {/*                          <span className=" font-normal text-base">*/}
+                          {/*  Đổi mật khẩu*/}
+                          {/*</span>*/}
+                          {/*                      </div>*/}
+                          {/*                  </Link>*/}
+                          {/*              </div>*/}
+                                        {/*<div className="item group whitespace-nowrap xl:whitespace-normal">*/}
                                         {/*  <Link href="/profile#support">*/}
                                         {/*    <div className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer">*/}
                                         {/*      <span>*/}
@@ -201,7 +188,7 @@ export default function Profile() {
                                         {/*    </div>*/}
                                         {/*  </Link>*/}
                                         {/*</div>*/}
-                                        <div className="item group whitespace-nowrap lg:whitespace-normal">
+                                        <div className="item group whitespace-nowrap xl:whitespace-normal">
                                             <Link href="/">
                                                 <div
                                                     className="flex space-x-3 items-center text-qgray hover:text-qblack cursor-pointer"
@@ -219,11 +206,7 @@ export default function Profile() {
                                 </div>
                                 <div className="flex-1">
                                     <div className="item-body dashboard-wrapper w-full">
-                                        {active === "dashboard" ? (
-                                            <>
-                                                <Dashboard/>
-                                            </>
-                                        ) : active === "post" ? (
+                                        {active === "post" ? (
                                             <>
                                                 <PostTab/>
                                             </>

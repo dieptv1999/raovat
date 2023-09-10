@@ -64,7 +64,7 @@ export default function Middlebar({ className }) {
                 <Cart className="absolute -right-[45px] top-11 z-50 hidden group-hover:block" />
               </div>
               <div>
-                <Link href="/profile#dashboard" passHref>
+                <Link href="/profile#profile" passHref>
                   <a rel="noopener noreferrer">
                     <span>
                     <ThinPeople />

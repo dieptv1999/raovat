@@ -1,5 +1,5 @@
 import {CATEGORIES} from "../../../utils/constant";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 
 export default function SearchBox({className, type}) {
@@ -14,7 +14,7 @@ export default function SearchBox({className, type}) {
                 keyword: searchText,
             }
 
-            router.replace(router)
+            router.replace(router).then()
         } else {
             router.push({
                 pathname: '/all-products',
@@ -26,8 +26,14 @@ export default function SearchBox({className, type}) {
         }
     }
 
+    useEffect(() => {
+        if (router.query.keyword) {
+            setSearchText(router.query.keyword)
+        }
+    }, [router.query.keyword]);
+
     return (
-        <>
+        <div className="flex flex-col w-full h-full">
             <div
                 className={`w-full h-full flex items-center  border border-qgray-border bg-white ${
                     className || ""
@@ -74,6 +80,7 @@ export default function SearchBox({className, type}) {
                     Tìm kiếm
                 </button>
             </div>
-        </>
+            <div className="text-xs text-gray-400 mt-0.5">Nhấn &apos;Tìm kiếm&apos; hoặc gõ phím enter để tìm kiếm</div>
+        </div>
     );
 }

@@ -110,7 +110,7 @@ export default function PostTab({
                                 <td className="text-right py-4">
                                     <div className="flex space-x-1 items-center justify-center">
                                         <span className="text-[15px] font-normal min-w-[100px] text-center mx-1">
-                                            {`${e.address_more}, ${e.district}, ${e.city}`}
+                                            {`${e.address_more ? `${e.address_more}, `: ''}${e.district}, ${e.city}`}
                                         </span>
                                     </div>
                                 </td>

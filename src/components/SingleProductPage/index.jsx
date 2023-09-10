@@ -161,27 +161,27 @@ export default function SingleProductPage({product}) {
                     <p className="text-[15px] text-qgray text-normal mb-10">
                       {product.des}
                     </p>
-                    <div>
-                      <h6 className="text-[18px] text-medium mb-4">
-                        Dịch vụ :
-                      </h6>
-                      <ul className="list-disc ml-[15px]">
-                        <li className="font-normal text-qgray leading-9">
-                          slim body with metal cover
-                        </li>
-                        <li className="font-normal text-qgray leading-9">
-                          latest Intel Core i5-1135G7 processor (4 cores / 8
-                          threads)
-                        </li>
-                        <li className="font-normal text-qgray leading-9">
-                          8GB DDR4 RAM and fast 512GB PCIe SSD
-                        </li>
-                        <li className="font-normal text-qgray leading-9">
-                          NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit
-                          keyboard, touchpad with gesture support
-                        </li>
-                      </ul>
-                    </div>
+                    {/*<div>*/}
+                    {/*  <h6 className="text-[18px] text-medium mb-4">*/}
+                    {/*    Dịch vụ :*/}
+                    {/*  </h6>*/}
+                    {/*  <ul className="list-disc ml-[15px]">*/}
+                    {/*    <li className="font-normal text-qgray leading-9">*/}
+                    {/*      slim body with metal cover*/}
+                    {/*    </li>*/}
+                    {/*    <li className="font-normal text-qgray leading-9">*/}
+                    {/*      latest Intel Core i5-1135G7 processor (4 cores / 8*/}
+                    {/*      threads)*/}
+                    {/*    </li>*/}
+                    {/*    <li className="font-normal text-qgray leading-9">*/}
+                    {/*      8GB DDR4 RAM and fast 512GB PCIe SSD*/}
+                    {/*    </li>*/}
+                    {/*    <li className="font-normal text-qgray leading-9">*/}
+                    {/*      NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit*/}
+                    {/*      keyboard, touchpad with gesture support*/}
+                    {/*    </li>*/}
+                    {/*  </ul>*/}
+                    {/*</div>*/}
                   </div>
                 )}
                 {tab === "review" && (

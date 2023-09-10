@@ -76,24 +76,24 @@ export default function Middlebar({className, type}) {
                   1
                 </span>
                             </div>
-                            <div className="cart-wrapper group relative py-4">
-                                <div className="cart relative cursor-pointer">
-                                    <Link href={user ? "/cart" : "/login?url=%2Fcart"} passHref>
-                                        <a rel="noopener noreferrer">
-                      <span>
-                      <ThinBag/>
-                    </span>
-                                        </a>
-                                    </Link>
-                                    <span
-                                        className={`w-[18px] h-[18px] rounded-full  absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] ${type === 3 ? 'bg-qh3-blue text-white' : 'bg-qyellow'}`}>
-                    15
-                  </span>
-                                </div>
-                                {user ? <Cart type={type}
-                                              className="absolute -right-[45px] top-11 z-50 hidden group-hover:block"/>
-                                    : <div/>}
-                            </div>
+                  {/*          <div className="cart-wrapper group relative py-4">*/}
+                  {/*              <div className="cart relative cursor-pointer">*/}
+                  {/*                  <Link href={user ? "/cart" : "/login?url=%2Fcart"} passHref>*/}
+                  {/*                      <a rel="noopener noreferrer">*/}
+                  {/*    <span>*/}
+                  {/*    <ThinBag/>*/}
+                  {/*  </span>*/}
+                  {/*                      </a>*/}
+                  {/*                  </Link>*/}
+                  {/*                  <span*/}
+                  {/*                      className={`w-[18px] h-[18px] rounded-full  absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] ${type === 3 ? 'bg-qh3-blue text-white' : 'bg-qyellow'}`}>*/}
+                  {/*  15*/}
+                  {/*</span>*/}
+                  {/*              </div>*/}
+                  {/*              {user ? <Cart type={type}*/}
+                  {/*                            className="absolute -right-[45px] top-11 z-50 hidden group-hover:block"/>*/}
+                  {/*                  : <div/>}*/}
+                  {/*          </div>*/}
                             <div>
                                 <Link href={user ? '/profile#dashboard' : '/login?url=%2Fprofile#dashboard'} passHref>
                                     <a rel="noopener noreferrer">

@@ -6,31 +6,38 @@ import {useRouter} from "next/router";
 import {filter} from "lodash/collection";
 import Image from "next/image";
 import Link from "next/link";
+import useLikePost from "../../../hooks/useLikePost";
+import {useAuthContext} from "../../context/AuthContext";
 
 export default function ProductView({className, reportHandler, product}) {
-    console.log(product)
     const productsImg = filter(product.list_image.split(';'), e => !!e).map((e, idx) => ({
         id: idx,
         src: e,
         color: "#FFBC63",
     }));
+    const {user} = useAuthContext()
 
     const router = useRouter();
 
     const [src, setSrc] = useState(productsImg[0].src);
     const [url, setUrl] = useState('')
     const [showPhone, setShowPhone] = useState(false);
+    const {liked, onLike} = useLikePost({postId: product.id});
+    const [loadingLike, setLoadingLike] = useState(false);
+
+    async function addFollow() {
+        if (loadingLike) return;
+        if (!!user) {
+            setLoadingLike(true)
+            await onLike()
+            setLoadingLike(false)
+        } else {
+            router.push('/login').then()
+        }
+    }
+
     const changeImgHandler = (current) => {
         setSrc(current);
-    };
-    const [quantity, setQuantity] = useState(1);
-    const increment = () => {
-        setQuantity((prev) => prev + 1);
-    };
-    const decrement = () => {
-        if (quantity > 1) {
-            setQuantity((prev) => prev - 1);
-        }
     };
 
     useEffect(() => {
@@ -208,36 +215,43 @@ export default function ProductView({className, reportHandler, product}) {
                         data-aos="fade-up"
                         className="quantity-card-wrapper w-full flex items-center h-[50px] space-x-[10px] mb-[30px]"
                     >
-                        <div className="px-3 h-full flex justify-center items-center border border-qgray-border">
-                            <button type="button" className='inline-flex space-x-2'>
-                <span>
+                        <div
+                            className={`px-3 rounded h-full flex justify-center items-center border ${liked ? 'border-qred' : 'border-qgray-border'}`}>
+                            <button
+                                type="button" className='inline-flex space-x-2'
+                                onClick={addFollow}
+                            >
+                                {loadingLike
+                                    ? <span className="loading loading-spinner"></span>
+                                    : <span>
                   <svg
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
-                      fill="none"
+                      fill={liked ? 'red' : "none"}
                       xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                         d="M17 1C14.9 1 13.1 2.1 12 3.7C10.9 2.1 9.1 1 7 1C3.7 1 1 3.7 1 7C1 13 12 22 12 22C12 22 23 13 23 7C23 3.7 20.3 1 17 1Z"
-                        stroke="black"
+                        stroke={liked ? 'red' : "black"}
                         strokeWidth="2"
                         strokeMiterlimit="10"
                         strokeLinecap="square"
                     />
                   </svg>
-                </span>
-                                <span>Lưu tin</span>
+                </span>}
+                                <span
+                                    className={liked ? 'text-red-500' : 'text-black'}>{liked ? 'Đã lưu tin' : 'Lưu tin'}</span>
                             </button>
                         </div>
-                        <div className="flex-1 h-full">
-                            <button
-                                type="button"
-                                className="black-btn text-sm font-semibold w-full h-full"
-                            >
-                                Mua ngay &gt;&gt;
-                            </button>
-                        </div>
+                        {/*<div className="flex-1 h-full">*/}
+                        {/*    <button*/}
+                        {/*        type="button"*/}
+                        {/*        className="black-btn text-sm font-semibold w-full h-full"*/}
+                        {/*    >*/}
+                        {/*        Mua ngay &gt;&gt;*/}
+                        {/*    </button>*/}
+                        {/*</div>*/}
                     </div>
 
                     <div data-aos="fade-up" className="mb-[20px]">
