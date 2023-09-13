@@ -8,6 +8,8 @@ import Layout from "../Partials/Layout";
 import ProductView from "./ProductView";
 import Reviews from "./Reviews";
 import SallerInfo from "./SallerInfo";
+import {NextSeo} from "next-seo";
+import {SEO_DEFAULT_URL} from "../../utils/constant";
 
 export default function SingleProductPage({product}) {
   const [tab, setTab] = useState("des");
@@ -82,9 +84,36 @@ export default function SingleProductPage({product}) {
     }, 2000);
   };
 
+  let SEO_DEFAULT_URL;
   return (
     <>
       <Layout childrenClasses="pt-0 pb-0">
+        <NextSeo
+            title={product?.title}
+            description={product?.des}
+            canonical={`${SEO_DEFAULT_URL}/single-product/${product?.id}`}
+            openGraph={{
+              url: `${SEO_DEFAULT_URL}/single-product/${product?.id}`,
+              title: product?.title,
+              description: product?.des || '',
+              images: [
+                {
+                  url: product?.thumb,
+                  width: 1000,
+                  height: 662,
+                  alt: product?.title,
+                  type: 'image/jpeg',
+                },
+              ],
+              site_name: product?.title,
+            }}
+            twitter={{
+              handle: '@handle',
+              site: '@site',
+              cardType: 'summary_large_image',
+            }}
+            facebook={{}}
+        />
         <div className="single-product-wrapper w-full ">
           <div className="product-view-main-wrapper bg-white pt-[30px] w-full">
             <div className="breadcrumb-wrapper w-full ">
