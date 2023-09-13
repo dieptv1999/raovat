@@ -102,10 +102,11 @@ humour, or randomised words"
                     <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
                       Lời nhắn
                     </h6>
-                    <textarea
+                    <InputCom
+                        inputType={'textarea'}
                       placeholder="Nhập lời nhắn ở đây"
                       className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 border border-qgray-border placeholder:text-sm"
-                    ></textarea>
+                    ></InputCom>
                   </div>
                   <div>
                     <a href="#">
