@@ -20,6 +20,7 @@ function MyApp({Component, pageProps}) {
     AOS.init();
   }, []);
   useEffect(() => {
+    if (!location?.pathname) return;
     if (location.pathname === "/home-two") {
       document.body.classList.add("home-two");
     } else if (location.pathname === "/home-four") {
