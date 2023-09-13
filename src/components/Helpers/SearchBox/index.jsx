@@ -39,7 +39,7 @@ export default function SearchBox({className, type}) {
                     className || ""
                 }`}
             >
-                <div className="flex-1 bg-red-500 h-full">
+                <div className="flex-1 rounded-none h-full">
                     <div className="h-full">
                         <input
                             type="text"
@@ -59,11 +59,11 @@ export default function SearchBox({className, type}) {
                 </div>
                 <div className="w-[1px] h-[22px] bg-qgray-border"></div>
                 <select
-                    className="flex-1 flex items-center px-4 select select-ghost border-none h-auto min-h-[42px] text-xs"
+                    className="flex-1 flex items-center px-4 select select-ghost bg-white border-none h-auto min-h-[42px] text-xs text-black"
                     defaultValue={-1}
                     onChange={(e) => setCategory(e.target.value)}
                     style={{outline: 'none'}}>
-                    <option value={-1}>
+                    <option value={-1} className={'text-black'}>
                         Danh mục
                     </option>
                     {CATEGORIES.map(e => (

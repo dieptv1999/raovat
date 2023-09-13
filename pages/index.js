@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
 
         const resNews = await client.post('getListNews')
         const news = resNews.data?.listNews;
-        console.log(news)
+        console.log(news, newsHot, adsList)
 
         if (!newsHot || isEmpty(newsHot)) {
             return {
@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
             revalidate: 90, // 1p30s
         }
     } catch (e) {
+        console.log(e)
         return {
             notFound: true,
         }

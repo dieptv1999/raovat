@@ -40,12 +40,13 @@ export default function ProductsFilter({
                             name={'filter' + e.id}
                             handleChange={(e) => checkboxHandler(e)}
                             checked={get(filters, 'filter' + e.id)}
+                            className={'bg-white'}
                         />
                       </div>
                       <div>
                         <label
                             htmlFor={'filter' + e.id}
-                            className="text-xs font-black font-400 capitalize"
+                            className="text-xs font-black font-400 capitalize text-black"
                         >
                           {e.name}
                         </label>

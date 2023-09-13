@@ -31,7 +31,7 @@ export default function Selectbox({ datas = [], className, action, children }) {
             <ul className="list">
               {datas.map((value) => (
                 <li
-                  className={item === value ? "selected" : ""}
+                  className={`${item === value ? "selected" : ""} text-black`}
                   key={Math.random() + value}
                   onClick={(e) => handler(e, value)}
                 >
