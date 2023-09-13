@@ -32,7 +32,8 @@ export default function InputCom({
                     value={value}
                     min={minValue}
                     onChange={inputHandler}
-                    className={`input input-bordered placeholder:text-sm text-sm px-6 py-3 text-dark-gray w-full h-full font-normal bg-white focus:ring-0 focus:outline-none ${
+                    className={`input input-bordered placeholder:text-sm text-sm px-6 py-3 text-dark-gray w-full h-full font-normal 
+                    bg-white focus:ring-0 focus:outline-none ${
                         inputClasses || ""
                     } ${error ? 'input-error' : ''}`}
                     onBlur={onBlur}
@@ -45,7 +46,8 @@ export default function InputCom({
                         disabled={disabled}
                         value={value}
                         onChange={inputHandler}
-                        className={`textarea textarea-bordered placeholder:text-sm text-sm px-6 py-3 text-dark-gray w-full font-normal bg-white focus:ring-0 focus:outline-none ${
+                        className={`textarea textarea-bordered placeholder:text-sm text-sm px-6 py-3 
+                        text-dark-gray w-full font-normal bg-white focus:ring-0 focus:outline-none ${
                             inputClasses || ""
                         } ${error ? 'textarea-error' : ''}`}
                         onBlur={onBlur}

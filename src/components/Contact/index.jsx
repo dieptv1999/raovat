@@ -202,10 +202,11 @@ export default function Contact() {
                   <h6 className="input-label text-qgray capitalize text-[13px] font-normal block mb-2 ">
                     Tin nhắn
                   </h6>
-                  <textarea
+                  <InputCom
+                      inputType={'textarea'}
                     placeholder="Nhập lời nhắn ở đây"
-                    className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 textarea textarea-bordered placeholder:text-sm"
-                  ></textarea>
+                    // className="w-full h-[105px] focus:ring-0 focus:outline-none p-3 textarea textarea-bordered placeholder:text-sm"
+                  ></InputCom>
                 </div>
                 <div>
                   <a href="#">
