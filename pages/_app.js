@@ -34,7 +34,7 @@ function MyApp({Component, pageProps}) {
       document.body.classList.remove("home-four");
       document.body.classList.add("home-one");
     };
-  }, [location.pathname]);
+  }, [location?.pathname]);
 
   return (
     <AuthContextProvider>
