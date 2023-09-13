@@ -122,7 +122,8 @@ function getFormData(obj) {
 function logout() {
     localStorage.clear()
     signOutFirebase()
-    window.location.href = '/'
+    if (typeof window !== 'undefined')
+        window.location.href = '/'
 }
 
 function transformPhone(str, hide) {

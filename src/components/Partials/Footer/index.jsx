@@ -463,7 +463,7 @@ export default function Footer({type}) {
                   rel="noreferrer"
                   className="font-500 text-qblack mx-1"
               >
-                ZoneMob
+                Raovat24h JSC
               </a>
               All rights reserved
             </span>

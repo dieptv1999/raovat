@@ -29,7 +29,7 @@ import signOutFirebase from "../../../../firebase/auth/signOut";
 export default function Profile() {
     const [switchDashboard, setSwitchDashboard] = useState(false);
     const location = useRouter();
-    const getHashContent = location.asPath.split("#");
+    const getHashContent = location?.asPath.split("#");
     const [active, setActive] = useState("profile");
     useEffect(() => {
         setActive(
