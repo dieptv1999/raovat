@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {useRef} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import blog from "../../data/blogs.json";
 import BlogCard from "../Helpers/Cards/BlogCard";
 import DataIteration from "../Helpers/DataIteration";
@@ -8,6 +8,8 @@ import Star from "../Helpers/icons/Star";
 import PageTitle from "../Helpers/PageTitle";
 import SimpleSlider from "../Helpers/SliderCom";
 import Layout from "../Partials/Layout";
+import ApiFactory from "../../apis/ApiFactory";
+import {SESSION, USER_ID} from "../../utils/constant";
 
 export default function About() {
     const settings = {
@@ -48,6 +50,20 @@ export default function About() {
     const next = () => {
         slider.current.slickNext();
     };
+    const [posts, setPosts] = useState();
+
+    const fetchPost = useCallback(async () => {
+        const resp = await ApiFactory.getRequest("ProductApi").getListNews({
+        })
+        if (resp.success) {
+            setPosts(resp?.listNews)
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchPost()
+    }, [fetchPost]);
+
     return (
         <Layout childrenClasses="pt-0 pb-0">
             <div className="about-page-wrapper w-full">
@@ -322,7 +338,7 @@ export default function About() {
                                     <p className="text-black text-[15px] font-700 tracking-wide mb-1 uppercase">
                                         Tiếp cận thông minh
                                     </p>
-                                    <p className="text-sm text-qblack">When ordering over $100</p>
+                                    <p className="text-sm text-qblack">Sử dụng trí tuệ nhân tạo</p>
                                 </div>
                             </div>
                         </div>
@@ -358,7 +374,7 @@ export default function About() {
                                         Tin đăng tin cậy
                                     </p>
                                     <p className="text-sm text-qblack">
-                                        Get Return within 30 days
+                                        Đã được xác thực 100% về nội dung
                                     </p>
                                 </div>
                             </div>
@@ -467,7 +483,7 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className="blog-post-wrapper w-full mb-[30px]">
+                {posts && posts.length > 0 ? <div className="blog-post-wrapper w-full mb-[30px]">
                     <div className="container-x mx-auto">
                         <div className="blog-post-title flex justify-center items-cente mb-[30px]">
                             <h1 className="text-3xl font-semibold text-qblack">
@@ -477,7 +493,7 @@ export default function About() {
 
                         <div className="blogs-wrapper w-full">
                             <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-[30px] gap-5">
-                                <DataIteration datas={blog.blogs} startLength={0} endLength={2}>
+                                <DataIteration datas={posts} startLength={0} endLength={2}>
                                     {({datas}) => (
                                         <div
                                             data-aos="fade-up"
@@ -492,6 +508,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
+                : null}
             </div>
         </Layout>
     );

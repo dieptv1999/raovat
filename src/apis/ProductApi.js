@@ -52,4 +52,19 @@ export default class ProductApi extends BaseApi {
     const url = `${schema}getDetailSell`;
     return this.post(url, params);
   }
+
+  getListNews(params) {
+    const url = `${schema}getListNews`;
+    return this.post(url, params);
+  }
+
+  getListAds(params) {
+    const url = `${schema}getListAds`;
+    return this.post(url, params);
+  }
+
+  getListFeed(params) {
+    const url = `${schema}getListFeed`;
+    return this.post(url, params);
+  }
 }
