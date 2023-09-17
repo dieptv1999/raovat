@@ -32,6 +32,13 @@ export default function SearchBox({className, type}) {
         }
     }, [router.query.keyword]);
 
+    useEffect(() => {
+        console.log(router.query.categories)
+        if (router.query.categories && router.query.categories.length > 0) {
+            setCategory(router.query.categories[0])
+        }
+    }, [router.query.categories]);
+
     return (
         <div className="flex flex-col w-full h-full">
             <div
@@ -67,7 +74,7 @@ export default function SearchBox({className, type}) {
                         Danh mục
                     </option>
                     {CATEGORIES.map(e => (
-                        <option key={e.id} value={e.id}>{e.name}</option>
+                        <option key={e.id} value={e.id} className={'text-black'}>{e.name}</option>
                     ))}
                 </select>
                 <button

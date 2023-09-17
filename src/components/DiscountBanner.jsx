@@ -285,7 +285,7 @@ export default function DiscountBanner({className, type, handler = () => {}}) {
                                             type="email"
                                             name="email"
                                             className="w-full h-full focus:outline-none text-sm placeholder:text-xs placeholder:text-qblack
-                                            text-qblack font-400 tracking-wider min-w-[200px]"
+                                            text-qblack font-400 tracking-wider min-w-[200px] bg-white"
                                             placeholder="ĐỊA CHỈ EMAIL"
                                             value={values.email}
                                             onChange={handleChange}
