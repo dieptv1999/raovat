@@ -25,7 +25,7 @@ export default function TermsCondition() {
                                 ngang đối với các Điều khoản và điều kiện sử dụng dịch vụ “Raovat24h” mà Công ty
                                 TNHH RAOVAT24H và/hoặc các công ty con, công ty liên kết của Công ty TNHH RAOVAT24H đang
                                 cung cấp và tích hợp trên website raovat24h.net và/hoặc ứng
-                                dụng "Mua bán Rao vặt".
+                                dụng &quot;Mua bán Rao vặt&quot;.
                             </p>
                             <p>Trường hợp Bạn không đồng ý với những nội dung tại Điều khoản và điều kiện này, vui lòng
                                 không sử dụng hoặc truy cập Dịch vụ “Raovat24h“.</p>

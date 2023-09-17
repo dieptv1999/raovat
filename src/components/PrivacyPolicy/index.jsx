@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
                                 dùng tuân theo các quy định pháp luật áp dụng về bảo mật thông tin/dữ liệu cá nhân.
                                 Chính sách bảo mật này được lập nhằm quy định cách thức chúng tôi thu thập, sử dụng,
                                 tiết lộ, lưu trữ và/ hoặc xử lý dữ liệu khi bạn truy cập vào trang web raovat24.net, ứng
-                                dụng "Mua bán Rao vặt" trên nền tảng Android hoặc iOS chính thức của chúng tôi và tất cả
+                                dụng &quot;Mua bán Rao vặt&quot; trên nền tảng Android hoặc iOS chính thức của chúng tôi và tất cả
                                 các trang web phụ liên quan khác.
                                 <br/>
                                 Bằng việc sử dụng các Dịch vụ, đăng ký Tài khoản với chúng tôi hoặc truy cập Nền tảng
