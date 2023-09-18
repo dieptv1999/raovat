@@ -61,11 +61,11 @@ export default function PostTab({
                             <td className="py-4 pl-10 block whitespace-nowrap  w-[380px]">
                                 Tên sản phẩm
                             </td>
-                            <td className="py-4 whitespace-nowrap text-center">
+                            <td className="py-4 whitespace-nowrap text-center min-w-[100px]">
                                 Danh mục
                             </td>
-                            <td className="py-4 whitespace-nowrap text-center">giá</td>
-                            <td className="py-4 whitespace-nowrap  text-center">
+                            <td className="py-4 whitespace-nowrap text-center min-w-[100px]">giá</td>
+                            <td className="py-4 whitespace-nowrap  text-center min-w-[100px]">
                                 Kiểu tin
                             </td>
                             <td className="py-4 whitespace-nowrap  text-center">Địa chỉ</td>

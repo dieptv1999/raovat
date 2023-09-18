@@ -1,17 +1,13 @@
-import PageTitle from "../Helpers/PageTitle";
 import Layout from "../Partials/Layout";
-import BreadcrumbCom from "../BreadcrumbCom";
 import Image from "next/image";
 import {useCallback, useEffect, useState} from "react";
 import ApiFactory from "../../apis/ApiFactory";
 import DataIteration from "../Helpers/DataIteration";
 import ProductCardStyleOne from "../Helpers/Cards/ProductCardStyleOne";
-import ViewMoreTitle from "../Helpers/ViewMoreTitle";
 import {useAuthContext} from "../../context/AuthContext";
 import {ListCardLoading} from "../Loading";
 
 export default function Account({user}) {
-    console.log(user)
     const {user: selfUser} = useAuthContext()
     const [data, setData] = useState([])
     const [followed, setFollowed] = useState(false)
@@ -75,7 +71,7 @@ export default function Account({user}) {
                         flex justify-center'>
                             <div className="max-w-screen-lg w-full flex justify-between">
                                 <div className="flex justify-start items-center h-full relative">
-                                    <div className='h-full aspect-square rounded-full overflow-hidden
+                                    <div className='h-full aspect-square rounded-full overflow-hidden bg-white shadow
                             relative'>
                                         <Image
                                             src={user.avatar ? user.avatar : `/assets/images/user_default.png?v=1`}

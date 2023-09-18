@@ -131,7 +131,7 @@ export default function Profile() {
                           <span>
                             <IcoLove/>
                           </span>
-                                                    <span className=" font-normal text-base">
+                                                    <span className="whitespace-nowrap font-normal text-base">
                             Danh sách yêu thích
                           </span>
                                                 </div>

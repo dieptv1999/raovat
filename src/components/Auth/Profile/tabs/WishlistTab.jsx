@@ -13,7 +13,6 @@ export default function WishlistTab({ className }) {
     const resp = await ApiFactory.getRequest("UserApi").getListMyFollow({
       user_id: user.userId,
     })
-    console.log(resp)
     if (resp && resp.success) {
       setData(resp?.listSell)
     }
