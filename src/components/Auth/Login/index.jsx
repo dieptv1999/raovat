@@ -22,9 +22,9 @@ const SignInSchema = Yup.object().shape({
 
 export default function Login() {
     const router = useRouter();
-    const [checked, setValue] = useState(false);
     const [otp, setOtp] = useState('');
     const [verificationId, setVerificationId] = useState(() => {})
+    const [loadingOtp, setLoadingOtp] = useState(false)
     const formik = useFormik({
         initialValues: {
             phone: '',
@@ -40,11 +40,13 @@ export default function Login() {
 
     const prevUrl = router.query.url ?? '/';
 
-    function checkOtp(otp) {
+    async function checkOtp(otp) {
         setOtp(otp)
 
         if (otp?.length === 6) {
-            verifyOtp(verificationId, otp, '/')
+            setLoadingOtp(true)
+            await verifyOtp(verificationId, otp, '/')
+            setLoadingOtp(false);
         }
     }
 
@@ -258,7 +260,7 @@ export default function Login() {
             </div>
             <dialog id="login_otp_modal" className="modal">
                 <form method="dialog" className="modal-box flex flex-col items-center">
-                    <h3 className="font-bold text-lg">Nhập mã OTP tại đây</h3>
+                    <h3 className="font-bold text-lg mb-4">Nhập mã OTP tại đây</h3>
                     <OtpInput
                         shouldAutoFocus={true}
                         value={otp}
@@ -268,6 +270,14 @@ export default function Login() {
                         renderSeparator={<span className="mx-1">-</span>}
                         renderInput={(props) => <input {...props} />}
                     />
+                    <button
+                        disabled={otp?.length !== 6}
+                        className="btn mb-6 text-sm w-full h-[50px]
+                        mt-5 px-6"
+                    >Xác nhận
+                        {loadingOtp ? <span className="loading loading-spinner"></span> :
+                            <span/>}
+                    </button>
                 </form>
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>

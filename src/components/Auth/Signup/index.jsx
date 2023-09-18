@@ -288,6 +288,10 @@ export default function Signup() {
                         renderSeparator={<span className="mx-1">-</span>}
                         renderInput={(props) => <input {...props} />}
                     />
+                    {/*<button className={'btn btn'}>Xác nhận*/}
+                    {/*    {loading ? <span className="loading loading-spinner"></span> :*/}
+                    {/*        <span/>}*/}
+                    {/*</button>*/}
                 </form>
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>

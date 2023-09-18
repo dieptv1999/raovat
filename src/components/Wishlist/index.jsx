@@ -6,17 +6,21 @@ import ProductsTable from "./ProductsTable";
 import {useCallback, useEffect, useState} from "react";
 import ApiFactory from "../../apis/ApiFactory";
 import {useAuthContext} from "../../context/AuthContext";
+import ErrorThumb from "../FourZeroFour/ErrorThumb";
+import Link from "next/link";
 
 export default function Wishlist({wishlist = true}) {
     const {user} = useAuthContext()
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false);
 
     const fetchData = useCallback(async () => {
         if (!user?.userId) return
+        setLoading(true);
         const resp = await ApiFactory.getRequest("UserApi").getListMyFollow({
             user_id: user.userId,
         })
-        console.log(resp)
+        setLoading(false);
         if (resp && resp.success) {
             setData(resp?.listSell)
         }
@@ -64,9 +68,40 @@ export default function Wishlist({wishlist = true}) {
                     </div>
                     <div className="w-full mt-[23px]">
                         <div className="container-x mx-auto">
-                            <ProductsTable className="mb-[30px]" data={data}
+                            {loading
+                                ? <div className={'inline-flex w-full justify-center py-4'}>
+                                    <span className="loading loading-ball loading-xs"></span>
+                                    <span className="loading loading-ball loading-sm"></span>
+                                    <span className="loading loading-ball loading-md"></span>
+                                    <span className="loading loading-ball loading-lg"></span>
+                                </div>
+                                : (data && data.length > 0) ?
+                                    <ProductsTable className="mb-[30px]" data={data}
                                            unLike={unLike}
                             />
+                            : <div className="empty-card-wrapper w-full">
+                                        <div className="flex justify-center items-center w-full">
+                                            <div>
+                                                {/*<div className="sm:mb-10 mb-0 transform sm:scale-100 scale-50">*/}
+                                                {/*    <ErrorThumb />*/}
+                                                {/*</div>*/}
+                                                <div data-aos="fade-up" className="empty-content w-full">
+                                                    <h1 className="sm:text-xl text-base font-semibold text-center mb-5">
+                                                        Lấy làm tiếc! Bạn chưa yêu thích tin tức nào
+                                                    </h1>
+                                                    <Link href="/">
+                                                        <div className="flex justify-center w-full ">
+                                                            <div className="w-[200px] h-[50px] ">
+                                                                <button type="button" className="yellow-btn">
+                                                                    Quay trở lại trang chủ
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>}
                             {/*<div className="w-full mt-[30px] flex sm:justify-end justify-start">*/}
                             {/*  <div className="sm:flex sm:space-x-[30px] items-center">*/}
                             {/*    <button type="button">*/}

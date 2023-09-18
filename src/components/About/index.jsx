@@ -493,7 +493,7 @@ export default function About() {
 
                         <div className="blogs-wrapper w-full">
                             <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-[30px] gap-5">
-                                <DataIteration datas={posts} startLength={0} endLength={2}>
+                                <DataIteration datas={posts} startLength={0} endLength={posts?.length ?? 0}>
                                     {({datas}) => (
                                         <div
                                             data-aos="fade-up"
